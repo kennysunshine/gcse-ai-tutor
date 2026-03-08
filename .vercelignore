@@ -7,11 +7,7 @@ node_modules
 .agent
 brain
 logs
-*.mp4
-*.webp
-*.png
-*.jpg
-*.jpeg
+public/founder-pitch.mp4
 dist
 build
 out

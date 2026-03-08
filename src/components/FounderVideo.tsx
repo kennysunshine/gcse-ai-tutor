@@ -34,7 +34,7 @@ export function FounderVideo() {
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                 >
-                    <source src="https://www.dropbox.com/scl/fi/7s1ku2tcqfsvzk2jz4u65/founder-pitch.mp4?rlkey=ugslyfd2nfxjoxl9dqm1ih2j5&st=jmy1p72d&raw=1" type="video/mp4" />
+                    <source src="https://dl.dropboxusercontent.com/scl/fi/7s1ku2tcqfsvzk2jz4u65/founder-pitch.mp4?rlkey=ugslyfd2nfxjoxl9dqm1ih2j5&st=jmy1p72d&raw=1" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>

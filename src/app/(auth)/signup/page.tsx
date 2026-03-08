@@ -17,18 +17,9 @@ export default function SignupPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [agreedToTerms, setAgreedToTerms] = useState(false)
-    const [hasScrolledTerms, setHasScrolledTerms] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
     const router = useRouter()
-
-    const handleTermsScroll = (event: React.UIEvent<HTMLDivElement>) => {
-        const target = event.target as HTMLDivElement;
-        // Check if user has scrolled to the bottom (with 5px margin of error)
-        if (target.scrollHeight - target.scrollTop <= target.clientHeight + 5) {
-            setHasScrolledTerms(true);
-        }
-    };
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -89,15 +80,12 @@ export default function SignupPage() {
                             <Label className="text-xs font-semibold uppercase text-primary tracking-wider">LumenForge Terms of Service (v2.6)</Label>
                             <ScrollArea
                                 className="h-32 w-full rounded-md border p-4 text-xs text-muted-foreground bg-background/50"
-                                onScrollCapture={handleTermsScroll}
                             >
                                 <div className="space-y-2">
                                     <p><strong>1. AI-Specific Disclaimers:</strong> No Grade Guarantee. We use a Socratic "Hint-First" logic. Not a substitute for human teaching.</p>
                                     <p><strong>2. Sovereign Data Standards:</strong> We enforce a strict "Zero-Training" guarantee. 2026 DfE Compliant.</p>
                                     <p><strong>3. Safeguarding Protocol:</strong> Automated escalation to your school's DSL applies for crisis events.</p>
                                     <p><strong>4. Parental Consent:</strong> Active opt-in required for under-18s.</p>
-                                    <p className="pt-4 text-center font-semibold italic text-primary animate-pulse">Scroll to bottom to agree &darr;</p>
-                                    <div className="h-4"></div> {/* Buffer for scroll detection */}
                                 </div>
                             </ScrollArea>
 
@@ -106,14 +94,13 @@ export default function SignupPage() {
                                     id="terms"
                                     checked={agreedToTerms}
                                     onCheckedChange={(checked) => setAgreedToTerms(checked as boolean)}
-                                    disabled={!hasScrolledTerms}
                                 />
                                 <div className="space-y-1 leading-none">
-                                    <Label htmlFor="terms" className={`${!hasScrolledTerms ? 'text-muted-foreground opacity-50' : ''}`}>
+                                    <Label htmlFor="terms">
                                         I agree to the <Link href="/terms" target="_blank" className="text-primary hover:underline">Terms of Service</Link>
                                     </Label>
                                     <p className="text-[0.8rem] text-muted-foreground">
-                                        {!hasScrolledTerms ? 'Please scroll through the terms to enable this checkbox.' : 'You are legally bound by these terms.'}
+                                        You are legally bound by these terms.
                                     </p>
                                 </div>
                             </div>

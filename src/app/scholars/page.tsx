@@ -13,10 +13,53 @@ import Link from 'next/link';
 
 export default function FoundryScholarsPage() {
     const [submitted, setSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Form State
+    const [formData, setFormData] = useState({
+        applicantName: '',
+        applicantEmail: '',
+        applicantRole: 'parent',
+        isFsm: false,
+        isPupilPremium: false,
+        learningGap: ''
+    });
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
+        setIsLoading(true);
+        setErrorMsg("");
+
+        // DfE 2026 Validation: Teachers must use a verified school email
+        if (formData.applicantRole === 'teacher') {
+            const schUkRegex = /\.sch\.uk$/i;
+            if (!schUkRegex.test(formData.applicantEmail)) {
+                setErrorMsg("Teachers must apply using a valid UK school email address ending in .sch.uk");
+                setIsLoading(false);
+                return;
+            }
+        }
+
+        try {
+            const response = await fetch('/api/scholars', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Submission failed');
+            }
+
+            setSubmitted(true);
+        } catch (err: any) {
+            console.error(err);
+            setErrorMsg(err.message || 'An unexpected error occurred. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -36,10 +79,36 @@ export default function FoundryScholarsPage() {
                         <CardContent>
                             <form className="space-y-8" onSubmit={handleSubmit}>
 
+                                {/* Contact Info */}
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="name" className="text-base">Applicant Name:</Label>
+                                        <Input
+                                            id="name"
+                                            placeholder="Jane Doe"
+                                            required
+                                            value={formData.applicantName}
+                                            onChange={(e) => setFormData({ ...formData, applicantName: e.target.value })}
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="email" className="text-base">Contact Email:</Label>
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            placeholder="jane@example.com"
+                                            required
+                                            value={formData.applicantEmail}
+                                            onChange={(e) => setFormData({ ...formData, applicantEmail: e.target.value })}
+                                        />
+                                        <p className="text-sm text-muted-foreground">The activation token will be sent here.</p>
+                                    </div>
+                                </div>
+
                                 {/* Applicant Type */}
                                 <div className="space-y-3">
                                     <Label className="text-base">I am applying as a:</Label>
-                                    <Select defaultValue="parent">
+                                    <Select value={formData.applicantRole} onValueChange={(val) => setFormData({ ...formData, applicantRole: val })}>
                                         <SelectTrigger>
                                             <SelectValue placeholder="Select role" />
                                         </SelectTrigger>
@@ -58,11 +127,19 @@ export default function FoundryScholarsPage() {
                                     </Label>
                                     <div className="space-y-3 pl-2">
                                         <div className="flex items-center space-x-3">
-                                            <Checkbox id="fsm" />
+                                            <Checkbox
+                                                id="fsm"
+                                                checked={formData.isFsm}
+                                                onCheckedChange={(checked) => setFormData({ ...formData, isFsm: checked as boolean })}
+                                            />
                                             <Label htmlFor="fsm" className="font-normal text-muted-foreground">Pupil is eligible for Free School Meals (FSM)</Label>
                                         </div>
                                         <div className="flex items-center space-x-3">
-                                            <Checkbox id="pupil-premium" />
+                                            <Checkbox
+                                                id="pupil-premium"
+                                                checked={formData.isPupilPremium}
+                                                onCheckedChange={(checked) => setFormData({ ...formData, isPupilPremium: checked as boolean })}
+                                            />
                                             <Label htmlFor="pupil-premium" className="font-normal text-muted-foreground">Pupil attracts Pupil Premium funding</Label>
                                         </div>
                                     </div>
@@ -75,12 +152,21 @@ export default function FoundryScholarsPage() {
                                         placeholder="e.g. Year 6 Fractions and Ratio (White Rose v3.0 focus)"
                                         rows={3}
                                         className="resize-none"
+                                        required
+                                        value={formData.learningGap}
+                                        onChange={(e) => setFormData({ ...formData, learningGap: e.target.value })}
                                     />
                                 </div>
 
+                                {errorMsg && (
+                                    <div className="text-red-500 text-sm font-medium p-3 bg-red-100 rounded-md">
+                                        {errorMsg}
+                                    </div>
+                                )}
+
                                 <div className="pt-4">
-                                    <Button type="submit" size="lg" className="w-full text-lg h-14">
-                                        Submit Scholarship Application
+                                    <Button type="submit" size="lg" className="w-full text-lg h-14" disabled={isLoading}>
+                                        {isLoading ? 'Submitting...' : 'Submit Scholarship Application'}
                                     </Button>
                                     <p className="text-xs text-center text-muted-foreground mt-4">
                                         By submitting, you agree to the <Link href="/terms" className="text-primary hover:underline">LumenForge Safeguarding and Data Privacy terms</Link>.

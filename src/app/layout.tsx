@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
 });
 
@@ -65,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${lexend.variable} font-sans antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -74,8 +69,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring font-bold shadow-lg">
+            Skip to main content
+          </a>
           <Navbar />
-          <main className="flex-1">
+          <main id="main" className="flex-1">
             {children}
           </main>
           <script

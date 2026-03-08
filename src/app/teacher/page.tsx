@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -15,34 +15,141 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { supabase } from '@/lib/supabase'
+import { formatDistanceToNow } from 'date-fns'
 
-// Dummy data for Safeguarding Queue
-const safeguardingAlerts = [
-    { id: "A-124", name: "Jamie T.", subject: "Biology", timestamp: "10 mins ago", flag: "<CRISIS_FLAG>", status: "Unresolved", type: "secondary" },
-    { id: "A-125", name: "Leo W.", subject: "Maths (Year 4)", timestamp: "1 hour ago", flag: "<CRISIS_FLAG>", status: "Unresolved", type: "primary" },
-    { id: "A-123", name: "Sarah L.", subject: "English", timestamp: "2 hours ago", flag: "<CRISIS_FLAG>", status: "Logged & Routed", type: "secondary" }
-];
+interface Alert {
+    id: string;
+    student_id: string;
+    subject: string;
+    message_excerpt: string;
+    timestamp: string;
+    status: string;
+    type: 'primary' | 'secondary';
+    name?: string;
+}
 
-// Dummy data for Class Efficacy Breakdown (Secondary)
-const efficacyDataSecondary = [
-    { topic: "AQA Maths: Algebraic Fractions", mastery: 42, target: 70, trend: "down" },
-    { topic: "Edexcel Maths: Probability Trees", mastery: 65, target: 60, trend: "up" },
-    { topic: "OCR Science: Kinematics", mastery: 85, target: 80, trend: "up" },
-    { topic: "AQA English: Language Analysis", mastery: 55, target: 65, trend: "flat" },
-];
+interface EfficacyData {
+    topic: string;
+    mastery: number;
+    target: number;
+    trend: string;
+}
 
-// Dummy data for Gap Analysis Heatmap (Primary)
-const efficacyDataPrimary = [
-    { topic: "Year 4: Multiplication Tables Check (MTC)", mastery: 45, target: 85, trend: "down" },
-    { topic: "Year 5: Equivalent Fractions", mastery: 38, target: 70, trend: "down" },
-    { topic: "Year 3: Capital Letters & Full Stops", mastery: 72, target: 75, trend: "up" },
-    { topic: "Year 6: Multi-Step Reasoning", mastery: 50, target: 80, trend: "flat" },
-];
+interface ScholarshipApp {
+    id: string;
+    applicant_name: string;
+    applicant_role: string;
+    learning_gap: string;
+    status: string;
+    created_at: string;
+}
 
 export default function TeacherDashboard() {
     const [viewMode, setViewMode] = useState<'secondary' | 'primary'>('secondary');
+    const [alerts, setAlerts] = useState<Alert[]>([]);
+    const [efficacyDataSecondary, setEfficacyDataSecondary] = useState<EfficacyData[]>([]);
+    const [efficacyDataPrimary, setEfficacyDataPrimary] = useState<EfficacyData[]>([]);
+    const [scholarships, setScholarships] = useState<ScholarshipApp[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isApproving, setIsApproving] = useState<string | null>(null);
 
-    const displayedAlerts = safeguardingAlerts.filter(alert => alert.type === viewMode);
+    useEffect(() => {
+        const fetchDashboardData = async () => {
+            setIsLoading(true);
+            try {
+                // Fetch Safeguarding Alerts
+                const { data: alertData, error: alertError } = await supabase
+                    .from('safeguarding_alerts')
+                    .select(`
+                        id, student_id, subject, message_excerpt, created_at, status, type,
+                        profiles ( full_name )
+                    `)
+                    .order('created_at', { ascending: false });
+
+                if (!alertError && alertData) {
+                    const mappedAlerts: Alert[] = alertData.map((a: any) => ({
+                        id: a.id,
+                        student_id: a.student_id,
+                        subject: a.subject,
+                        message_excerpt: a.message_excerpt,
+                        timestamp: formatDistanceToNow(new Date(a.created_at), { addSuffix: true }),
+                        status: a.status,
+                        type: a.type,
+                        name: a.profiles?.full_name || 'Unknown Student'
+                    }));
+                    setAlerts(mappedAlerts);
+                }
+
+                // Fetch Curriculum Mastery (Aggregated by Topic)
+                const { data: masteryData, error: masteryError } = await supabase
+                    .from('curriculum_mastery')
+                    .select('*');
+
+                if (!masteryError && masteryData && masteryData.length > 0) {
+                    // Just an example mapping, in reality you'd aggregate scores
+                    const primary = masteryData.filter(m => m.tier === 'primary').map(m => ({
+                        topic: `${m.subject}: ${m.topic_id}`,
+                        mastery: m.mastery_score,
+                        target: m.target_score,
+                        trend: 'flat'
+                    }));
+                    const secondary = masteryData.filter(m => m.tier === 'secondary').map(m => ({
+                        topic: `${m.subject}: ${m.topic_id}`,
+                        mastery: m.mastery_score,
+                        target: m.target_score,
+                        trend: 'flat'
+                    }));
+                    setEfficacyDataPrimary(primary);
+                    setEfficacyDataSecondary(secondary);
+                } else {
+                    // Fallback to empty if no live data
+                    setEfficacyDataPrimary([]);
+                    setEfficacyDataSecondary([]);
+                }
+
+                // Fetch Scholarship Applications
+                const { data: scholarsData, error: scholarsError } = await supabase
+                    .from('scholarship_applications')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (!scholarsError && scholarsData) {
+                    setScholarships(scholarsData);
+                }
+
+            } catch (err) {
+                console.error("Failed to load dashboard data", err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchDashboardData();
+    }, []);
+
+    const handleApproveScholarship = async (appId: string) => {
+        setIsApproving(appId);
+        try {
+            const response = await fetch('/api/scholars/approve', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ applicationId: appId }),
+            });
+            if (response.ok) {
+                // Optimistically update UI
+                setScholarships(prev => prev.map(s => s.id === appId ? { ...s, status: 'Approved' } : s));
+            } else {
+                console.error("Approval failed");
+            }
+        } catch (error) {
+            console.error("Error approving scholarship", error);
+        } finally {
+            setIsApproving(null);
+        }
+    }
+
+    const displayedAlerts = alerts.filter(alert => alert.type === viewMode);
     const displayedEfficacy = viewMode === 'secondary' ? efficacyDataSecondary : efficacyDataPrimary;
 
     return (
@@ -177,7 +284,7 @@ export default function TeacherDashboard() {
                                                 <div className="flex items-center gap-2">
                                                     <Progress
                                                         value={topic.mastery}
-                                                        className={`w-[60px] h-2 ${topic.mastery < topic.target - 20 ? 'bg-destructive/20' : ''}`}
+                                                        className={`w - [60px] h - 2 ${topic.mastery < topic.target - 20 ? 'bg-destructive/20' : ''}`}
                                                         // Change color based on gap
                                                         indicatorColor={topic.mastery < topic.target - 20 ? 'bg-destructive' : topic.mastery >= topic.target ? 'bg-green-500' : 'bg-primary'}
                                                     />
@@ -204,6 +311,69 @@ export default function TeacherDashboard() {
                         </CardFooter>
                     </Card>
                 </div>
+
+                {/* Foundry Scholars Management */}
+                <Card className="mb-6 flex flex-col">
+                    <CardHeader className="border-b">
+                        <CardTitle className="flex items-center gap-2">
+                            <ShieldCheck className="h-5 w-5 text-green-600" />
+                            Foundry Scholars Applications
+                        </CardTitle>
+                        <CardDescription>
+                            Review and approve Elite tier access tokens for Nominated Pupils.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Applicant</TableHead>
+                                    <TableHead>Role</TableHead>
+                                    <TableHead>Identified Gap</TableHead>
+                                    <TableHead>Status</TableHead>
+                                    <TableHead className="text-right">Action</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scholarships.length === 0 ? (
+                                    <TableRow>
+                                        <TableCell colSpan={5} className="text-center py-6 text-muted-foreground">No applications currently pending.</TableCell>
+                                    </TableRow>
+                                ) : (
+                                    scholarships.map((app) => (
+                                        <TableRow key={app.id}>
+                                            <TableCell className="font-medium">{app.applicant_name}</TableCell>
+                                            <TableCell className="capitalize">{app.applicant_role}</TableCell>
+                                            <TableCell className="max-w-[200px] truncate" title={app.learning_gap}>{app.learning_gap}</TableCell>
+                                            <TableCell>
+                                                {app.status === 'Pending' ? (
+                                                    <Badge variant="outline" className="text-amber-600 border-amber-200">Pending</Badge>
+                                                ) : (
+                                                    <Badge variant="outline" className="text-green-600 border-green-200 bg-green-50 dark:bg-green-900/10">Approved</Badge>
+                                                )}
+                                            </TableCell>
+                                            <TableCell className="text-right">
+                                                {app.status === 'Pending' && (
+                                                    <Button
+                                                        size="sm"
+                                                        variant="default"
+                                                        disabled={isApproving === app.id}
+                                                        onClick={() => handleApproveScholarship(app.id)}
+                                                    >
+                                                        {isApproving === app.id ? "Approving..." : "Approve & Issue Token"}
+                                                    </Button>
+                                                )}
+                                                {app.status === 'Approved' && (
+                                                    <Button size="sm" variant="ghost" disabled>Issued</Button>
+                                                )}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))
+                                )}
+                            </TableBody>
+                        </Table>
+                    </CardContent>
+                </Card>
             </ScrollArea>
         </div>
     )

@@ -7,10 +7,12 @@ create table profiles (
   avatar_url text,
   role text default 'student',
   year_group text,
+  exam_board text,
   target_grade text,
   enemy_question text,
   study_context jsonb,
   subject_priorities jsonb,
+  passions jsonb,
   student_profile_summary text,
   updated_at timestamp with time zone,
   
@@ -20,24 +22,14 @@ create table profiles (
 -- Set up Row Level Security (RLS)
 alter table profiles enable row level security;
 
-create policy "Public profiles are viewable by everyone." on profiles
-  for select using (true);
+create policy "Users can view own profile." on profiles
+  for select using (auth.uid() = id);
 
 create policy "Users can insert their own profile." on profiles
   for insert with check (auth.uid() = id);
 
 create policy "Users can update own profile." on profiles
   for update using (auth.uid() = id);
-
--- Prevent users from elevating their own role or premium status directly via client
-create policy "Prevent unauthorized role elevation" on profiles
-  for update using (auth.uid() = id)
-  with check (
-    -- This ensures they can't change these specific columns in a normal update.
-    -- (If role/isPremium are stored in auth.users metadata, this is less an issue for this table,
-    -- but this is a defense-in-depth measure in case they are mirrored here).
-    true
-  );
 
 -- Create a table for chats
 create table chats (
@@ -61,6 +53,25 @@ create policy "Users can insert own chats." on chats
 create policy "Users can update own chats." on chats
   for update using (auth.uid() = user_id);
 
+-- Create a table for Elite Discovery Exit Tickets
+create table exit_tickets (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users not null,
+  subject text not null,
+  aha_moment text not null,
+  brilliance_briefing text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Set up RLS for exit_tickets
+alter table exit_tickets enable row level security;
+
+create policy "Users can view own exit tickets." on exit_tickets
+  for select using (auth.uid() = user_id);
+
+create policy "Users can insert own exit tickets." on exit_tickets
+  for insert with check (auth.uid() = user_id);
+
 -- Create a table for progress tracking
 create table progress (
   id uuid default gen_random_uuid() primary key,
@@ -76,6 +87,9 @@ alter table progress enable row level security;
 
 create policy "Users can view own progress." on progress
   for select using (auth.uid() = user_id);
+
+create policy "Users can insert own progress." on progress
+  for insert with check (auth.uid() = user_id);
 
 create policy "Users can update own progress." on progress
   for update using (auth.uid() = user_id);

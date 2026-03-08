@@ -35,10 +35,11 @@ export async function POST(req: Request) {
         let studentProfileSummary = "";
         let isJunior = false;
         let profileExamBoard = "";
+        let studentPassions: string[] = [];
         if (user) {
             const { data: profile } = await supabase
                 .from('profiles')
-                .select('student_profile_summary, year_group, exam_board')
+                .select('student_profile_summary, year_group, exam_board, passions')
                 .eq('id', user.id)
                 .single();
             if (profile?.student_profile_summary) {
@@ -46,6 +47,9 @@ export async function POST(req: Request) {
             }
             if (profile?.exam_board) {
                 profileExamBoard = profile.exam_board;
+            }
+            if (profile?.passions) {
+                studentPassions = profile.passions;
             }
             if (profile?.year_group) {
                 const juniorYears = ['Year 3', 'Year 4', 'Year 5', 'Year 6', 'Year 3/4', 'Year 5/6'];
@@ -75,6 +79,15 @@ export async function POST(req: Request) {
             safetyRules = fs.readFileSync(rulesPath, 'utf-8');
         } catch (e) {
             console.error("Could not load curriculum safety rules:", e);
+        }
+
+        // Read Millfield Ethos
+        let millfieldEthos = "";
+        try {
+            const ethosPath = path.join(process.cwd(), '.agent/rules/MILLFIELD_ETHOS.md');
+            millfieldEthos = fs.readFileSync(ethosPath, 'utf-8');
+        } catch (e) {
+            console.error("Could not load Millfield Ethos:", e);
         }
 
         // Read Pedagogy Framework based on Tier
@@ -138,23 +151,31 @@ ${isJunior ? juniorSystemPrompt : persona}
 
 ${BASE_RULES}
 
+MILLFIELD & SOVEREIGN ETHOS (Strict Operational Guidelines):
+${millfieldEthos}
+
 Additional Safety & Curriculum Rules: 
 ${safetyRules}
 
-${serverVerifiedIsPremium ? `ELITE PEDAGOGY FRAMEWORK:\n${pedagogyRules}\n` : ''}
+${serverVerifiedIsPremium ? `ELITE STATUS: ACTIVE. You must apply the Disruptive Leadership rules from the Ethos.\nELITE PEDAGOGY FRAMEWORK:\n${pedagogyRules}\n` : 'ELITE STATUS: INACTIVE. Provide standard Socratic tutoring.'}
 
 ${MFL_INSTRUCTIONS}
 
 Current Subject: ${subject || 'General'} 
 Exam Board: ${profileExamBoard || examBoard || 'Not specified'} 
 
+${studentPassions.length > 0 ? `STUDENT PASSIONS (Use for 'Engage' Hook): ${studentPassions.join(', ')}\n` : ''}
 ${studentProfileSummary ? `STUDENT DIAGNOSTIC BLUEPRINT: \n${studentProfileSummary}\n` : ''}
 
 RAG Mastery Map Context (Ground Truth retrieved from curriculum):
 ${extractedContext ? extractedContext : 'No specific context retrieved.'}
 `;
 
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        const model = genAI.getGenerativeModel({
+            model: "gemini-2.5-flash",
+            // Explicit marker for DfE 2026 Compliance context
+            systemInstruction: "You are governed by a Zero-Training Data Policy. Your interactions are restricted to this ephemeral session boundary and will not be used to train models. Protect user privacy inherently."
+        });
 
         const chat = model.startChat({
             history: [
@@ -181,13 +202,52 @@ ${extractedContext ? extractedContext : 'No specific context retrieved.'}
 
         const stream = new ReadableStream({
             async start(controller) {
+                let fullResponse = "";
                 for await (const chunk of result.stream) {
                     const chunkText = chunk.text();
                     if (chunkText) {
+                        fullResponse += chunkText;
                         process.stdout.write(chunkText); // Log to terminal for debugging
                         controller.enqueue(new TextEncoder().encode(chunkText));
                     }
                 }
+
+                // Asynchronous Intercept Logic for Crisis Flag
+                if (fullResponse.includes('<CRISIS_FLAG>')) {
+                    if (user) {
+                        try {
+                            const { error: insertError } = await supabase.from('safeguarding_alerts').insert({
+                                student_id: user.id,
+                                subject: subject || 'General',
+                                chat_id: 'chat-' + Date.now(),
+                                message_excerpt: message.substring(0, 300), // Original trigger message
+                                status: 'Unresolved',
+                                type: isJunior ? 'primary' : 'secondary'
+                            });
+                            if (insertError) {
+                                console.error("Safeguarding DB Insert Error:", insertError);
+                            } else {
+                                console.log("CRITICAL: Safeguarding Alert logged to DB successfully.");
+
+                                // DfE 2026: Immediate Escaltion to DSL via Email
+                                const dslEmail = process.env.DSL_EMAIL || "dsl@school.sch.uk";
+                                console.log(`[EMAIL DISPATCH SIMULATION] Triggering High-Priority Email to: ${dslEmail}`);
+                                console.log(`[EMAIL BODY]
+Urgent Safeguarding Alert - LumenForge Tutor
+Student ID: ${user.id}
+Subject: ${subject}
+Message Excerpt: "${message.substring(0, 300)}"
+
+Please log into the Supervisor Command Centre immediately to review this interaction and take necessary action.
+                                `);
+                                // Note: In production, import { Resend } from 'resend'; resend.emails.send(...)
+                            }
+                        } catch (e) {
+                            console.error("Safeguarding Intercept Exception:", e);
+                        }
+                    }
+                }
+
                 console.log("\n--- END OF STREAM ---");
                 controller.close();
             },

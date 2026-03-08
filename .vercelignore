@@ -1,3 +1,17 @@
 node_modules
 .next
 .netlify
+.vercel
+.git
+.gemini
+.agent
+brain
+logs
+*.mp4
+*.webp
+*.png
+*.jpg
+*.jpeg
+dist
+build
+out

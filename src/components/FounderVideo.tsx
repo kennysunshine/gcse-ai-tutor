@@ -31,7 +31,6 @@ export function FounderVideo() {
                     ref={videoRef}
                     className="w-full h-full object-contain"
                     controls={isPlaying}
-                    poster="/founder-placeholder.jpg"
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                 >

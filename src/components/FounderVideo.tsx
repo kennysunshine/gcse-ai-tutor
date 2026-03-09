@@ -7,10 +7,14 @@ export function FounderVideo() {
     const [isPlaying, setIsPlaying] = useState(false)
     const videoRef = useRef<HTMLVideoElement>(null)
 
-    const handlePlay = () => {
+    const handlePlay = async () => {
         if (videoRef.current) {
-            videoRef.current.play()
-            setIsPlaying(true)
+            try {
+                await videoRef.current.play()
+                setIsPlaying(true)
+            } catch (err) {
+                console.error("Video playback failed:", err)
+            }
         }
     }
 
@@ -21,9 +25,9 @@ export function FounderVideo() {
                 onClick={handlePlay}
             >
                 {!isPlaying && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-all group-hover:bg-black/30 z-10 transition-opacity duration-300">
-                        <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                            <Play className="w-6 h-6 text-primary ml-1" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] z-10 transition-all group-hover:bg-black/50 duration-300">
+                        <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 active:scale-95">
+                            <Play className="w-8 h-8 text-primary fill-current ml-1" />
                         </div>
                     </div>
                 )}
@@ -31,6 +35,8 @@ export function FounderVideo() {
                     ref={videoRef}
                     className="w-full h-full object-contain"
                     controls={isPlaying}
+                    playsInline
+                    preload="metadata"
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                 >

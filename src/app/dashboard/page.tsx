@@ -27,6 +27,7 @@ export default function DashboardPage() {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<any>(null)
     const [profile, setProfile] = useState<any>(null)
+    const [masteryData, setMasteryData] = useState<Record<string, number>>({})
 
     useEffect(() => {
         const checkUser = async () => {
@@ -35,12 +36,30 @@ export default function DashboardPage() {
                 router.push('/login')
             } else {
                 setUser(session.user)
-                const { data } = await supabase
-                    .from('profiles')
-                    .select('*')
-                    .eq('id', session.user.id)
-                    .single()
-                if (data) setProfile(data)
+
+                // Concurrent fetching for better performance
+                const [profileRes, masteryRes] = await Promise.all([
+                    supabase.from('profiles').select('*').eq('id', session.user.id).single(),
+                    supabase.from('curriculum_mastery').select('subject, mastery_score').eq('student_id', session.user.id)
+                ])
+
+                if (profileRes.data) setProfile(profileRes.data)
+
+                if (masteryRes.data) {
+                    // Aggregate mastery scores by subject
+                    const aggregated: Record<string, { total: number, count: number }> = {}
+                    masteryRes.data.forEach(m => {
+                        if (!aggregated[m.subject]) aggregated[m.subject] = { total: 0, count: 0 }
+                        aggregated[m.subject].total += m.mastery_score
+                        aggregated[m.subject].count += 1
+                    })
+
+                    const finalMastery: Record<string, number> = {}
+                    Object.keys(aggregated).forEach(sub => {
+                        finalMastery[sub] = Math.round(aggregated[sub].total / aggregated[sub].count)
+                    })
+                    setMasteryData(finalMastery)
+                }
             }
             setLoading(false)
         }
@@ -53,11 +72,14 @@ export default function DashboardPage() {
 
     if (!user) return null
 
+    // Extract first name robustly
+    const firstName = profile?.full_name?.trim().split(/\s+/)[0] || 'Scholar'
+
     return (
         <div className="container px-4 py-8 mx-auto space-y-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold">Welcome back, {profile?.full_name?.split(' ')[0] || 'Scholar'}</h1>
+                    <h1 className="text-3xl font-bold">Welcome back, {firstName}</h1>
                     <p className="text-muted-foreground">Ready to master your KS2 & GCSE subjects today?</p>
                 </div>
                 <div className="flex items-center gap-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-4 py-2 rounded-full font-bold">
@@ -89,7 +111,16 @@ export default function DashboardPage() {
                             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mt-2">
                                 <span className="flex items-center gap-1"><BookOpen className="h-3 w-3" /> {profile?.year_group || 'Year Not Set'}</span>
                                 <span className="flex items-center gap-1"><Award className="h-3 w-3" /> {profile?.exam_board || 'No Board Set'}</span>
-                                <span className="flex items-center gap-1"><Target className="h-3 w-3" /> Target: {profile?.target_grade || 'Not Set'}</span>
+                                <span className="flex items-center gap-1">
+                                    <Target className="h-3 w-3" />
+                                    Target: {profile?.target_grade ? (
+                                        <span className="text-foreground font-semibold">{profile.target_grade}</span>
+                                    ) : (
+                                        <Link href="/settings/profile" className="text-primary hover:underline flex items-center gap-1">
+                                            Set your goal →
+                                        </Link>
+                                    )}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -109,7 +140,12 @@ export default function DashboardPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {SUBJECTS.map((subject) => {
-                        const stats = efficacyData[subject.slug] || { targetGrade: 5, currentMastery: 0, projectedGrade: 4 };
+                        // Use real mastery data if available, else 0
+                        const currentMastery = masteryData[subject.name] || masteryData[subject.slug] || 0;
+
+                        // Infer projected grade from mastery for UI purposes
+                        // 100% mastery ≈ Target Grade. 50% mastery ≈ 2 grades below.
+                        const projectedGradeNote = currentMastery > 80 ? "On Track" : currentMastery > 50 ? "Steady" : "Action Required";
 
                         return (
                             <Card key={subject.slug} className="hover:shadow-md transition-shadow flex flex-col">
@@ -125,12 +161,20 @@ export default function DashboardPage() {
                                     </CardDescription>
 
                                     <div className="space-y-2 pt-2 border-t">
-                                        <div className="flex justify-between text-xs">
-                                            <span className="font-semibold text-muted-foreground">Target Grade: <span className="text-foreground">{stats.targetGrade}</span></span>
-                                            <span className="font-semibold text-muted-foreground">Projected: <span className={stats.projectedGrade >= stats.targetGrade ? "text-green-500" : "text-amber-500"}>{stats.projectedGrade}</span></span>
+                                        <div className="flex justify-between text-xs items-center h-5">
+                                            <span className="font-semibold text-muted-foreground uppercase tracking-tighter flex items-center gap-1">
+                                                Target: {profile?.target_grade ? (
+                                                    <span className="text-foreground">{profile.target_grade.replace('Grades ', '')}</span>
+                                                ) : (
+                                                    <Link href="/settings/profile" className="text-primary hover:underline">Set Goal →</Link>
+                                                )}
+                                            </span>
+                                            <span className={`font-bold uppercase tracking-tighter ${currentMastery > 70 ? 'text-green-500' : 'text-amber-500'}`}>
+                                                {currentMastery > 90 ? "Grade 9" : projectedGradeNote}
+                                            </span>
                                         </div>
-                                        <Progress value={stats.currentMastery} className="h-2" />
-                                        <p className="text-[10px] text-muted-foreground text-center">Current Syllabus Mastery: {stats.currentMastery}%</p>
+                                        <Progress value={currentMastery} className="h-2" />
+                                        <p className="text-[10px] text-muted-foreground text-center">Current Syllabus Mastery: {currentMastery}%</p>
                                     </div>
                                 </CardContent>
                                 <CardFooter className="mt-auto pt-4">

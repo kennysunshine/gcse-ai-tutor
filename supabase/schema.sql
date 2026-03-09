@@ -14,6 +14,7 @@ create table profiles (
   subject_priorities jsonb,
   passions jsonb,
   student_profile_summary text,
+  onboarding_completed boolean default false,
   updated_at timestamp with time zone,
   
   constraint username_length check (char_length(full_name) >= 3)

@@ -509,24 +509,7 @@ export default function Home() {
 
           </div>
         </div>
-      </section >
-
-      {/* Footer */}
-      < footer className="py-16 border-t bg-slate-50 dark:bg-[#0A1118] text-center text-muted-foreground text-sm font-medium" >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center mb-8">
-            <span className="drop-shadow-sm border-2 border-slate-200 dark:border-slate-800 rounded-full p-4 bg-white dark:bg-muted/20">
-              <BookOpen className="w-8 h-8 text-primary" />
-            </span>
-          </div>
-          <p className="mb-6 font-bold text-foreground">LumenForge. Built for UK Students.</p>
-          <p className="mb-8 opacity-70">&copy; {new Date().getFullYear()} All rights reserved.</p>
-          <div className="flex justify-center gap-8 text-xs uppercase tracking-widest font-bold">
-            <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-          </div>
-        </div>
-      </footer >
-    </div >
+      </section>
+    </div>
   )
 }

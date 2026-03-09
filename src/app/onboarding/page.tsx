@@ -19,11 +19,22 @@ export default function OnboardingPage() {
     const router = useRouter()
 
     useEffect(() => {
-        // Simple check to ensure user is logged in
+        // Redirect guard to prevent double-entry if onboarding is already finished
         const checkUser = async () => {
             const { data: { session } } = await supabase.auth.getSession()
             if (!session) {
                 router.push('/login')
+                return
+            }
+
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('onboarding_completed')
+                .eq('id', session.user.id)
+                .single()
+
+            if (profile?.onboarding_completed) {
+                router.push('/dashboard')
             }
         }
         checkUser()
@@ -32,22 +43,27 @@ export default function OnboardingPage() {
     const handleNext = () => setStep(step + 1)
     const handleBack = () => setStep(step - 1)
 
-    const handleComplete = async () => {
+    const handleSubmit = async () => {
         setLoading(true)
-        const { data: { session } } = await supabase.auth.getSession()
+        const { data: { user } } = await supabase.auth.getUser()
 
-        if (session?.user) {
+        if (user) {
+            // Use upsert to handle potential race conditions where the profile trigger hasn't finished
             const { error } = await supabase
                 .from('profiles')
-                .update({
+                .upsert({
+                    id: user.id,
                     year_group: yearGroup,
                     exam_board: examBoard,
                     target_grade: targetGrade,
-                    enemy_question: enemyQuestion
-                })
-                .eq('id', session.user.id)
+                    enemy_question: enemyQuestion,
+                    onboarding_completed: true,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'id' })
 
             if (!error) {
+                // Trigger AI synthesis in background after Phase A data is saved
+                fetch('/api/profile/synthesize', { method: 'POST' }).catch(console.error)
                 router.push('/dashboard')
             } else {
                 console.error("Error saving diagnostic data:", error)
@@ -180,7 +196,7 @@ export default function OnboardingPage() {
                         </Button>
                     ) : (
                         <Button
-                            onClick={handleComplete}
+                            onClick={handleSubmit}
                             disabled={!enemyQuestion || enemyQuestion.length < 10 || loading}
                             className="bg-primary text-primary-foreground"
                         >

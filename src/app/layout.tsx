@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
 import { CookieBanner } from "@/components/cookie-banner"
 
 export default function RootLayout({
@@ -76,6 +77,7 @@ export default function RootLayout({
           <main id="main" className="flex-1">
             {children}
           </main>
+          <Footer />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

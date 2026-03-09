@@ -66,13 +66,25 @@ export default function DiscoveryDashboard() {
 
     const savePassions = async (updatedPassions: string[]) => {
         setIsSaving(true)
-        if (user) {
-            await supabase
-                .from('profiles')
-                .update({ passions: updatedPassions })
-                .eq('id', user.id)
+        try {
+            if (user) {
+                const { error } = await supabase
+                    .from('profiles')
+                    .upsert({
+                        id: user.id,
+                        passions: updatedPassions,
+                        updated_at: new Date().toISOString()
+                    }, { onConflict: 'id' })
+
+                if (error) {
+                    console.error("Discovery Engine: Failed to save passions to library controller:", error)
+                }
+            }
+        } catch (err) {
+            console.error("Discovery Engine: Critical submission error:", err)
+        } finally {
+            setIsSaving(false)
         }
-        setIsSaving(false)
     }
 
     if (isLoading) {

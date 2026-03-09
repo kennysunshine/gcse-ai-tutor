@@ -6,7 +6,15 @@ import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, User, Settings, CreditCard, LogOut, ChevronDown } from 'lucide-react'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function Navbar() {
     const [userRole, setUserRole] = useState<string>('student')
@@ -90,13 +98,44 @@ export function Navbar() {
                     {isLoggedIn ? (
                         <div className="hidden md:flex items-center gap-3">
                             {isPremium && (
-                                <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1 border border-orange-300">
-                                    <span>⚡</span> ELITE
+                                <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm border border-orange-300 uppercase tracking-tighter">
+                                    ELITE
                                 </div>
                             )}
-                            <Button variant="ghost" onClick={async () => { await supabase.auth.signOut(); window.location.href = '/' }}>
-                                Sign Out
-                            </Button>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" className="flex items-center gap-2 px-2 hover:bg-primary/5">
+                                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                                            <User className="h-4 w-4 text-primary" />
+                                        </div>
+                                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="w-56">
+                                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                    <DropdownMenuSeparator />
+                                    <Link href="/settings/profile">
+                                        <DropdownMenuItem className="cursor-pointer">
+                                            <Settings className="mr-2 h-4 w-4" />
+                                            <span>Profile Settings</span>
+                                        </DropdownMenuItem>
+                                    </Link>
+                                    <Link href="/settings/billing">
+                                        <DropdownMenuItem className="cursor-pointer">
+                                            <CreditCard className="mr-2 h-4 w-4" />
+                                            <span>Billing & Sovereignty</span>
+                                        </DropdownMenuItem>
+                                    </Link>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem
+                                        className="cursor-pointer text-destructive focus:text-destructive"
+                                        onClick={async () => { await supabase.auth.signOut(); window.location.href = '/' }}
+                                    >
+                                        <LogOut className="mr-2 h-4 w-4" />
+                                        <span>Sign Out</span>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
                     ) : (
                         <div className="hidden md:flex items-center gap-2">
@@ -157,16 +196,21 @@ export function Navbar() {
                                     </Link>
                                 )}
                                 <div className="h-px bg-border my-2"></div>
-                                <div className="flex flex-col gap-3">
-                                    {isPremium && (
-                                        <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-sm font-bold px-4 py-2 rounded-md shadow-md flex items-center justify-center gap-2 border border-orange-300">
-                                            <span aria-hidden="true">⚡</span> ELITE ACCOUNT
-                                        </div>
-                                    )}
-                                    <Button variant="ghost" className="w-full justify-center bg-muted/50 text-destructive hover:bg-destructive/10 hover:text-destructive" onClick={async () => { await supabase.auth.signOut(); window.location.href = '/' }}>
-                                        Sign Out
-                                    </Button>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <Link href="/settings/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <Button variant="outline" className="w-full justify-start gap-2 h-12">
+                                            <Settings className="h-4 w-4" /> Profile
+                                        </Button>
+                                    </Link>
+                                    <Link href="/settings/billing" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <Button variant="outline" className="w-full justify-start gap-2 h-12">
+                                            <CreditCard className="h-4 w-4" /> Billing
+                                        </Button>
+                                    </Link>
                                 </div>
+                                <Button variant="ghost" className="w-full justify-center bg-muted/50 text-destructive hover:bg-destructive/10 hover:text-destructive h-12" onClick={async () => { await supabase.auth.signOut(); window.location.href = '/' }}>
+                                    <LogOut className="mr-2 h-4 w-4" /> Sign Out
+                                </Button>
                             </>
                         )}
                     </div>

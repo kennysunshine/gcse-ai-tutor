@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
                 <section>
                     <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
                     <p>
-                        Welcome to GCSEmigo ("we," "our," or "us"). We are committed to protecting your personal data and respecting your privacy.
+                        Welcome to LumenForge ("we," "our," or "us"). We are committed to protecting your personal data and respecting your privacy.
                         This policy explains how we collect, use, and safeguard your information when you use our AI tutoring service.
                     </p>
                 </section>
@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
                 <section>
                     <h2 className="text-2xl font-semibold mb-4">5. Contact & Data Deletion</h2>
                     <p>
-                        If you wish to exercise any of your rights or request account deletion, please visit our <a href="/data-deletion" className="text-primary hover:underline">Data Deletion</a> page or contact us at privacy@gcsemigo.com.
+                        If you wish to exercise any of your rights or request account deletion, please visit our <a href="/data-deletion" className="text-primary hover:underline">Data Deletion</a> page or contact us at privacy@lumenforge.co.uk.
                     </p>
                 </section>
             </div>

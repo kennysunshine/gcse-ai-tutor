@@ -234,7 +234,7 @@ export default function ChatPage() {
     )
 
     return (
-        <div className="flex h-[calc(100vh-4rem)] bg-background">
+        <div className="flex h-[calc(100vh-4rem)] bg-background overflow-hidden">
             {/* Desktop Sidebar */}
             <div className="hidden md:block w-64 border-r bg-muted/20">
                 <ScrollArea className="h-full">
@@ -500,7 +500,7 @@ export default function ChatPage() {
                         </ScrollArea>
 
                         {/* Input Area */}
-                        <div className="p-4 border-t bg-background">
+                        <div className="p-4 border-t bg-background relative z-20">
                             <div className="max-w-3xl mx-auto flex gap-2">
                                 <Button
                                     variant={isListening ? "destructive" : "secondary"}

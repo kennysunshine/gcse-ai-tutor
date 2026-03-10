@@ -57,7 +57,7 @@ export function PhaseBModal({ userId }: { userId: string }) {
 
         if (!error) {
             // Trigger the AI synthesis route in the background
-            fetch('/api/profile/synthesize', { method: 'POST' }).catch(console.error)
+            fetch('/api/profile/synthesise', { method: 'POST' }).catch(console.error)
             setOpen(false)
         } else {
             console.error("Failed to save study context", error)

@@ -28,7 +28,7 @@ export function PricingSection() {
         <section className="py-32 bg-background relative overflow-hidden" id="pricing">
             <div className="container px-4 mx-auto max-w-6xl relative z-10">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-foreground">Invest in Excellence. <br />Subsidize the Future.</h2>
+                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-foreground">Invest in Excellence. <br />Subsidise the Future.</h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium mb-10">Choose your tier. Every Elite subscription funds two Foundry Scholarships for disadvantaged students.</p>
 
                     {/* Pricing Toggle */}
@@ -119,7 +119,7 @@ export function PricingSection() {
                             <p className="text-sm text-muted-foreground mt-3 font-bold uppercase tracking-wider">Disadvantaged Students</p>
                         </CardHeader>
                         <CardContent className="flex flex-col flex-grow text-center pt-8 px-8 pb-10">
-                            <p className="text-muted-foreground mb-8 text-sm leading-relaxed">Full Elite access subsidized by our premium members and government tender.</p>
+                            <p className="text-muted-foreground mb-8 text-sm leading-relaxed">Full Elite access subsidised by our premium members and government tender.</p>
                             <ul className="space-y-5 mb-10 text-[15px] text-left mx-auto font-medium text-foreground">
                                 <li className="flex items-start gap-3"><CheckCircle2 className="h-5 w-5 text-slate-400 shrink-0 mt-0.5" /> Full Elite Mentorship</li>
                                 <li className="flex items-start gap-3"><CheckCircle2 className="h-5 w-5 text-slate-400 shrink-0 mt-0.5" /> Granted via School Token</li>

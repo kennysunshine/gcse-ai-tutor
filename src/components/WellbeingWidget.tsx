@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { BrainCircuit, Smile, Frown, Meh, Zap, Heart } from 'lucide-react'
 
 const moods = [
-    { label: 'Energized', icon: <Zap className="h-5 w-5" />, color: 'text-amber-500 bg-amber-50 dark:bg-amber-900/20', insight: 'Today is perfect for tackling your "Enemy Questions". Push your boundaries.' },
+    { label: 'Energised', icon: <Zap className="h-5 w-5" />, color: 'text-amber-500 bg-amber-50 dark:bg-amber-900/20', insight: 'Today is perfect for tackling your "Enemy Questions". Push your boundaries.' },
     { label: 'Good', icon: <Smile className="h-5 w-5" />, color: 'text-green-500 bg-green-50 dark:bg-green-900/20', insight: 'Consistency is the hallmark of a Sovereign Learner. Keep the momentum.' },
     { label: 'Neutral', icon: <Meh className="h-5 w-5" />, color: 'text-blue-500 bg-blue-50 dark:bg-blue-900/20', insight: 'Focus on small wins today. Master one topic deeply rather than many broadly.' },
     { label: 'Anxious', icon: <Heart className="h-5 w-5" />, color: 'text-purple-500 bg-purple-50 dark:bg-purple-900/20', insight: 'Take a deep breath. Use Socratic hints to break the problem into smaller pieces.' },
@@ -32,8 +32,8 @@ export function WellbeingWidget() {
                             key={mood.label}
                             onClick={() => setSelectedMood(idx)}
                             className={`flex flex-col items-center gap-1.5 p-3 rounded-2xl border-2 transition-all ${selectedMood === idx
-                                    ? 'border-primary bg-primary/5 shadow-sm scale-105'
-                                    : 'border-transparent bg-muted/50 hover:bg-muted text-muted-foreground'
+                                ? 'border-primary bg-primary/5 shadow-sm scale-105'
+                                : 'border-transparent bg-muted/50 hover:bg-muted text-muted-foreground'
                                 }`}
                         >
                             <div className={`${selectedMood === idx ? mood.color : ''} p-2 rounded-full transition-colors`}>

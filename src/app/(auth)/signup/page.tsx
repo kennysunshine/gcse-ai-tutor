@@ -50,7 +50,7 @@ export default function SignupPage() {
             // For simplicity, we'll redirect to dashboard, but Supabase might require email confirmation by default.
             // We'll assume email confirmation is OFF for this demo, or user will see a message.
             // Redirect to the new Elite Diagnostic onboarding instead of dashboard
-            router.push('/onboarding')
+            window.location.href = '/onboarding'
             // Note: In production you really should handle the "check your email" case.
         }
     }

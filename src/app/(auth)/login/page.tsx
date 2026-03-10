@@ -32,7 +32,7 @@ export default function LoginPage() {
                 setError(error.message)
                 setLoading(false)
             } else {
-                router.push('/dashboard')
+                window.location.href = '/dashboard'
             }
         } catch (err) {
             console.error("Login unexpected error:", err)

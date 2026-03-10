@@ -330,7 +330,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pl-12">
                   <h3 className="text-2xl font-extrabold text-foreground mb-3 font-serif">The &quot;Lucky&quot; Problem</h3>
                   <p className="text-[17px] text-muted-foreground leading-relaxed">
-                    I realized that I could self-educate and bridge any gap through books and mentorship. But I also realized something uncomfortable: I was lucky. I had found mentors by chance, and that kind of guidance isn&apos;t available to every kid in Birmingham, London, or beyond. Success shouldn&apos;t depend on &quot;getting lucky&quot; with who you meet.
+                    I realised that I could self-educate and bridge any gap through books and mentorship. But I also realised something uncomfortable: I was lucky. I had found mentors by chance, and that kind of guidance isn&apos;t available to every kid in Birmingham, London, or beyond. Success shouldn&apos;t depend on &quot;getting lucky&quot; with who you meet.
                   </p>
                 </div>
               </div>
@@ -393,7 +393,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-4 items-center">
                     <div className="bg-slate-100 dark:bg-slate-800 text-foreground font-bold rounded-full w-8 h-8 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700">3</div>
-                    <span className="text-foreground font-medium text-[15px]">Parents receive a 100% subsidized access token.</span>
+                    <span className="text-foreground font-medium text-[15px]">Parents receive a 100% subsidised access token.</span>
                   </li>
                 </ul>
                 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900 p-4 rounded-xl text-blue-800 dark:text-blue-200 text-sm font-semibold flex items-center gap-3 shadow-inner">
@@ -407,7 +407,7 @@ export default function Home() {
               <div>
                 <div className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3 flex items-center gap-2" aria-hidden="true"><GraduationCap className="w-4 h-4" /> The Foundry Scholars Program</div>
                 <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-foreground">
-                  Equalizing the High-Performance Advantage.
+                  Equalising the High-Performance Advantage.
                 </h2>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed">

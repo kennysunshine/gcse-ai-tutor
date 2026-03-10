@@ -73,7 +73,7 @@ export default function FoundryScholarsPage() {
                             </div>
                             <CardTitle className="text-3xl font-bold">Foundry Scholars Program</CardTitle>
                             <CardDescription className="text-lg">
-                                Apply for subsidized, elite AI tutoring for disadvantaged pupils, funded by our B2C premium tier.
+                                Apply for subsidised, elite AI tutoring for disadvantaged pupils, funded by our B2C premium tier.
                             </CardDescription>
                         </CardHeader>
                         <CardContent>

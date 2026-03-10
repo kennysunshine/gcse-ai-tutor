@@ -16,6 +16,7 @@ export default function SignupPage() {
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [role, setRole] = useState<'student' | 'teacher' | 'parent'>('student')
     const [agreedToTerms, setAgreedToTerms] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -36,6 +37,7 @@ export default function SignupPage() {
             options: {
                 data: {
                     full_name: fullName,
+                    role: role,
                 },
             },
         })
@@ -62,6 +64,36 @@ export default function SignupPage() {
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSignup} className="space-y-4">
+                        <div className="space-y-3 mb-6">
+                            <Label className="text-sm font-bold opacity-70">I am joining as a...</Label>
+                            <div className="grid grid-cols-3 gap-3">
+                                <button
+                                    type="button"
+                                    onClick={() => setRole('student')}
+                                    className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'student' ? 'border-primary bg-primary/5 text-primary' : 'border-muted bg-background text-muted-foreground hover:border-muted-foreground/30'}`}
+                                >
+                                    <span className="text-xl mb-1">🎓</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-tight">Student</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setRole('teacher')}
+                                    className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'teacher' ? 'border-primary bg-primary/5 text-primary' : 'border-muted bg-background text-muted-foreground hover:border-muted-foreground/30'}`}
+                                >
+                                    <span className="text-xl mb-1">👨‍🏫</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-tight">Teacher</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setRole('parent')}
+                                    className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'parent' ? 'border-primary bg-primary/5 text-primary' : 'border-muted bg-background text-muted-foreground hover:border-muted-foreground/30'}`}
+                                >
+                                    <span className="text-xl mb-1">👨‍👩-👧</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-tight">Parent</span>
+                                </button>
+                            </div>
+                        </div>
+
                         <div className="space-y-2">
                             <Label htmlFor="fullName">Full Name</Label>
                             <Input id="fullName" placeholder="John Doe" required value={fullName} onChange={(e) => setFullName(e.target.value)} />

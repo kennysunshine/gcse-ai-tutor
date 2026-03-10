@@ -18,6 +18,8 @@ type Message = {
     message: string
 }
 
+import { WellbeingWidget } from '@/components/WellbeingWidget'
+
 export default function ChatPage() {
     const params = useParams()
     const router = useRouter()
@@ -223,7 +225,12 @@ export default function ChatPage() {
                     </Link>
                 ))}
             </div>
-            <div className="absolute bottom-4 left-4 right-4">
+
+            <div className="px-4 py-2">
+                <WellbeingWidget />
+            </div>
+
+            <div className="mt-auto p-4">
                 <Link href="/dashboard">
                     <Button variant="outline" className="w-full">
                         Back to Dashboard

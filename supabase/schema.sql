@@ -99,8 +99,14 @@ create policy "Users can update own progress." on progress
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, email, full_name, avatar_url)
-  values (new.id, new.email, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'avatar_url');
+  insert into public.profiles (id, email, full_name, avatar_url, role)
+  values (
+    new.id, 
+    new.email, 
+    new.raw_user_meta_data->>'full_name', 
+    new.raw_user_meta_data->>'avatar_url',
+    coalesce(new.raw_user_meta_data->>'role', 'student')
+  );
   return new;
 end;
 $$ language plpgsql security definer;

@@ -14,6 +14,7 @@ import { Flame, User, Award, BookOpen } from 'lucide-react'
 import { Progress } from "@/components/ui/progress"
 import { Target } from 'lucide-react'
 import { PhaseBModal } from '@/components/PhaseBModal'
+import { WellbeingWidget } from '@/components/WellbeingWidget'
 
 // Dummy efficacy data correlating practice scores to Target Grades
 const efficacyData: Record<string, { targetGrade: number, currentMastery: number, projectedGrade: number }> = {
@@ -87,6 +88,8 @@ export default function DashboardPage() {
                     <span>3 Day Streak</span>
                 </div>
             </div>
+
+            <WellbeingWidget />
 
             {/* Profile Summary Card */}
             <Card className="border-primary/20 bg-muted/30">

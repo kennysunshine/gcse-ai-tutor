@@ -30,6 +30,7 @@ export function Footer() {
                             <li><Link href="/library" className="hover:text-primary transition-colors font-bold text-primary/80 flex items-center gap-1">
                                 <ShieldCheck className="h-3 w-3" /> Sovereign Library
                             </Link></li>
+                            <li><Link href="/faq" className="hover:text-primary transition-colors">Frequently Asked Questions</Link></li>
                             <li><Link href="/scholars" className="hover:text-primary transition-colors">Foundry Scholars</Link></li>
                         </ul>
                     </div>

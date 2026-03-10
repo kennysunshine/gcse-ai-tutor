@@ -74,6 +74,7 @@ export function Navbar() {
                                 <Link href="/#parents" className="transition-colors hover:text-primary">Parents</Link>
                                 <Link href="/#teachers" className="transition-colors hover:text-primary">Teachers</Link>
                                 <Link href="/scholars" className="transition-colors hover:text-primary">Foundry Scholars</Link>
+                                <Link href="/faq" className="transition-colors hover:text-primary">FAQ</Link>
                             </>
                         ) : (
                             <>
@@ -172,6 +173,7 @@ export function Navbar() {
                                 <Link href="/#parents" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Parents</Link>
                                 <Link href="/#teachers" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Teachers</Link>
                                 <Link href="/scholars" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Foundry Scholars</Link>
+                                <Link href="/faq" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
                                 <div className="h-px bg-border my-2"></div>
                                 <div className="flex flex-col gap-3">
                                     <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>

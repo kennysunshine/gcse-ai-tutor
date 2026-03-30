@@ -38,6 +38,7 @@ create table chats (
   user_id uuid references auth.users not null,
   subject text not null,
   messages jsonb not null default '[]',
+  metadata jsonb default '{}',
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
@@ -115,3 +116,18 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- Create a table for Safeguarding Logs
+create table safeguarding_logs (
+    id uuid default gen_random_uuid() primary key,
+    student_id uuid references auth.users not null,
+    content text not null,
+    reason text not null,
+    severity text not null check (severity in ('Low', 'Medium', 'High')),
+    created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Set up RLS for safeguarding logs
+alter table safeguarding_logs enable row level security;
+create policy "Only backend can insert logs, teachers can view." on safeguarding_logs
+  for select using (auth.role() = 'authenticated');

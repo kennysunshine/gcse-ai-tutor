@@ -6,6 +6,23 @@ export async function middleware(request: NextRequest) {
         request,
     })
 
+    // Helper to securely append CORS & Cache Control before returning
+    const applySecurityHeaders = (res: NextResponse) => {
+        const origin = request.headers.get('origin')
+        const allowedOrigins = process.env.NODE_ENV === 'development' 
+            ? ['http://localhost:3000', 'https://lumen-forge.co.uk'] 
+            : ['https://lumen-forge.co.uk']
+
+        if (origin && allowedOrigins.includes(origin)) {
+            res.headers.set('Access-Control-Allow-Origin', origin)
+            res.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            res.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+            res.headers.set('Access-Control-Allow-Credentials', 'true')
+        }
+        res.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+        return res
+    }
+
     // Create an unmodified copy of the Supabase client
     const supabase = createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -35,7 +52,7 @@ export async function middleware(request: NextRequest) {
     // Performance Optimization: Only query the database for the user session 
     // if the route actually requires protection or auth redirection.
     if (!isTeacherRoute && !isProtectedStudentRoute && !isAuthRoute) {
-        return supabaseResponse
+        return applySecurityHeaders(supabaseResponse)
     }
 
     try {
@@ -88,8 +105,8 @@ export async function middleware(request: NextRequest) {
                 .eq('id', user.id)
                 .single()
 
-            // Bouncer Step: If they aren't a teacher, kick them back to their student dashboard
-            if (!profile || profile.role !== 'teacher') {
+            // Bouncer Step: If they aren't a teacher AND not in development mode, kick them back
+            if (!profile || (profile.role !== 'teacher' && process.env.NODE_ENV !== 'development')) {
                 const url = request.nextUrl.clone()
                 url.pathname = '/dashboard'
                 return NextResponse.redirect(url)
@@ -105,7 +122,7 @@ export async function middleware(request: NextRequest) {
         }
     }
 
-    return supabaseResponse
+    return applySecurityHeaders(supabaseResponse)
 }
 
 // Ensure the middleware is only called for relevant paths.

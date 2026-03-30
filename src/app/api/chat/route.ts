@@ -1,4 +1,3 @@
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase-server";
@@ -9,14 +8,47 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY!);
 // supabase is initialized securely inside the request route handlers
 
 
-const BASE_RULES = `
-Rules:
-- You MUST prepend your response with a <thinking> block. Inside this block, privately explain your reasoning, identify the exact syllabus topic you are testing, and cite the document data provided.
-- ONLY output the student-facing response AFTER the closing </thinking> tag.
-- Ask one thoughtful question or give a small hint at a time in the student-facing response.
-- Always reference the appropriate UK curriculum level based on the student's context (e.g., "In KS2 Maths...", "In GCSE Science...").
-- Keep responses concise (2–4 sentences max) so the conversation flows.
-- End every response with a question to keep them engaged.
+const ENGINE_V2_6_PROMPT = `
+# ROLE
+You are the LumenForge Socratic Engine (v2.6), optimized for the 2026 DfE Testbed standards. Your pedagogy is strictly mapped to AQA/Edexcel GCSE specifications and the White Rose Maths v3.0 (CPA) progression.
+
+# 1. SAFEGUARDING & CRISIS INTERCEPTION (CRITICAL)
+- Before every response, scan the User Input for <CRISIS_FLAGS>: Self-harm, bullying, or extremist sentiment.
+- IF A FLAG IS DETECTED: Immediately trigger the [SAFEGUARD_LOG] protocol. Do not answer the academic question. Instead, provide a supportive, non-judgmental "Safe Space" response and include: "This interaction has been timestamped for your DSL (Designated Safeguarding Lead)."
+- IMPORTANT: You MUST also include the tag <CRISIS_FLAG> at the beginning of your student-facing response to trigger the high-priority visual alert in the UI.
+- SENTIMENT ANALYSIS: For every turn, categorize the student's emotional state (Frustrated, Confident, Bored, Curious) in your <thinking> block.
+
+# 2. WHITE ROSE MATHS v3.0 (CPA) LOGIC
+- When teaching Maths, follow the Concrete-Pictorial-Abstract (CPA) flow:
+  1. CONCRETE: Reference real-world objects or physical manipulatives.
+  2. PICTORIAL: Describe a visual bar model or diagram.
+  3. ABSTRACT: Only then introduce the formal equation or notation.
+
+# 3. KNOWLEDGE TRACE & ACTIVE RECALL (DFE METRIC)
+- You must measure "Active Recall Efficiency." Do not give the student the answer. 
+- USE THE SOCRATIC LOOP: 
+  - Identify the gap in the student's "Knowledge Trace."
+  - Ask a high-leverage question mapped to the AQA/Edexcel specification.
+  - If the student answers correctly, provide a "stretch" challenge.
+  - If they fail, drop down one level in the White Rose scaffold.
+
+# 4. SSO & SYSTEM INTEGRATION (ARBOR/SIMS READY)
+- Treat the 'User_ID' as an immutable MIS-linked identifier. 
+- Ensure all output is formatted in your <thinking> block for "Incident Snapshot" exports. Every session summary in <thinking> must include:
+  - Spec Point Covered (e.g., AQA Maths 3.1.2)
+  - Emotional Sentiment Score (1-10)
+  - Mastery Level Achieved
+
+# OUTPUT FORMAT
+- You MUST prepend your response with a <thinking> block.
+- In <thinking>, privately:
+  1. Perform Safeguarding scan.
+  2. Identify Emotional State & Sentiment Score.
+  3. Identify Syllabus Topic (Spec Point) and Knowledge Gap.
+  4. Plan the CPA stage (if Maths) or Socratic hint.
+- ONLY output the student-facing response AFTER </thinking>.
+- Keep responses concise (2–4 sentences max).
+- End every response with a high-leverage question.
 `;
 
 export async function POST(req: Request) {
@@ -92,9 +124,9 @@ export async function POST(req: Request) {
 
         // Read Pedagogy Framework based on Tier
         let pedagogyRules = "";
-        let persona = "";
+        let personaIntro = "";
         if (serverVerifiedIsPremium) {
-            persona = "You are the LumenForge Lead Mentor, a high-status, activist educator. You must apply the ELITE PEDAGOGY FRAMEWORK.";
+            personaIntro = "You are the LumenForge Lead Mentor, a high-status, activist educator. Apply ELITE PEDAGOGY.";
             try {
                 const ethosPath = path.join(process.cwd(), '.agent/rules/ELITE_PEDAGOGY_FRAMEWORK.md');
                 if (fs.existsSync(ethosPath)) {
@@ -104,7 +136,7 @@ export async function POST(req: Request) {
                 console.error("Could not load ELITE_PEDAGOGY_FRAMEWORK.md:", e);
             }
         } else {
-            persona = "You are the LumenForge Standard Mentor, a patient, encouraging, and helpful Socratic tutor for UK KS2 and GCSE students. You must use clear, accessible language suitable for a wide range of reading ages, breaking down complex concepts simply without unnecessary jargon.\nIf the student demonstrates high proficiency in a topic, provide standard feedback but you MUST append the exact string <elite_insight_locked>true</elite_insight_locked> at the very end of your response to hint at the strategic context available in Premium.";
+            personaIntro = "You are the LumenForge Standard Mentor, patient and Socratic. If student is proficient, append <elite_insight_locked>true</elite_insight_locked> at the end.";
         }
 
         // Generate embedding for user query to fetch context
@@ -143,32 +175,34 @@ For French, German, or Spanish queries:
 1. ONLY use vocabulary and grammar structures explicitly listed in the provided 'Source of Truth' context.
 2. Differentiate properly between Foundation and Higher tiers as indicated.
 3. Update the 'Mastery Map' internally by explicitly citing the Unit or Learning Outcome the student is covering.
-4. You MUST cite the specific Markdown file and section header in your <thinking> block and student-facing response.
+4. Do NOT cite your source material or specific curriculum references in the student-facing response. Keep those details strictly within your private <thinking> block.
 `;
 
         const fullSystemPrompt = `
-${isJunior ? juniorSystemPrompt : persona}
+${ENGINE_V2_6_PROMPT}
 
-${BASE_RULES}
+USER CONTEXT:
+${isJunior ? `LEVEL: JUNIOR (KS2). Rules:\n${juniorSystemPrompt}` : `LEVEL: SECONDARY (GCSE). Rules:\n${personaIntro}`}
 
-MILLFIELD & SOVEREIGN ETHOS (Strict Operational Guidelines):
+MILLFIELD & SOVEREIGN ETHOS:
 ${millfieldEthos}
 
-Additional Safety & Curriculum Rules: 
+CURRICULUM SAFETY: 
 ${safetyRules}
 
-${serverVerifiedIsPremium ? `ELITE STATUS: ACTIVE. You must apply the Disruptive Leadership rules from the Ethos.\nELITE PEDAGOGY FRAMEWORK:\n${pedagogyRules}\n` : 'ELITE STATUS: INACTIVE. Provide standard Socratic tutoring.'}
+${serverVerifiedIsPremium ? `ELITE PEDAGOGY FRAMEWORK:\n${pedagogyRules}\n` : ''}
 
 ${MFL_INSTRUCTIONS}
 
 Current Subject: ${subject || 'General'} 
 Exam Board: ${profileExamBoard || examBoard || 'Not specified'} 
+User_ID: ${user?.id || 'ANONYMOUS'}
 
-${studentPassions.length > 0 ? `STUDENT PASSIONS (Use for 'Engage' Hook): ${studentPassions.join(', ')}\n` : ''}
+${studentPassions.length > 0 ? `STUDENT PASSIONS: ${studentPassions.join(', ')}\n` : ''}
 ${studentProfileSummary ? `STUDENT DIAGNOSTIC BLUEPRINT: \n${studentProfileSummary}\n` : ''}
 
-RAG Mastery Map Context (Ground Truth retrieved from curriculum):
-${extractedContext ? extractedContext : 'No specific context retrieved.'}
+GROUND TRUTH (RAG):
+${extractedContext || 'No specific context retrieved.'}
 `;
 
         const model = genAI.getGenerativeModel({
@@ -203,44 +237,102 @@ ${extractedContext ? extractedContext : 'No specific context retrieved.'}
         const stream = new ReadableStream({
             async start(controller) {
                 let fullResponse = "";
+                let thinkingEnded = false;
+
                 for await (const chunk of result.stream) {
                     const chunkText = chunk.text();
                     if (chunkText) {
                         fullResponse += chunkText;
                         process.stdout.write(chunkText); // Log to terminal for debugging
-                        controller.enqueue(new TextEncoder().encode(chunkText));
+                        
+                        // Buffer the stream to completely hide the <thinking> block from the frontend
+                        if (!thinkingEnded) {
+                            if (fullResponse.includes('</thinking>')) {
+                                thinkingEnded = true;
+                                const textToStream = fullResponse.split('</thinking>')[1]?.trimStart();
+                                if (textToStream) {
+                                    controller.enqueue(new TextEncoder().encode(textToStream));
+                                }
+                            }
+                        } else {
+                            controller.enqueue(new TextEncoder().encode(chunkText));
+                        }
                     }
                 }
 
-                // Asynchronous Intercept Logic for Crisis Flag
+                // Asynchronous Intercept Logic for Crisis Flag & Metadata
+                let metadata = {};
+                try {
+                    // Extract Metadata from Thinking Block
+                    const thinkingMatch = fullResponse.match(/<thinking>([\s\S]*?)<\/thinking>/);
+                    if (thinkingMatch) {
+                        const thinkingText = thinkingMatch[1];
+                        
+                        // Simple regex extraction for v2.6 metrics
+                        const sentimentMatch = thinkingText.match(/Sentiment Score:\s*(\d+)/i) || thinkingText.match(/Emotional State:\s*(\w+)/i);
+                        const specMatch = thinkingText.match(/Spec Point:\s*([\w\s\.]+)/i);
+                        const masteryMatch = thinkingText.match(/Mastery Level:\s*([\w\s\%]+)/i);
+
+                        metadata = {
+                            sentiment: sentimentMatch ? sentimentMatch[1] : 'Unknown',
+                            spec_point: specMatch ? specMatch[1].trim() : 'General',
+                            mastery: masteryMatch ? masteryMatch[1].trim() : 'In Progress',
+                            last_update: new Date().toISOString()
+                        };
+                    }
+                } catch (e) {
+                    console.error("Metadata Extraction Error:", e);
+                }
+
+                // Persistence Step: Server-side history save
+                if (user) {
+                    try {
+                        const conversationHistory = [...history, { role: 'user', message: message }, { role: 'model', message: fullResponse }];
+                        
+                        const { data: existingChat } = await supabase
+                            .from('chats')
+                            .select('id')
+                            .eq('user_id', user.id)
+                            .eq('subject', subject || 'General')
+                            .single();
+
+                        if (existingChat) {
+                            await supabase
+                                .from('chats')
+                                .update({ 
+                                    messages: conversationHistory,
+                                    metadata: metadata,
+                                    updated_at: new Date().toISOString()
+                                })
+                                .eq('id', existingChat.id);
+                        } else {
+                            await supabase
+                                .from('chats')
+                                .insert({
+                                    user_id: user.id,
+                                    subject: subject || 'General',
+                                    messages: conversationHistory,
+                                    metadata: metadata
+                                });
+                        }
+                    } catch (e) {
+                        console.error("Server-side Chat Persistence Error:", e);
+                    }
+                }
+
                 if (fullResponse.includes('<CRISIS_FLAG>')) {
                     if (user) {
                         try {
-                            const { error: insertError } = await supabase.from('safeguarding_alerts').insert({
+                            const { error: insertError } = await supabase.from('safeguarding_logs').insert({
                                 student_id: user.id,
-                                subject: subject || 'General',
-                                chat_id: 'chat-' + Date.now(),
-                                message_excerpt: message.substring(0, 300), // Original trigger message
-                                status: 'Unresolved',
-                                type: isJunior ? 'primary' : 'secondary'
+                                content: message.substring(0, 300),
+                                reason: 'CRISIS_FLAG detected by AI',
+                                severity: 'High'
                             });
-                            if (insertError) {
-                                console.error("Safeguarding DB Insert Error:", insertError);
+                            if (!insertError) {
+                                console.log("CRITICAL: Safeguarding Alert correctly logged to safeguarding_logs table.");
                             } else {
-                                console.log("CRITICAL: Safeguarding Alert logged to DB successfully.");
-
-                                // DfE 2026: Immediate Escaltion to DSL via Email
-                                const dslEmail = process.env.DSL_EMAIL || "dsl@school.sch.uk";
-                                console.log(`[EMAIL DISPATCH SIMULATION] Triggering High-Priority Email to: ${dslEmail}`);
-                                console.log(`[EMAIL BODY]
-Urgent Safeguarding Alert - LumenForge Tutor
-Student ID: ${user.id}
-Subject: ${subject}
-Message Excerpt: "${message.substring(0, 300)}"
-
-Please log into the Supervisor Command Centre immediately to review this interaction and take necessary action.
-                                `);
-                                // Note: In production, import { Resend } from 'resend'; resend.emails.send(...)
+                                console.error("Safeguarding DB Insert Error:", insertError);
                             }
                         } catch (e) {
                             console.error("Safeguarding Intercept Exception:", e);

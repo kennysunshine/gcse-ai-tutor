@@ -79,7 +79,7 @@ export function Navbar() {
                         ) : (
                             <>
                                 <Link href="/" className="transition-colors hover:text-primary">Home</Link>
-                                {userRole === 'teacher' ? (
+                                {(userRole === 'teacher' || process.env.NODE_ENV !== 'production') ? (
                                     <Link href="/teacher" className="transition-colors hover:text-primary font-bold text-destructive">Supervisor Dashboard</Link>
                                 ) : (
                                     <Link href="/dashboard" className="transition-colors hover:text-primary">Subjects Dashboard</Link>
@@ -187,7 +187,7 @@ export function Navbar() {
                         ) : (
                             <>
                                 <Link href="/" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                                {userRole === 'teacher' ? (
+                                {(userRole === 'teacher' || process.env.NODE_ENV !== 'production') ? (
                                     <Link href="/teacher" className="text-lg font-medium p-2 hover:bg-muted rounded-md text-destructive" onClick={() => setIsMobileMenuOpen(false)}>Supervisor Dashboard</Link>
                                 ) : (
                                     <Link href="/dashboard" className="text-lg font-medium p-2 hover:bg-muted rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Subjects Dashboard</Link>

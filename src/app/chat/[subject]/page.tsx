@@ -18,8 +18,6 @@ type Message = {
     message: string
 }
 
-import { WellbeingWidget } from '@/components/WellbeingWidget'
-
 export default function ChatPage() {
     const params = useParams()
     const router = useRouter()
@@ -99,28 +97,66 @@ export default function ChatPage() {
         }
     }
 
-    // Auth check & Profile Fetch
+    // Auth check & Profile Fetch + Load Chat History
     useEffect(() => {
-        const checkUser = async () => {
-            const { data: { session } } = await supabase.auth.getSession()
-            if (!session) {
-                router.push('/login')
-            } else {
+        const checkUserAndLoadHistory = async () => {
+            try {
+                const { data: { session } } = await supabase.auth.getSession()
+                if (!session) {
+                    router.push('/login')
+                    return
+                }
+
                 setUser(session.user)
                 setIsPremium(session.user.user_metadata?.isPremium === true)
-                // Fetch Passions for the active session
-                const { data } = await supabase.from('profiles').select('passions').eq('id', session.user.id).single()
-                if (data?.passions) {
-                    setPassions(data.passions)
+                
+                // Load Intention from LocalStorage EARLY
+                const savedIntention = localStorage.getItem(`intention_${subjectSlug}`);
+                if (savedIntention) {
+                    setIntentionInput(savedIntention);
+                    setHasSetIntention(true);
                 }
+
+                // Fetch Passions
+                const { data: profile } = await supabase.from('profiles').select('passions').eq('id', session.user.id).single()
+                if (profile?.passions) {
+                    setPassions(profile.passions)
+                }
+
+                // Load Chat History (Use limit(1) instead of single() to avoid 406/PGRST116 errors on empty states)
+                const { data: chatData, error: chatError } = await supabase
+                    .from('chats')
+                    .select('messages')
+                    .eq('user_id', session.user.id)
+                    .eq('subject', currentSubject?.name)
+                    .order('updated_at', { ascending: false })
+                    .limit(1)
+                
+                if (chatError) {
+                    console.error("Chat Load Error:", chatError)
+                } else if (chatData && chatData.length > 0 && chatData[0].messages) {
+                    const savedMessages = chatData[0].messages
+                    if (savedMessages.length > 0) {
+                        setMessages(savedMessages)
+                        setHasSetIntention(true)
+                    }
+                }
+            } catch (err) {
+                console.error("Auth/History Load Exception:", err)
             }
         }
-        checkUser()
-    }, [router])
+        checkUserAndLoadHistory()
+    }, [router, currentSubject?.name, subjectSlug])
 
-    // Scroll to bottom on new message
+    // Smart Scroll: Auto-scroll instantly to prevent animation looping and scroll-locking
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+        const scrollArea = document.querySelector('[data-radix-scroll-area-viewport]');
+        if (scrollArea) {
+            const isAtBottom = scrollArea.scrollHeight - scrollArea.scrollTop <= scrollArea.clientHeight + 150;
+            if (isAtBottom || messages[messages.length - 1]?.role === 'user') {
+                messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
+            }
+        }
     }, [messages])
 
     const handleSend = async () => {
@@ -226,9 +262,7 @@ export default function ChatPage() {
                 ))}
             </div>
 
-            <div className="px-4 py-2">
-                <WellbeingWidget />
-            </div>
+
 
             <div className="mt-auto p-4">
                 <Link href="/dashboard">
@@ -371,7 +405,13 @@ export default function ChatPage() {
                             <p className="text-muted-foreground mb-8 text-[15px] leading-relaxed">
                                 Before we begin, set your focus for this session. Type a positive mantra (e.g., "I am being a Disruptor today", "I will embrace mistakes").
                             </p>
-                            <form onSubmit={(e) => { e.preventDefault(); if (intentionInput.trim()) setHasSetIntention(true); }} className="space-y-4">
+                            <form onSubmit={(e) => { 
+                                e.preventDefault(); 
+                                if (intentionInput.trim()) {
+                                    setHasSetIntention(true);
+                                    localStorage.setItem(`intention_${subjectSlug}`, intentionInput.trim());
+                                } 
+                            }} className="space-y-4">
                                 <Input
                                     placeholder="Enter your mantra..."
                                     className="text-center py-6 text-lg rounded-xl bg-slate-50 dark:bg-muted border-slate-200 dark:border-slate-700"
@@ -411,17 +451,7 @@ export default function ChatPage() {
                                     let isCrisis = false;
                                     let isEliteLocked = false;
 
-                                    if (msg.role === 'model' && msg.message.includes('<thinking>')) {
-                                        const startIdx = msg.message.indexOf('<thinking>') + 10;
-                                        const endIdx = msg.message.indexOf('</thinking>');
-                                        if (endIdx !== -1) {
-                                            thinking = msg.message.substring(startIdx, endIdx).trim();
-                                            displayMessage = msg.message.substring(endIdx + 11).trim();
-                                        } else {
-                                            thinking = msg.message.substring(startIdx).trim();
-                                            displayMessage = ''; // Still streaming the thinking block
-                                        }
-                                    }
+                                    // The thinking block is safely scrubbed on the backend, so we only receive the pure student response.
 
                                     if (displayMessage.includes('<CRISIS_FLAG>')) {
                                         isCrisis = true;
@@ -470,24 +500,7 @@ export default function ChatPage() {
                                                         </div>
                                                     </div>
                                                 )}
-                                                {thinking && (
-                                                    <details className="mb-2 text-xs bg-background/50 rounded p-2 border border-border/50">
-                                                        <summary className="cursor-pointer font-semibold text-muted-foreground hover:text-foreground transition-colors outline-none">
-                                                            🧠 View Tutor's Thinking Process
-                                                        </summary>
-                                                        <div className="mt-2 text-muted-foreground whitespace-pre-wrap font-mono">
-                                                            {thinking}
-                                                        </div>
-                                                    </details>
-                                                )}
                                                 {displayMessage && <span className="whitespace-pre-wrap">{displayMessage}</span>}
-                                                {!displayMessage && thinking && (
-                                                    <div className="animate-pulse flex items-center h-4 mt-2">
-                                                        <span className="w-1 h-1 bg-primary/50 rounded-full mx-0.5 animate-bounce"></span>
-                                                        <span className="w-1 h-1 bg-primary/50 rounded-full mx-0.5 animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                                                        <span className="w-1 h-1 bg-primary/50 rounded-full mx-0.5 animate-bounce" style={{ animationDelay: '0.4s' }}></span>
-                                                    </div>
-                                                )}
                                             </div>
                                         </div>
                                     );

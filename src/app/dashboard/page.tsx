@@ -14,14 +14,6 @@ import { Flame, User, Award, BookOpen } from 'lucide-react'
 import { Progress } from "@/components/ui/progress"
 import { Target } from 'lucide-react'
 import { PhaseBModal } from '@/components/PhaseBModal'
-import { WellbeingWidget } from '@/components/WellbeingWidget'
-
-// Dummy efficacy data correlating practice scores to Target Grades
-const efficacyData: Record<string, { targetGrade: number, currentMastery: number, projectedGrade: number }> = {
-    "maths": { targetGrade: 8, currentMastery: 72, projectedGrade: 7 },
-    "english-language": { targetGrade: 6, currentMastery: 85, projectedGrade: 7 },
-    "biology": { targetGrade: 7, currentMastery: 40, projectedGrade: 5 }
-}
 
 export default function DashboardPage() {
     const router = useRouter()
@@ -83,13 +75,8 @@ export default function DashboardPage() {
                     <h1 className="text-3xl font-bold">Welcome back, {firstName}</h1>
                     <p className="text-muted-foreground">Ready to master your KS2 & GCSE subjects today?</p>
                 </div>
-                <div className="flex items-center gap-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-4 py-2 rounded-full font-bold">
-                    <Flame className="fill-current" />
-                    <span>3 Day Streak</span>
-                </div>
-            </div>
 
-            <WellbeingWidget />
+            </div>
 
             {/* Profile Summary Card */}
             <Card className="border-primary/20 bg-muted/30">

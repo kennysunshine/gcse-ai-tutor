@@ -93,26 +93,76 @@ export default function LibraryPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-24">
 
-      {/* Hero Header */}
-      <section className="bg-slate-900 text-white pt-24 pb-16 px-4 md:px-8 border-b-4 border-amber-500">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold mb-6 tracking-widest uppercase">
-            <Anchor className="w-4 h-4" /> Sovereign Library
+      {/* Hero Header + Full Article */}
+      <section className="bg-slate-900 text-white pt-24 pb-20 px-4 md:px-8 border-b-4 border-amber-500">
+        <div className="max-w-3xl mx-auto">
+
+          {/* Badge + Headline */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold mb-6 tracking-widest uppercase">
+              <Anchor className="w-4 h-4" /> Sovereign Library
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+              The Billionaire's Cheat Code
+            </h1>
+            <p className="text-xl md:text-2xl text-amber-400 font-semibold italic">
+              Why the World's Most Powerful People Are "Obsessive" Readers
+            </p>
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-            The Billionaire's Cheat Code
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
-            You are operating in an age of infinite leverage. The fastest way to compress time and bypass decades of trial-and-error is to download the operating systems of those who have already dominated the battlefield.
-            <br /><br />
-            This is not a list of casual reading; this is the <strong>Foundry Canon</strong>. Treat these texts as software updates for your biological hard drive.
-          </p>
-          <button
-            onClick={scrollToIndex}
-            className="mt-10 inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wider"
-          >
-            Browse all {allBooks.length} books <ChevronDown className="w-4 h-4 animate-bounce" />
-          </button>
+
+          {/* Article Body */}
+          <div className="prose prose-invert prose-lg max-w-none text-slate-300 space-y-6 leading-relaxed">
+            <p>
+              If you want to know the secret to the success of people like Elon Musk, Warren Buffett, or even the mentors who changed my life in the USA, it isn't <em>"luck."</em> It's a habit.
+            </p>
+            <p>
+              Warren Buffett famously spends <strong className="text-white">80% of his day reading</strong>. When asked how he learned to build rockets, Elon Musk's answer was simple: <em>"I read books."</em>
+            </p>
+
+            <h2 className="text-2xl font-extrabold text-white pt-4 border-t border-slate-700">The Knowledge Compound Effect</h2>
+            <p>
+              Think of reading like an investment. Most people stop learning the day they leave school. If you keep reading, you aren't just getting "smarter" — you are <strong className="text-amber-400">compounding your value</strong>. A book allows you to "download" 30 years of someone else's failures and successes in just 5 hours. You are literally skipping the mistakes they spent decades making.
+            </p>
+
+            <h2 className="text-2xl font-extrabold text-white pt-4 border-t border-slate-700">How to Become a Sovereign Reader</h2>
+            <p>You don't need to read 100 pages a day to start. Being a <strong className="text-white">"Sovereign Reader"</strong> means you choose what you learn.</p>
+
+            <ul className="space-y-4 list-none pl-0">
+              <li className="flex gap-3 items-start">
+                <span className="text-amber-400 font-black text-xl mt-0.5">→</span>
+                <span><strong className="text-white">Read what you love until you love to read:</strong> Don't start with dry textbooks. Start with a book that solves a problem you have right now — like how to make money or how to build a habit.</span>
+              </li>
+              <li className="flex gap-3 items-start">
+                <span className="text-amber-400 font-black text-xl mt-0.5">→</span>
+                <span><strong className="text-white">The 10-Minute Rule:</strong> Commit to just 10 minutes every morning. That is 60 hours of high-level mentorship a year.</span>
+              </li>
+              <li className="flex gap-3 items-start">
+                <span className="text-amber-400 font-black text-xl mt-0.5">→</span>
+                <span><strong className="text-white">Read with a Question:</strong> Don't just scan the pages. Ask, <em>"How can I use this in my life today?"</em></span>
+              </li>
+            </ul>
+
+            <div className="mt-10 p-6 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center">
+              <p className="text-lg font-bold text-amber-300 italic leading-relaxed">
+                "In the Foundry, we don't just read for grades. We read for power, for freedom, and to forge a future that others think is impossible."
+              </p>
+            </div>
+
+            <p className="text-slate-400 text-base">
+              This is not a list of casual reading; this is the <strong className="text-white">Foundry Canon</strong>. Treat these texts as software updates for your biological hard drive.
+            </p>
+          </div>
+
+          {/* Scroll CTA */}
+          <div className="text-center mt-14">
+            <button
+              onClick={scrollToIndex}
+              className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wider"
+            >
+              Browse all {allBooks.length} books <ChevronDown className="w-4 h-4 animate-bounce" />
+            </button>
+          </div>
+
         </div>
       </section>
 

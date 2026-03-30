@@ -57,29 +57,65 @@ Task: Write a highly personalized "Brilliance Briefing" (max 2 sentences).
             return NextResponse.json({ error: "Database error" }, { status: 500 });
         }
 
-        // Implicitly update progress streak
+        // Update progress streak
         const today = new Date().toISOString().split('T')[0];
         const { data: existingProgress } = await supabase
             .from('progress')
             .select('*')
-            .eq('user_id', user.id)
+            .eq('user_id', user?.id)
             .eq('subject', subject || 'General')
-            .single();
+            .maybeSingle();
 
         if (existingProgress) {
             if (existingProgress.last_study_date !== today) {
                 await supabase.from('progress').update({
-                    streak_count: existingProgress.streak_count + 1,
+                    streak_count: (existingProgress.streak_count || 0) + 1,
                     last_study_date: today
                 }).eq('id', existingProgress.id);
             }
         } else {
             await supabase.from('progress').insert({
-                user_id: user.id,
+                user_id: user?.id,
                 subject: subject || 'General',
                 streak_count: 1,
                 last_study_date: today
             });
+        }
+
+        // Award 5 Lumens for Exit Ticket
+        try {
+            const { data: existingLumens } = await supabase
+                .from('student_lumens')
+                .select('*')
+                .eq('student_id', user?.id)
+                .maybeSingle();
+
+            if (existingLumens) {
+                const isConsecutive = existingLumens.last_active_date === 
+                    new Date(Date.now() - 86400000).toISOString().split('T')[0];
+                const newStreak = (existingLumens.last_active_date === today) 
+                    ? existingLumens.streak_days 
+                    : (isConsecutive ? (existingLumens.streak_days || 0) + 1 : 1);
+                
+                await supabase
+                    .from('student_lumens')
+                    .update({
+                        lumens: (existingLumens.lumens || 0) + 5,
+                        streak_days: newStreak,
+                        last_active_date: today,
+                        updated_at: new Date().toISOString()
+                    })
+                    .eq('student_id', user?.id);
+            } else {
+                await supabase.from('student_lumens').insert({
+                    student_id: user?.id,
+                    lumens: 5,
+                    streak_days: 1,
+                    last_active_date: today
+                });
+            }
+        } catch (e) {
+            console.error("Lumen award error in exit ticket:", e);
         }
 
         return NextResponse.json({

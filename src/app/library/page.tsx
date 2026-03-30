@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { BookOpen, TrendingUp, Compass, Anchor, AlertCircle, ChevronDown } from 'lucide-react'
+import { BookOpen, TrendingUp, Compass, Anchor, AlertCircle, ChevronDown, Zap } from 'lucide-react'
 import booksDataRaw from '@/data/books.json'
 
 type Book = {
@@ -60,11 +60,17 @@ function BookCard({ book }: { book: Book }) {
           </div>
         )}
 
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-4 flex flex-col gap-2">
           <Link href={book.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored" className="w-full block">
             <Button size="lg" className="w-full font-bold uppercase tracking-wider shadow-lg bg-orange-500 hover:bg-orange-600 text-white rounded-xl">
               <BookOpen className="w-4 h-4 mr-2" />
               Access on Amazon
+            </Button>
+          </Link>
+          <Link href={'/book-review/' + book.id} className="w-full block">
+            <Button size="lg" variant="outline" className="w-full font-bold uppercase tracking-wider rounded-xl border-amber-500/50 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10">
+              <Zap className="w-4 h-4 mr-2" />
+              Start Mastery Session
             </Button>
           </Link>
         </div>

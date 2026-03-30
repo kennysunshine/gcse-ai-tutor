@@ -131,3 +131,67 @@ create table safeguarding_logs (
 alter table safeguarding_logs enable row level security;
 create policy "Only backend can insert logs, teachers can view." on safeguarding_logs
   for select using (auth.role() = 'authenticated');
+
+-- ============================================================
+-- SOVEREIGN LIBRARY GAMIFICATION TABLES
+-- ============================================================
+
+-- Book Mastery Sessions: records when a student completes a Mastery Session
+create table book_mastery (
+  id uuid default gen_random_uuid() primary key,
+  student_id uuid references auth.users not null,
+  book_id text not null,
+  book_title text not null,
+  completed_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  lumens_awarded integer default 50
+);
+
+alter table book_mastery enable row level security;
+
+create policy "Students can view own mastery." on book_mastery
+  for select using (auth.uid() = student_id);
+create policy "Students can insert own mastery." on book_mastery
+  for insert with check (auth.uid() = student_id);
+create policy "Teachers can view all mastery." on book_mastery
+  for select using (auth.role() = 'authenticated');
+
+-- Student Lumens: total Lumen balance per student
+create table student_lumens (
+  id uuid default gen_random_uuid() primary key,
+  student_id uuid references auth.users not null unique,
+  lumens integer default 0,
+  streak_days integer default 0,
+  last_active_date date,
+  updated_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+alter table student_lumens enable row level security;
+
+create policy "Students can view own lumens." on student_lumens
+  for select using (auth.uid() = student_id);
+create policy "Students can insert own lumens." on student_lumens
+  for insert with check (auth.uid() = student_id);
+create policy "Students can update own lumens." on student_lumens
+  for update using (auth.uid() = student_id);
+create policy "Teachers can view all lumens." on student_lumens
+  for select using (auth.role() = 'authenticated');
+
+-- Student Badges: earned book badges
+create table student_badges (
+  id uuid default gen_random_uuid() primary key,
+  student_id uuid references auth.users not null,
+  badge_id text not null,
+  badge_name text not null,
+  badge_image_url text,
+  earned_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  unique(student_id, badge_id)
+);
+
+alter table student_badges enable row level security;
+
+create policy "Students can view own badges." on student_badges
+  for select using (auth.uid() = student_id);
+create policy "Students can insert own badges." on student_badges
+  for insert with check (auth.uid() = student_id);
+create policy "Teachers can view all badges." on student_badges
+  for select using (auth.role() = 'authenticated');

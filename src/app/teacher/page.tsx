@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { AlertTriangle, Users, BookOpen, BrainCircuit, ShieldCheck, Eye, Target, Grid } from 'lucide-react'
+import { AlertTriangle, Users, BookOpen, BrainCircuit, ShieldCheck, Eye, Target, Grid, Flame } from 'lucide-react'
 import {
     Table,
     TableBody,
@@ -54,6 +54,31 @@ export default function TeacherDashboard() {
     const [isLoading, setIsLoading] = useState(true);
     const [isApproving, setIsApproving] = useState<string | null>(null);
 
+    interface StudentEngagement {
+        id: string;
+        name: string;
+        lumens: number;
+        streak: number;
+        rank: string;
+        recent_books: string[];
+    }
+
+    const [engagement, setEngagement] = useState<StudentEngagement[]>([]);
+
+    const FOUNDRY_RANKS = [
+        { name: 'Initiate',    min: 0 },
+        { name: 'Scholar',     min: 100 },
+        { name: 'Apprentice',  min: 300 },
+        { name: 'Journeyman',  min: 700 },
+        { name: 'Artisan',     min: 1500 },
+        { name: 'Sovereign',   min: 3000 },
+        { name: 'Luminary',    min: 6000 },
+    ]
+
+    function getRankName(lumens: number) {
+        return [...FOUNDRY_RANKS].reverse().find(r => lumens >= r.min)?.name || 'Initiate';
+    }
+
     useEffect(() => {
         const fetchDashboardData = async () => {
             setIsLoading(true);
@@ -81,20 +106,52 @@ export default function TeacherDashboard() {
                     setAlerts(mappedAlerts);
                 }
 
+                // Fetch Library Engagement Data
+                const { data: lumensData } = await supabase
+                    .from('student_lumens')
+                    .select('student_id, lumens, streak_days, profiles(full_name)');
+                
+                const { data: masteryData } = await supabase
+                    .from('book_mastery')
+                    .select('student_id, book_title, created_at')
+                    .order('created_at', { ascending: false });
+
+                if (lumensData) {
+                    const engagementMap: Record<string, StudentEngagement> = {};
+                    lumensData.forEach((l: any) => {
+                        engagementMap[l.student_id] = {
+                            id: l.student_id,
+                            name: l.profiles?.full_name || 'Unknown',
+                            lumens: l.lumens || 0,
+                            streak: l.streak_days || 0,
+                            rank: getRankName(l.lumens || 0),
+                            recent_books: []
+                        };
+                    });
+
+                    if (masteryData) {
+                        masteryData.forEach((m: any) => {
+                            if (engagementMap[m.student_id] && engagementMap[m.student_id].recent_books.length < 3) {
+                                engagementMap[m.student_id].recent_books.push(m.book_title);
+                            }
+                        });
+                    }
+                    setEngagement(Object.values(engagementMap).sort((a, b) => b.lumens - a.lumens));
+                }
+
                 // Fetch Curriculum Mastery (Aggregated by Topic)
-                const { data: masteryData, error: masteryError } = await supabase
+                const { data: currMasteryData, error: masteryError } = await supabase
                     .from('curriculum_mastery')
                     .select('*');
 
-                if (!masteryError && masteryData && masteryData.length > 0) {
-                    // Just an example mapping, in reality you'd aggregate scores
-                    const primary = masteryData.filter(m => m.tier === 'primary').map(m => ({
+                if (!masteryError && currMasteryData && currMasteryData.length > 0) {
+                    const primary = currMasteryData.filter(m => m.tier === 'primary').map(m => ({
                         topic: `${m.subject}: ${m.topic_id}`,
                         mastery: m.mastery_score,
                         target: m.target_score,
                         trend: 'flat'
                     }));
-                    const secondary = masteryData.filter(m => m.tier === 'secondary').map(m => ({
+                    const secondary = currMasteryData.filter(m => m.tier === 'secondary').map(m => ({
                         topic: `${m.subject}: ${m.topic_id}`,
                         mastery: m.mastery_score,
                         target: m.target_score,
@@ -102,10 +159,6 @@ export default function TeacherDashboard() {
                     }));
                     setEfficacyDataPrimary(primary);
                     setEfficacyDataSecondary(secondary);
-                } else {
-                    // Fallback to empty if no live data
-                    setEfficacyDataPrimary([]);
-                    setEfficacyDataSecondary([]);
                 }
 
                 // Fetch Scholarship Applications
@@ -311,6 +364,76 @@ export default function TeacherDashboard() {
                         </CardFooter>
                     </Card>
                 </div>
+
+                {/* Library Engagement & Mastery */}
+                <Card className="mb-6 flex flex-col border-amber-500/20 shadow-sm shadow-amber-500/10">
+                    <CardHeader className="bg-amber-500/5 border-b">
+                        <CardTitle className="flex items-center gap-2 text-amber-600">
+                            <BookOpen className="h-5 w-5" />
+                            Library Engagement & Sovereign Mastery
+                        </CardTitle>
+                        <CardDescription>
+                            Tracking student progress through the Sovereign Canon and Lumen accumulation.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Student</TableHead>
+                                    <TableHead>Foundry Rank</TableHead>
+                                    <TableHead>Lumens</TableHead>
+                                    <TableHead>Habit Streak</TableHead>
+                                    <TableHead>Recently Mastered</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {engagement.length === 0 ? (
+                                    <TableRow>
+                                        <TableCell colSpan={5} className="text-center py-6 text-muted-foreground">No library engagement data yet.</TableCell>
+                                    </TableRow>
+                                ) : (
+                                    engagement.map((student) => (
+                                        <TableRow key={student.id}>
+                                            <TableCell className="font-bold">{student.name}</TableCell>
+                                            <TableCell>
+                                                <Badge variant="outline" className={`
+                                                    ${student.rank === 'Luminary' ? 'bg-purple-100 text-purple-700 border-purple-200' : 
+                                                      student.rank === 'Sovereign' ? 'bg-amber-100 text-amber-700 border-amber-200' : 
+                                                      'bg-slate-100 text-slate-700'}
+                                                `}>
+                                                    {student.rank}
+                                                </Badge>
+                                            </TableCell>
+                                            <TableCell className="font-medium text-amber-600">
+                                                {student.lumens.toLocaleString()} L
+                                            </TableCell>
+                                            <TableCell>
+                                                <div className="flex items-center gap-1.5">
+                                                    <Flame className={`h-4 w-4 ${student.streak > 0 ? 'text-orange-500 animate-pulse' : 'text-slate-300'}`} />
+                                                    <span className="font-bold">{student.streak} days</span>
+                                                </div>
+                                            </TableCell>
+                                            <TableCell>
+                                                <div className="flex flex-wrap gap-1">
+                                                    {student.recent_books.length > 0 ? (
+                                                        student.recent_books.map((book, i) => (
+                                                            <Badge key={i} variant="secondary" className="text-[10px] py-0 px-1.5 h-5 bg-slate-100 text-slate-600 border-slate-200">
+                                                                {book}
+                                                            </Badge>
+                                                        ))
+                                                    ) : (
+                                                        <span className="text-[10px] text-muted-foreground italic">No books mastered yet</span>
+                                                    )}
+                                                </div>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))
+                                )}
+                            </TableBody>
+                        </Table>
+                    </CardContent>
+                </Card>
 
                 {/* Foundry Scholars Management */}
                 <Card className="mb-6 flex flex-col">

@@ -21,6 +21,7 @@ export default function DashboardPage() {
     const [user, setUser] = useState<any>(null)
     const [profile, setProfile] = useState<any>(null)
     const [masteryData, setMasteryData] = useState<Record<string, number>>({})
+    const [lumensData, setLumensData] = useState<any>(null)
 
     useEffect(() => {
         const checkUser = async () => {
@@ -31,12 +32,14 @@ export default function DashboardPage() {
                 setUser(session.user)
 
                 // Concurrent fetching for better performance
-                const [profileRes, masteryRes] = await Promise.all([
+                const [profileRes, masteryRes, lumensRes] = await Promise.all([
                     supabase.from('profiles').select('*').eq('id', session.user.id).single(),
-                    supabase.from('curriculum_mastery').select('subject, mastery_score').eq('student_id', session.user.id)
+                    supabase.from('curriculum_mastery').select('subject, mastery_score').eq('student_id', session.user.id),
+                    supabase.from('student_lumens').select('*').eq('student_id', session.user.id).maybeSingle()
                 ])
 
                 if (profileRes.data) setProfile(profileRes.data)
+                if (lumensRes.data) setLumensData(lumensRes.data)
 
                 if (masteryRes.data) {
                     // Aggregate mastery scores by subject
@@ -65,6 +68,24 @@ export default function DashboardPage() {
 
     if (!user) return null
 
+    // Foundry Ranks (matching implementation_plan.md)
+    const FOUNDRY_RANKS = [
+        { name: 'Initiate',    min: 0 },
+        { name: 'Scholar',     min: 100 },
+        { name: 'Apprentice',  min: 300 },
+        { name: 'Journeyman',  min: 700 },
+        { name: 'Artisan',     min: 1500 },
+        { name: 'Sovereign',   min: 3000 },
+        { name: 'Luminary',    min: 6000 },
+    ]
+
+    const currentLumens = lumensData?.lumens || 0
+    const rank = [...FOUNDRY_RANKS].reverse().find(r => currentLumens >= r.min) || FOUNDRY_RANKS[0]
+    const nextRank = FOUNDRY_RANKS.find(r => r.min > currentLumens) || null
+    const rankProgress = nextRank 
+        ? ((currentLumens - rank.min) / (nextRank.min - rank.min)) * 100 
+        : 100
+
     // Extract first name robustly
     const firstName = profile?.full_name?.trim().split(/\s+/)[0] || 'Scholar'
 
@@ -76,51 +97,88 @@ export default function DashboardPage() {
                     <p className="text-muted-foreground">Ready to master your KS2 & GCSE subjects today?</p>
                 </div>
 
-            </div>
-
-            {/* Profile Summary Card */}
-            <Card className="border-primary/20 bg-muted/30">
-                <CardContent className="p-6 flex flex-col md:flex-row gap-6 items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className="bg-primary/10 p-4 rounded-full">
-                            <User className="h-8 w-8 text-primary" />
-                        </div>
-                        <div>
-                            <div className="flex items-center gap-2 mb-1">
-                                <h3 className="text-lg font-bold">Student Profile</h3>
-                                {user?.user_metadata?.isPremium ? (
-                                    <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">
-                                        Elite Tier
-                                    </span>
-                                ) : (
-                                    <span className="bg-muted-foreground/20 text-muted-foreground text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                                        Standard Tier
-                                    </span>
-                                )}
-                            </div>
-                            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mt-2">
-                                <span className="flex items-center gap-1"><BookOpen className="h-3 w-3" /> {profile?.year_group || 'Year Not Set'}</span>
-                                <span className="flex items-center gap-1"><Award className="h-3 w-3" /> {profile?.exam_board || 'No Board Set'}</span>
-                                <span className="flex items-center gap-1">
-                                    <Target className="h-3 w-3" />
-                                    Target: {profile?.target_grade ? (
-                                        <span className="text-foreground font-semibold">{profile.target_grade}</span>
-                                    ) : (
-                                        <Link href="/settings/profile" className="text-primary hover:underline flex items-center gap-1">
-                                            Set your goal →
-                                        </Link>
-                                    )}
-                                </span>
-                            </div>
+                <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-xl">
+                        <Flame className="h-5 w-5 text-amber-500 animate-pulse" />
+                        <div className="text-sm">
+                            <p className="font-bold text-amber-500 leading-tight">{lumensData?.streak_days || 0} Day Streak</p>
+                            <p className="text-[10px] text-amber-600/70 font-semibold uppercase tracking-widest">Sovereign Habit</p>
                         </div>
                     </div>
-                    {user?.user_metadata?.isPremium && profile?.year_group && (
-                        <div className="text-sm bg-primary/10 text-primary px-4 py-2 rounded-lg border border-primary/20 flex-shrink-0">
-                            <strong>Active Framework:</strong> {profile.year_group.includes('Year 6') || profile.year_group.includes('KS2') ? 'Junior Foundry Socratic Mentor' : 'Elite GCSE Mentor'}
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Rank & Lumens Card */}
+                <Card className="lg:col-span-2 border-amber-500/20 bg-gradient-to-br from-slate-900 to-slate-950 overflow-hidden relative group">
+                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <Award className="h-40 w-40 text-amber-500 rotate-12" />
+                    </div>
+                    <CardContent className="p-8 relative z-10">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                            <div className="space-y-2">
+                                <p className="text-amber-500 font-bold uppercase tracking-[0.2em] text-xs">Current Foundry Rank</p>
+                                <h2 className="text-4xl font-black text-white tracking-tight">{rank.name}</h2>
+                                <div className="flex items-center gap-4 pt-2">
+                                    <div className="bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30 flex items-center gap-2">
+                                        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                                        <span className="text-amber-400 font-bold text-sm">{currentLumens.toLocaleString()} Lumens</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="w-full md:w-64 space-y-3">
+                                <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-400">
+                                    <span>Progress to {nextRank?.name || 'Max Rank'}</span>
+                                    <span>{Math.round(rankProgress)}%</span>
+                                </div>
+                                <div className="h-3 w-full bg-slate-800 rounded-full overflow-hidden border border-slate-700 p-0.5">
+                                    <div 
+                                        className="h-full bg-gradient-to-r from-amber-600 to-amber-400 rounded-full transition-all duration-1000 ease-out" 
+                                        style={{ width: `${rankProgress}%` }}
+                                    />
+                                </div>
+                                <p className="text-[10px] text-slate-500 font-medium italic text-right">
+                                    {nextRank ? `${(nextRank.min - currentLumens).toLocaleString()} Lumens until ${nextRank.name}` : 'Highest Rank Achieved'}
+                                </p>
+                            </div>
                         </div>
-                    )}
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
+
+                {/* Profile Snapshot */}
+                <Card className="border-primary/20 bg-muted/30">
+                    <CardContent className="p-8 flex flex-col h-full justify-center">
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="bg-primary/10 p-3 rounded-xl">
+                                <User className="h-6 w-6 text-primary" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-white leading-tight">Student Profile</h3>
+                                {user?.user_metadata?.isPremium ? (
+                                    <span className="text-[10px] font-black uppercase text-amber-500 tracking-tighter">Elite Tier Member</span>
+                                ) : (
+                                    <span className="text-[10px] font-bold uppercase text-slate-500">Standard Tier</span>
+                                )}
+                            </div>
+                        </div>
+                        <div className="space-y-3 text-sm border-t border-slate-800 pt-4">
+                            <div className="flex justify-between">
+                                <span className="text-slate-500">Year Group</span>
+                                <span className="font-bold text-slate-200">{profile?.year_group || 'Not set'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-slate-500">Exam Board</span>
+                                <span className="font-bold text-slate-200">{profile?.exam_board || 'Not set'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-slate-500">Target Grade</span>
+                                <span className="font-bold text-primary">{profile?.target_grade || 'Not set'}</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
 
             <div className="space-y-4">
                 <h2 className="text-xl font-semibold flex items-center gap-2">

@@ -6,7 +6,13 @@
     "affiliateUrl": "https://amzn.to/4uYv3yT",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781401952020-L.jpg",
     "summary": "Discover the six deliberate habits that successful people practice consistently. Stop relying on natural talent and start engineering peak performance. This framework turns ambition into repeatable success.",
-    "foundersNote": "A complete mental operating system for elite output."
+    "foundersNote": "A complete mental operating system for elite output.",
+    "coreThemes": [
+      "HP6 habits",
+      "necessity psychology",
+      "prolific quality output",
+      "progressive mastery"
+    ]
   },
   {
     "id": "1544512279",
@@ -15,7 +21,13 @@
     "affiliateUrl": "https://amzn.to/4sRMek4",
     "imageUrl": "https://m.media-amazon.com/images/P/1544512279.01._SCLZZZZZZZ_.jpg",
     "summary": "A brutal, uncompromising look into mastering your own mind and breaking through assumed limitations. Learn the 40% rule: when your mind tells you you're done, you're only 40% done. Transform pain and suffering into an unstoppable edge.",
-    "foundersNote": "Mandatory reading for destroying self-pity and building extreme resilience."
+    "foundersNote": "Mandatory reading for destroying self-pity and building extreme resilience.",
+    "coreThemes": [
+      "40% rule",
+      "callus the mind",
+      "accountability mirror",
+      "cookie jar method"
+    ]
   },
   {
     "id": "B07PRDP4Y6",
@@ -24,7 +36,13 @@
     "affiliateUrl": "https://amzn.to/4bTBDxN",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781936891023-L.jpg",
     "summary": "Identify, confront, and conquer the ultimate enemy of creativity: Resistance. Understand why you continually procrastinate on your most important goals. Unlock the discipline needed to go from amateur to unquestioned professional.",
-    "foundersNote": "The definitive guide on beating procrastination and shipping your work."
+    "foundersNote": "The definitive guide on beating procrastination and shipping your work.",
+    "coreThemes": [
+      "Resistance",
+      "turning pro",
+      "amateur vs professional",
+      "shipping creative work"
+    ]
   },
   {
     "id": "B08KFHLK6F",
@@ -33,7 +51,13 @@
     "affiliateUrl": "https://amzn.to/4tBNurV",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781476714165-L.jpg",
     "summary": "Enter the minds of legendary athletes like Michael Jordan and Kobe Bryant. Learn the difference between 'Coolers', 'Closers', and 'Cleaners'. Stop overthinking your performance and learn to trust your darkest instincts to win.",
-    "foundersNote": "Unapologetic strategy on what it actually takes to be the absolute best."
+    "foundersNote": "Unapologetic strategy on what it actually takes to be the absolute best.",
+    "coreThemes": [
+      "Cleaner mindset",
+      "instinct over thinking",
+      "dark side of drive",
+      "never satisfied"
+    ]
   },
   {
     "id": "B01D0JE7KQ",
@@ -42,7 +66,13 @@
     "affiliateUrl": "https://amzn.to/3NNNjdK",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9780349411903-L.jpg",
     "summary": "Master the rare, highly valuable skill of focusing without distraction on demanding tasks. Discover why 'shallow work' like emails and notifications are eroding your cognitive capabilities. Rebuild your attention span to produce elite-level results.",
-    "foundersNote": "Essential for students in the age of AI distraction. Unmatched focus."
+    "foundersNote": "Essential for students in the age of AI distraction. Unmatched focus.",
+    "coreThemes": [
+      "deliberate practice",
+      "distraction economy",
+      "deep vs shallow work",
+      "attention residue"
+    ]
   },
   {
     "id": "B002SQFA5Y",
@@ -51,7 +81,13 @@
     "affiliateUrl": "https://amzn.to/4sGPuib",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781846041242-L.jpg",
     "summary": "A profound psychological exploration of finding purpose in the absolute darkest of circumstances. Understand that while you cannot control what happens to you, you always control your reaction. Learn why he who has a 'why' to live for can bear almost any 'how'.",
-    "foundersNote": "The ultimate psychological framework on resilience and purpose."
+    "foundersNote": "The ultimate psychological framework on resilience and purpose.",
+    "coreThemes": [
+      "logotherapy",
+      "choosing your response",
+      "meaning in suffering",
+      "existential vacuum"
+    ]
   },
   {
     "id": "B00WYRC0L4",
@@ -60,7 +96,13 @@
     "affiliateUrl": "https://amzn.to/4uYnPL9",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781861977045-L.jpg",
     "summary": "A ruthless and highly pragmatic manual on the invisible dynamics of human control. Study 3,000 years of history to understand how power is acquired, protected, and lost. Learn to defend yourself against manipulators by understanding their playbooks.",
-    "foundersNote": "Observe human nature objectively instead of ideally."
+    "foundersNote": "Observe human nature objectively instead of ideally.",
+    "coreThemes": [
+      "power dynamics",
+      "court politics",
+      "strategic concealment",
+      "law of the court"
+    ]
   },
   {
     "id": "B074B28CXV",
@@ -69,7 +111,13 @@
     "affiliateUrl": "https://amzn.to/4del2Hz",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781501124020-L.jpg",
     "summary": "Extract the exact algorithms that built one of the most successful hedge funds in history. Implement 'radical transparency' and embrace the pain of making mistakes as a learning vehicle. Systematize your life decisions so you aren't reliant on temporary emotions.",
-    "foundersNote": "Build a machine-like logic for tackling complex decisions."
+    "foundersNote": "Build a machine-like logic for tackling complex decisions.",
+    "coreThemes": [
+      "radical transparency",
+      "idea meritocracy",
+      "pain + reflection = progress",
+      "believability weighting"
+    ]
   },
   {
     "id": "B08SBFVM4T",
@@ -78,7 +126,13 @@
     "affiliateUrl": "https://amzn.to/4lZKYc1",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9781250183866-L.jpg",
     "summary": "Learn combat-tested leadership principles from Navy SEAL commanders. Stop blaming external factors, subordinates, or bad luck for failure. Realize that true authority only comes when you take absolute, uncompromising responsibility for everything.",
-    "foundersNote": "If it fails, it's your fault. That mindset is ultimate freedom."
+    "foundersNote": "If it fails, it's your fault. That mindset is ultimate freedom.",
+    "coreThemes": [
+      "no bad teams only bad leaders",
+      "decentralised command",
+      "cover and move",
+      "simplicity in planning"
+    ]
   },
   {
     "id": "0008449031",
@@ -87,7 +141,13 @@
     "affiliateUrl": "https://amzn.to/3O9xQ7O",
     "imageUrl": "https://m.media-amazon.com/images/P/0008449031.01._SCLZZZZZZZ_.jpg",
     "summary": "Take aggressive control of your mornings to outpace your competition. Install the 20/20/20 formula to balance exercise, reflection, and learning before the sun rises. Protect your cognitive bandwidth by owning the first hours of your day.",
-    "foundersNote": "Win the morning to win the day. Elite routine structure."
+    "foundersNote": "Win the morning to win the day. Elite routine structure.",
+    "coreThemes": [
+      "20/20/20 formula",
+      "twin cycles of elite performance",
+      "owning the morning",
+      "habit installation protocol"
+    ]
   },
   {
     "id": "B0BSFWPS9S",
@@ -96,7 +156,13 @@
     "affiliateUrl": "https://amzn.to/486uidh",
     "imageUrl": "https://m.media-amazon.com/images/P/B0BSFWPS9S.01._SCLZZZZZZZ_.jpg",
     "summary": "The timeless masterclass on how to actually sell products instead of just looking creative. Learn the raw psychology behind hooks, headlines, and undeniable copy. Understand the consumer's deep desires to craft offers they cannot refuse.",
-    "foundersNote": "The underlying psychology of the 'Hook'. Essential marketing canon."
+    "foundersNote": "The underlying psychology of the 'Hook'. Essential marketing canon.",
+    "coreThemes": [
+      "research before creativity",
+      "the big idea",
+      "long copy principle",
+      "consumer as intelligent adult"
+    ]
   },
   {
     "id": "B01A6DJD7Q",
@@ -105,7 +171,13 @@
     "affiliateUrl": "https://amzn.to/4dRafmM",
     "imageUrl": "https://m.media-amazon.com/images/P/B01A6DJD7Q.01._SCLZZZZZZZ_.jpg",
     "summary": "Discover why the secret to persuasion lies in what happens immediately before you make a request. Learn how to prime your audience's attention so they are naturally receptive to your message. Master the art of 'privileged moments' to dramatically increase compliance.",
-    "foundersNote": "Set the stage before you make the pitch. Subtle but high leverage."
+    "foundersNote": "Set the stage before you make the pitch. Subtle but high leverage.",
+    "coreThemes": [
+      "privileged moments",
+      "channelling attention",
+      "unity principle",
+      "priming"
+    ]
   },
   {
     "id": "B000SEQKRK",
@@ -114,7 +186,13 @@
     "affiliateUrl": "https://amzn.to/4s8rQdB",
     "imageUrl": "https://m.media-amazon.com/images/P/B000SEQKRK.01._SCLZZZZZZZ_.jpg",
     "summary": "Uncover the inner game of sales: your self-concept determines your income. Learn how to bypass a prospect's logical objections by appealing to their deeper emotional desires. Systematically increase your closing rate through sheer psychological momentum.",
-    "foundersNote": "Sales is a transference of belief. Bulletproof your self-concept."
+    "foundersNote": "Sales is a transference of belief. Bulletproof your self-concept.",
+    "coreThemes": [
+      "self-concept in sales",
+      "inner game of selling",
+      "closing techniques",
+      "prospect motivation"
+    ]
   },
   {
     "id": "B00AO3K05S",
@@ -123,7 +201,13 @@
     "affiliateUrl": "https://amzn.to/412Dj3k",
     "imageUrl": "https://m.media-amazon.com/images/P/B00AO3K05S.01._SCLZZZZZZZ_.jpg",
     "summary": "A paradigm shift revealing that everyone is in sales, constantly moving others to act. Replace the old 'Always Be Closing' mantra with Attunement, Buoyancy, and Clarity. Learn how to pitch, improvise, and serve optimally in the modern landscape.",
-    "foundersNote": "A modern, empathetic approach to moving human behavior."
+    "foundersNote": "A modern, empathetic approach to moving human behavior.",
+    "coreThemes": [
+      "attunement",
+      "buoyancy",
+      "clarity",
+      "servant selling"
+    ]
   },
   {
     "id": "B004H4XL7E",
@@ -132,7 +216,13 @@
     "affiliateUrl": "https://amzn.to/3PDXX7u",
     "imageUrl": "https://m.media-amazon.com/images/P/B004H4XL7E.01._SCLZZZZZZZ_.jpg",
     "summary": "Take absolute control of the room by mastering 'frame control' against powerful executives. Stop appealing to their logic and learn to bypass their 'crocodile brain' with intrigue and novelty. Present undeniable value while completely shattering opposing frames.",
-    "foundersNote": "High-level neuro-economics for controlling high-stakes conversations."
+    "foundersNote": "High-level neuro-economics for controlling high-stakes conversations.",
+    "coreThemes": [
+      "frame control",
+      "crocodile brain",
+      "prizing",
+      "hot cognition"
+    ]
   },
   {
     "id": "1847941494",
@@ -141,7 +231,13 @@
     "affiliateUrl": "https://amzn.to/4v14Mjm",
     "imageUrl": "https://m.media-amazon.com/images/P/1847941494.01._SCLZZZZZZZ_.jpg",
     "summary": "Apply high-stakes FBI hostage negotiation tactics to real-world business and life. Understand that humans are deeply irrational and emotional, making traditional 'win-win' compromises ineffective. Master tactical empathy, mirroring, and calibrated questions to gain the upper hand.",
-    "foundersNote": "High-stakes negotiation. Never compromise your core objective."
+    "foundersNote": "High-stakes negotiation. Never compromise your core objective.",
+    "coreThemes": [
+      "tactical empathy",
+      "mirroring",
+      "calibrated questions",
+      "no-deal as power"
+    ]
   },
   {
     "id": "B06XB35VCH",
@@ -150,7 +246,13 @@
     "affiliateUrl": "https://amzn.to/47zWPYC",
     "imageUrl": "https://m.media-amazon.com/images/P/B06XB35VCH.01._SCLZZZZZZZ_.jpg",
     "summary": "Dismantle traditional sales techniques that fail miserably in massive, high-ticket B2B deals. Utilize the methodical Situation, Problem, Implication, Need-payoff (SPIN) questioning framework. Guide the prospect to painfully articulate their own problem before you offer the solution.",
-    "foundersNote": "The gold standard for high-ticket, enterprise-level persuasion."
+    "foundersNote": "The gold standard for high-ticket, enterprise-level persuasion.",
+    "coreThemes": [
+      "situation questions",
+      "problem questions",
+      "implication questions",
+      "need-payoff questions"
+    ]
   },
   {
     "id": "B075CRRT7Z",
@@ -159,7 +261,13 @@
     "affiliateUrl": "https://amzn.to/3PAc0uJ",
     "imageUrl": "https://m.media-amazon.com/images/P/B075CRRT7Z.01._SCLZZZZZZZ_.jpg",
     "summary": "Crack the code of the 'Straight Line Persuasion' system. Learn to establish massive certainty in your product, yourself, and your company within the first four seconds. Master tonality and body language to ethically close any prospect who is actually closable.",
-    "foundersNote": "Raw, aggressive sales technique focused on absolute certainty."
+    "foundersNote": "Raw, aggressive sales technique focused on absolute certainty.",
+    "coreThemes": [
+      "straight line persuasion",
+      "certainty spectrum",
+      "tonality",
+      "state management"
+    ]
   },
   {
     "id": "B08HZ57WYN",
@@ -168,7 +276,13 @@
     "affiliateUrl": "https://amzn.to/3PvWYGp",
     "imageUrl": "https://m.media-amazon.com/images/P/B08HZ57WYN.01._SCLZZZZZZZ_.jpg",
     "summary": "Understand the six universal psychological triggers that force humans to say 'yes'. Defend yourself against masters of manipulation by understanding reciprocation, scarcity, and authority. Deploy these ethically to drastically increase your own conversion rates.",
-    "foundersNote": "The foundational text on the psychology of persuasion."
+    "foundersNote": "The foundational text on the psychology of persuasion.",
+    "coreThemes": [
+      "reciprocity",
+      "commitment and consistency",
+      "social proof",
+      "scarcity and authority"
+    ]
   },
   {
     "id": "0857190121",
@@ -177,7 +291,13 @@
     "affiliateUrl": "https://amzn.to/4bPxxa8",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9780857190123-L.jpg",
     "summary": "Learn the philosophy of 'value investing' from Warren Buffett's lifelong mentor. Shield your portfolio from the devastating emotional swings of 'Mr. Market'. Focus on long-term compound growth built on rigorous fundamental analysis instead of gambling.",
-    "foundersNote": "The unshakeable bedrock of wealth preservation and logic."
+    "foundersNote": "The unshakeable bedrock of wealth preservation and logic.",
+    "coreThemes": [
+      "margin of safety",
+      "Mr Market allegory",
+      "value vs price",
+      "defensive investor"
+    ]
   },
   {
     "id": "B0F9XC7L4W",
@@ -186,7 +306,13 @@
     "affiliateUrl": "https://amzn.to/4bYHRNa",
     "imageUrl": "https://m.media-amazon.com/images/P/B0F9XC7L4W.01._SCLZZZZZZZ_.jpg",
     "summary": "A distillation of profound wisdom on how to build wealth and happiness without relying on luck. Separate your time from your earnings by leveraging code, media, and capital. True wealth is having assets that earn while you sleep.",
-    "foundersNote": "Modern 'Sovereign' wealth building. High leverage philosophy."
+    "foundersNote": "Modern 'Sovereign' wealth building. High leverage philosophy.",
+    "coreThemes": [
+      "specific knowledge",
+      "leverage",
+      "wealth vs money",
+      "long-term game with long-term people"
+    ]
   },
   {
     "id": "0060763280",
@@ -195,7 +321,13 @@
     "affiliateUrl": "https://amzn.to/4bF1H0Z",
     "imageUrl": "https://m.media-amazon.com/images/P/0060763280.01._SCLZZZZZZZ_.jpg",
     "summary": "Identify and reprogram your subconscious 'money blueprint'. Realize that poor people play the money game to not lose, while rich people play to win. Unlearn destructive financial programming inherited from your past.",
-    "foundersNote": "Eradicate your limiting beliefs around capital acquisition."
+    "foundersNote": "Eradicate your limiting beliefs around capital acquisition.",
+    "coreThemes": [
+      "money blueprint",
+      "wealth files",
+      "rich vs poor mindset",
+      "T-Harv declarations"
+    ]
   },
   {
     "id": "B004X75OES",
@@ -204,7 +336,13 @@
     "affiliateUrl": "https://amzn.to/4s3pLzC",
     "imageUrl": "https://m.media-amazon.com/images/P/B004X75OES.01._SCLZZZZZZZ_.jpg",
     "summary": "Eliminate the disease of 'average' by multiplying your goals and required actions by ten. Understand that massive success is not an option, but your ethical duty. Outwork your competition so aggressively that you become utterly omnipresent.",
-    "foundersNote": "Pure, unfiltered momentum and volume. Dominate, don't compete."
+    "foundersNote": "Pure, unfiltered momentum and volume. Dominate, don't compete.",
+    "coreThemes": [
+      "10X targets",
+      "average is the enemy",
+      "massive action",
+      "omnipresence"
+    ]
   },
   {
     "id": "B003EABO0I",
@@ -213,7 +351,13 @@
     "affiliateUrl": "https://amzn.to/3PRtZwC",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9780975436523-L.jpg",
     "summary": "A controversial deep-dive into the energetic principles weaponized by secret societies. Learn to vibrate at the frequency of your desires to collapse time and manifest outcomes. A polarizing but powerful perspective on absolute mindset alignment.",
-    "foundersNote": "Advanced, esoteric mindset programming."
+    "foundersNote": "Advanced, esoteric mindset programming.",
+    "coreThemes": [
+      "resonance frequency",
+      "law of attraction mechanics",
+      "mastermind group",
+      "programming the subconscious"
+    ]
   },
   {
     "id": "B004G8PIQ8",
@@ -222,7 +366,13 @@
     "affiliateUrl": "https://amzn.to/41AYvxn",
     "imageUrl": "https://m.media-amazon.com/images/P/B004G8PIQ8.01._SCLZZZZZZZ_.jpg",
     "summary": "A timeless parable uncovering the ten ancient scrolls of success and abundance. Reprogram your subconscious daily by embracing love, persistence, and emotional mastery. True influence starts with internal spiritual discipline.",
-    "foundersNote": "Classic foundational programming for resilience."
+    "foundersNote": "Classic foundational programming for resilience.",
+    "coreThemes": [
+      "ten scrolls",
+      "habit formation through repetition",
+      "love as weapon",
+      "persistence scroll"
+    ]
   },
   {
     "id": "B0BX7G7PZN",
@@ -231,7 +381,13 @@
     "affiliateUrl": "https://amzn.to/3Q9qaTy",
     "imageUrl": "https://m.media-amazon.com/images/P/B0BX7G7PZN.01._SCLZZZZZZZ_.jpg",
     "summary": "Shatter the Hollywood illusion of wealth and discover how true millionaires actually live. Realize that massive wealth is accumulated through extreme frugality, defensive planning, and avoiding status symbols. If you buy the luxury car, you remain the highly-taxed employee.",
-    "foundersNote": "The mathematical reality of keeping capital vs. displaying it."
+    "foundersNote": "The mathematical reality of keeping capital vs. displaying it.",
+    "coreThemes": [
+      "PAW vs UAW",
+      "frugality patterns",
+      "economic outpatient care",
+      "first generation wealth"
+    ]
   },
   {
     "id": "B0175P5MZU",
@@ -240,7 +396,13 @@
     "affiliateUrl": "https://amzn.to/4diJesq",
     "imageUrl": "https://m.media-amazon.com/images/P/B0175P5MZU.01._SCLZZZZZZZ_.jpg",
     "summary": "Escape the trap of trading time for money by crossing the quadrant from Employee to Investor. Understand why 'A' students inevitably end up working for 'C' students. Reposition your financial life to leverage OPM (Other People's Money) and OPT.",
-    "foundersNote": "Crucial shift from active labor to systemic asset ownership."
+    "foundersNote": "Crucial shift from active labor to systemic asset ownership.",
+    "coreThemes": [
+      "E-S-B-I quadrant",
+      "OPM leverage",
+      "passive income",
+      "financial freedom index"
+    ]
   },
   {
     "id": "B0912CMYHD",
@@ -249,7 +411,13 @@
     "affiliateUrl": "https://amzn.to/413zc6Y",
     "imageUrl": "https://m.media-amazon.com/images/P/B0912CMYHD.01._SCLZZZZZZZ_.jpg",
     "summary": "The quintessential manual on handling human ego and social dynamics. Learn to become genuinely interested in others to compel them to work with you. Arouse in the other person an eager want, because nobody cares what you want.",
-    "foundersNote": "The undisputed base-layer code for interacting with humans."
+    "foundersNote": "The undisputed base-layer code for interacting with humans.",
+    "coreThemes": [
+      "genuine interest in others",
+      "remembering names",
+      "arouse eager want",
+      "never criticise condemn or complain"
+    ]
   },
   {
     "id": "0684803313",
@@ -258,7 +426,13 @@
     "affiliateUrl": "https://amzn.to/4sI0gFa",
     "imageUrl": "https://m.media-amazon.com/images/P/0684803313.01._SCLZZZZZZZ_.jpg",
     "summary": "A proven, systematic blueprint for unlocking your full potential. Learn to establish crystal-clear goals and execute them with ruthless efficiency. Transform negative emotions into an unstoppable drive for success.",
-    "foundersNote": "A complete software update for your productivity OS."
+    "foundersNote": "A complete software update for your productivity OS.",
+    "coreThemes": [
+      "self-concept",
+      "master skill of success",
+      "goal setting methodology",
+      "law of cause and effect"
+    ]
   },
   {
     "id": "B07Q3TDDJP",
@@ -267,7 +441,13 @@
     "affiliateUrl": "https://amzn.to/4ce6Xc3",
     "imageUrl": "https://m.media-amazon.com/images/P/B07Q3TDDJP.01._SCLZZZZZZZ_.jpg",
     "summary": "Actionable strategies tailored for young adults to take absolute 100% responsibility for their lives. Stop waiting to be saved and start steering your own trajectory. Re-engineer 'failure' as simply feedback on your journey to massive success.",
-    "foundersNote": "Essential early-stage framing for ambitious youth."
+    "foundersNote": "Essential early-stage framing for ambitious youth.",
+    "coreThemes": [
+      "100% responsibility",
+      "clarity of vision",
+      "team building",
+      "failure as feedback"
+    ]
   },
   {
     "id": "0310749921",
@@ -276,7 +456,13 @@
     "affiliateUrl": "https://amzn.to/4vidryn",
     "imageUrl": "https://m.media-amazon.com/images/P/0310749921.01._SCLZZZZZZZ_.jpg",
     "summary": "A powerful framework developed by an elite neurosurgeon on maximizing cognitive potential. Use the T.H.I.N.K. B.I.G. acronym to rise above environmental limitations. Recognize that your brain is the ultimate supercomputer, capable of redefining your reality.",
-    "foundersNote": "Inspirational, high-leverage guidance on intellectual sovereignty."
+    "foundersNote": "Inspirational, high-leverage guidance on intellectual sovereignty.",
+    "coreThemes": [
+      "T.H.I.N.K.",
+      "B.I.G. principles",
+      "attitude of excellence",
+      "overcoming environmental limitations"
+    ]
   },
   {
     "id": "B0BMW8KPMY",
@@ -285,7 +471,13 @@
     "affiliateUrl": "https://amzn.to/47xtE8r",
     "imageUrl": "https://m.media-amazon.com/images/P/B0BMW8KPMY.01._SCLZZZZZZZ_.jpg",
     "summary": "The original audio-recording that launched the personal development revolution. Uncover the ultimate secret of existence: we absolutely become what we think about mostly. Take back the wheel of your mind to steer your life deliberately instead of accidentally.",
-    "foundersNote": "The simplest, most undeniable law of human achievement."
+    "foundersNote": "The simplest, most undeniable law of human achievement.",
+    "coreThemes": [
+      "we become what we think about",
+      "conformity vs courage",
+      "30-day test",
+      "definition of success"
+    ]
   },
   {
     "id": "B01BD1SUL0",
@@ -294,7 +486,13 @@
     "affiliateUrl": "https://amzn.to/4tnao6d",
     "imageUrl": "https://m.media-amazon.com/images/P/B01BD1SUL0.01._SCLZZZZZZZ_.jpg",
     "summary": "A pioneer plastic surgeon discovers that changing a patient's face doesn't change their self-image. Learn to reprogram your internal 'success mechanism' through vivid mental visualization. Your nervous system literally cannot tell the difference between an imagined experience and a real one.",
-    "foundersNote": "The science of identity shifting and mental visualization."
+    "foundersNote": "The science of identity shifting and mental visualization.",
+    "coreThemes": [
+      "self-image psychology",
+      "synthetic experience",
+      "success mechanism",
+      "relaxation and mental movies"
+    ]
   },
   {
     "id": "B07JHRHYV3",
@@ -303,7 +501,13 @@
     "affiliateUrl": "https://amzn.to/416vglZ",
     "imageUrl": "https://m.media-amazon.com/images/P/B07JHRHYV3.01._SCLZZZZZZZ_.jpg",
     "summary": "A profound literary essay establishing that your mind is the master weaver of your environment. You are not a victim of circumstance; your circumstances are directly manifested by your thoughts. Cultivate your mental garden to reap total sovereignty.",
-    "foundersNote": "Elegant, ruthless accountability for your own thoughts."
+    "foundersNote": "Elegant, ruthless accountability for your own thoughts.",
+    "coreThemes": [
+      "mind as garden",
+      "thought and character",
+      "vision and ideal",
+      "serenity"
+    ]
   },
   {
     "id": "B00702M29I",
@@ -312,7 +516,13 @@
     "affiliateUrl": "https://amzn.to/47z7LWh",
     "imageUrl": "https://m.media-amazon.com/images/P/B00702M29I.01._SCLZZZZZZZ_.jpg",
     "summary": "Practical techniques to shatter paralyzing inferiority complexes and chronic worry. Reprogram your mental loops to expect success rather than anticipate disaster. Cultivate a constant, peaceful energy that naturally attracts higher outcomes.",
-    "foundersNote": "Foundational mindset engineering for eliminating toxic anxiety."
+    "foundersNote": "Foundational mindset engineering for eliminating toxic anxiety.",
+    "coreThemes": [
+      "visualisation",
+      "prayer as power",
+      "defeating worry",
+      "expect the best"
+    ]
   },
   {
     "id": "B01B2DJK6S",
@@ -321,7 +531,13 @@
     "affiliateUrl": "https://amzn.to/4v576WU",
     "imageUrl": "https://m.media-amazon.com/images/P/B01B2DJK6S.01._SCLZZZZZZZ_.jpg",
     "summary": "Eradicate the disease of 'Excusitis' and stop underselling your potential. Learn why believing you can succeed is the first, non-negotiable step to actually doing it. Upgrade your environment and force yourself to think beyond your current confines.",
-    "foundersNote": "A cure for mediocrity and self-imposed limitations."
+    "foundersNote": "A cure for mediocrity and self-imposed limitations.",
+    "coreThemes": [
+      "excusitis",
+      "think big and you will live big",
+      "environment as self-fulfilling",
+      "action cures fear"
+    ]
   },
   {
     "id": "B08776ZZY4",
@@ -330,7 +546,13 @@
     "affiliateUrl": "https://amzn.to/41H4MHP",
     "imageUrl": "https://m.media-amazon.com/images/P/B08776ZZY4.01._SCLZZZZZZZ_.jpg",
     "summary": "The culmination of twenty years researching the most powerful magnates in American history. Learn how burning desire, specialized knowledge, and mastermind groups transmute ambition into capital. Discover the secret of the 'sixth sense' and autosuggestion.",
-    "foundersNote": "The absolute required reading for any ambitious operator."
+    "foundersNote": "The absolute required reading for any ambitious operator.",
+    "coreThemes": [
+      "burning desire",
+      "specialised knowledge",
+      "mastermind principle",
+      "autosuggestion"
+    ]
   },
   {
     "id": "B0175P5O9E",
@@ -339,7 +561,13 @@
     "affiliateUrl": "https://amzn.to/47slQ7Z",
     "imageUrl": "https://m.media-amazon.com/images/P/B0175P5O9E.01._SCLZZZZZZZ_.jpg",
     "summary": "The financial education that the traditional schooling system deliberately omits. Understand the critical difference between a liability that bleeds you and an asset that feeds you. Learn to make money work aggressively for you, rather than vice versa.",
-    "foundersNote": "Financial literacy explicitly optimized for the next generation."
+    "foundersNote": "Financial literacy explicitly optimized for the next generation.",
+    "coreThemes": [
+      "asset vs liability",
+      "rat race escape",
+      "financial education gap",
+      "make money work for you"
+    ]
   },
   {
     "id": "B005A3WFSC",
@@ -348,7 +576,13 @@
     "affiliateUrl": "https://amzn.to/40ZjcTF",
     "imageUrl": "https://m.media-amazon.com/images/P/B005A3WFSC.01._SCLZZZZZZZ_.jpg",
     "summary": "A step-by-step framework to navigate the chaos of youth with extreme proactive discipline. Learn to begin with the end in mind and prioritize tasks that actually move the needle. Build synergistic relationships rather than competitive, zero-sum ones.",
-    "foundersNote": "Strategic character building over temporary behavioral tweaks."
+    "foundersNote": "Strategic character building over temporary behavioral tweaks.",
+    "coreThemes": [
+      "be proactive",
+      "begin with the end in mind",
+      "put first things first",
+      "think win win"
+    ]
   },
   {
     "id": "B00WN86S62",
@@ -357,7 +591,13 @@
     "affiliateUrl": "https://amzn.to/4seaRqo",
     "imageUrl": "https://covers.openlibrary.org/b/isbn/9780449911709-L.jpg",
     "summary": "An incredibly powerful adaptation of Napoleon Hill's classic, highlighting the specific strategies of elite African-American entrepreneurs. Turn systematic obstacles into extraordinary leverage. Emphasizes that wealth is first built in the mind before it materializes in reality.",
-    "foundersNote": "Brilliant iteration focusing on overcoming unique cultural obstacles."
+    "foundersNote": "Brilliant iteration focusing on overcoming unique cultural obstacles.",
+    "coreThemes": [
+      "cultural leverage",
+      "self-definition",
+      "economic empowerment",
+      "burning desire adapted"
+    ]
   },
   {
     "id": "B0GF6V9ZF3",
@@ -366,7 +606,13 @@
     "affiliateUrl": "https://amzn.to/4tfpDOj",
     "imageUrl": "https://m.media-amazon.com/images/P/B0GF6V9ZF3.01._SCLZZZZZZZ_.jpg",
     "summary": "A highly targeted manual on mastering focus and emotional intelligence in an aggressively distracted world. Rewire your neurotransmitters to crave long-term accomplishment over cheap dopamine. Build unshakeable mental toughness through calculated adversity.",
-    "foundersNote": "The blueprint for thriving in the hyper-stimulated digital age."
+    "foundersNote": "The blueprint for thriving in the hyper-stimulated digital age.",
+    "coreThemes": [
+      "neuroplasticity",
+      "dopamine discipline",
+      "emotional regulation",
+      "focus architecture"
+    ]
   },
   {
     "id": "B0CN1Z3FPY",
@@ -375,7 +621,13 @@
     "affiliateUrl": "https://amzn.to/3NM3hoH",
     "imageUrl": "https://m.media-amazon.com/images/P/B0CN1Z3FPY.01._SCLZZZZZZZ_.jpg",
     "summary": " A teenage rebellion against low expectations. Shatter the myth of 'adolescence' as a time for slacking off, and reclaim it as the launchpad for massive capability. Do the hard, uncomfortable tasks now to compound your skills geometrically.",
-    "foundersNote": "Weaponize your youth. Do not wait for permission to be great."
+    "foundersNote": "Weaponize your youth. Do not wait for permission to be great.",
+    "coreThemes": [
+      "myth of adolescence",
+      "rebelution",
+      "big hard do-able things",
+      "small hard things compound"
+    ]
   },
   {
     "id": "B007JLVK4S",
@@ -384,6 +636,12 @@
     "affiliateUrl": "https://amzn.to/41BdsiZ",
     "imageUrl": "https://m.media-amazon.com/images/P/B007JLVK4S.01._SCLZZZZZZZ_.jpg",
     "summary": "A brilliant, pragmatic guide featuring 51 actual business blueprints created specifically for young operators. Skip the theory and start executing real-world value exchanges. Learn the raw mechanics of profit margins, marketing, and scaling local services.",
-    "foundersNote": "Pure, actionable entrepreneurship. Start making money immediately."
+    "foundersNote": "Pure, actionable entrepreneurship. Start making money immediately.",
+    "coreThemes": [
+      "profit margin",
+      "identifying local needs",
+      "customer service basics",
+      "scaling a micro-business"
+    ]
   }
 ]

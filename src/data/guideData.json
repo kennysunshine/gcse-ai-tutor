@@ -1,0 +1,188 @@
+{
+  "subjects": {
+    "maths": {
+      "name": "Maths",
+      "pSEO_title": "Socratic Maths Tutor",
+      "icon": "Calculator",
+      "description": "Master Quadratic Equations, Calculus, and White Rose Maths v3.0 logic with a Socratic Mentor.",
+      "methodology": "The Logic Flow — focusing on breaking down complex multi-step algebraic problems into first-principles logical sequences.",
+      "hurdles": [
+        "Quadratic Formula Derivation",
+        "Circle Theorems Synthesis",
+        "Vector Geometric Proofs"
+      ],
+      "faqs": [
+        {
+          "question": "How does Socratic tutoring differ from traditional Maths help?",
+          "answer": "Traditional tutoring often provides the answer. Socratic tutoring provides the 'missing question' that allows the student to derive the mathematical proof themselves, building permanent neural pathways."
+        }
+      ],
+      "curriculumContext": {
+        "dominantExamBoard": "AQA / Edexcel",
+        "socraticDelta": "By bridging the gap between classroom rote-learning and first-principles proof, we empower students to handle the 'unseen' problem types in Paper 1 and 2."
+      }
+    },
+    "physics": {
+      "name": "Physics",
+      "pSEO_title": "Socratic Physics Tutor",
+      "icon": "Zap",
+      "description": "Unlock the laws of the universe through first-principles thinking and GCSE-aligned problem solving.",
+      "methodology": "The Phenomenon Bridge — connecting abstract mathematical formulas to observable physical phenomena through directed inquiry.",
+      "hurdles": [
+        "Electromagnetic Induction Logic",
+        "Kinematic Equation Manipulation",
+        "Nuclear Decay Chain Analysis"
+      ],
+      "faqs": [
+        {
+          "question": "Is Socratic Physics suitable for students struggling with basic equations?",
+          "answer": "Absolutely. By stripping away the fear of 'wrong answers' and asking students to describe physical observations first, we build the confidence needed to tackle complex calculations."
+        }
+      ],
+      "curriculumContext": {
+        "dominantExamBoard": "AQA / OCR Gateway",
+        "socraticDelta": "Our mentor complements classroom lab work by asking the 'Why' behind the experiment, ensuring AO3 evaluation marks are secured."
+      }
+    },
+    "biology": {
+      "name": "Biology",
+      "pSEO_title": "Socratic Biology Tutor",
+      "icon": "Dna",
+      "description": "From cell biology to ecosystem synthesis, learn the structures of life with a Socratic approach.",
+      "methodology": "Systems Thinking — mapping biological processes as interconnected systems rather than isolated rote-memorisation tasks.",
+      "hurdles": [
+        "Ecosystem Trophic Level Dynamics",
+        "DNA Replication Logical Flow",
+        "Gas Exchange Efficiency Statistics"
+      ],
+      "faqs": [
+        {
+          "question": "Does this cover the specific AQA/Edexcel Biology specifications?",
+          "answer": "Yes. While we use Socratic methods, our AI is anchored in the 2024-2026 UK GCSE specifications to ensure total curriculum alignment."
+        }
+      ],
+      "curriculumContext": {
+        "dominantExamBoard": "AQA / Edexcel",
+        "socraticDelta": "We help students move beyond memorising keywords to understanding the underlying biological systems, crucial for the long-form 6-mark questions."
+      }
+    },
+    "english-literature": {
+      "name": "English Literature",
+      "pSEO_title": "Socratic English Tutor",
+      "icon": "Book",
+      "description": "Analyze Shakespeare, Dickens, and modern poetry through deep synthesis and critical thinking.",
+      "methodology": "The Critic's Lens — fostering high-level AO3 analysis by challenging students to defend their interpretations through textual evidence.",
+      "hurdles": [
+        "Shakespearean Structural Analysis",
+        "Unseen Poetry Comparative Logic",
+        "Industrial Revolution Contextual Synthesis"
+      ],
+      "faqs": [
+        {
+          "question": "Can Socratic methods improve essay writing grades?",
+          "answer": "Socratic dialogue forces students to articulate complex arguments verbally first, which naturally translates into more sophisticated, evidence-backed essay structures."
+        }
+      ],
+      "curriculumContext": {
+        "dominantExamBoard": "AQA / Eduqas",
+        "socraticDelta": "By challenging interpretations in real-time, we help students develop the original, sophisticated 'perceptive' voice that exam boards look for in Grade 9 candidates."
+      }
+    },
+    "computer-science": {
+      "name": "Computer Science",
+      "pSEO_title": "Socratic CS Tutor",
+      "icon": "Code",
+      "description": "Learn Python, Algorithm design, and binary logic with the UK's first Socratic CS engine.",
+      "methodology": "The Algorithmic Audit — teaching students to 'be the compiler' by logically tracing data flow through Socratic step-analysis.",
+      "hurdles": [
+        "Complexity (Big O) Logic",
+        "Recursive Function Trace-tables",
+        "Network Protocol Layer Synthesis"
+      ],
+      "faqs": [
+        {
+          "question": "Is this for beginners or advanced students?",
+          "answer": "Both. Socratic questioning adapts to the student's current 'thinking frontier,' challenging experts while providing scaffolding for beginners."
+        }
+      ],
+      "curriculumContext": {
+        "dominantExamBoard": "AQA / OCR",
+        "socraticDelta": "We prepare students for the Paper 1 logic challenges by enforcing a strict 'No Copy-Paste' Socratic environment, forcing deep algorithmic understanding."
+      }
+    }
+  },
+  "locations": {
+    "london": {
+      "name": "London",
+      "context": "London's competitive academic landscape",
+      "cityImage": "/images/cities/london.png",
+      "tip": "In Greater London's competitive grammar and independent school landscape, the Socratic method builds the cognitive resilience needed for 11+ and GCSE top-tier performance.",
+      "analysis": "Greater London represents the UK's highest concentration of high-pressure academic environments. With over 25% of students attending independent or selective grammar schools, the 'rote-learning' trap is common. Sovereign tutoring breaks this cycle.",
+      "localFocus": "High Competition for Grammar and Independent Schools",
+      "deepDive": [
+        "The London educational landscape is defined by its extreme density of high-pressure independent and selective grammar schools. For families navigating the transition from KS3 to GCSE, the challenge is not merely curriculum coverage, but the intellectual agility required to meet the 'unseen' rigour of elite examinations.",
+        "Traditional tutoring in London often prioritises remedial support—fixing immediate errors without addressing the root cognitive dependency. In a city where Grade 9 is the baseline for competitive entry, students must move beyond factual recall and toward first-principles pedagogical synthesis.",
+        "We observe a critical 'Application Gap' in London students who have been overly drilled in rote methods. Our Socratic Mentor addresses this by enforcing the Socratic Signature, building the independent thinking required to thrive in London's most ambitious academic halls."
+      ]
+    },
+    "manchester": {
+      "name": "Manchester",
+      "context": "Manchester's thriving Northern Powerhouse schools",
+      "cityImage": "/images/cities/manchester.png",
+      "tip": "With Manchester's focus on technical and STEM excellence, our Socratic framework helps students bridge the gap between classroom theory and real-world industrial logic.",
+      "analysis": "As the heart of the Northern Powerhouse, Manchester's schools are pivoting towards technical mastery and digital enterprise. Students here require a mentor that values innovation over simple grade-chasing.",
+      "localFocus": "Focus on STEM, Digital Enterprise, and Engineering",
+      "deepDive": [
+        "Manchester is currently witnessing a significant strategic shift toward STEM excellence, driven by the regional Northern Powerhouse incentives and a move toward digital industrialisation. This places an unprecedented premium on early mastery of analytical subjects, particularly Physics and Computer Science.",
+        "The primary challenge for Manchester students is the transition from KS3 'facts' to GCSE 'applied logic.' Many students find that the rote-learning techniques that served them in Year 8 fail under the weight of Year 10 specifications. This is where intellectual independence is won or lost.",
+        "Our Socratic Mentor specifically addresses the 'Manchester Application Gap' by forcing students to derive scientific laws and mathematical proofs from scratch. This builds the deep-seated resilience required for both the modern examination hall and the future technical workforce."
+      ]
+    },
+    "birmingham": {
+      "name": "Birmingham",
+      "context": "Birmingham's historic educational diversity",
+      "cityImage": "/images/cities/birmingham.png",
+      "tip": "From the Jewellery Quarter to Solihull, we provide the personalised mentorship needed to navigate the diverse AQA and Edexcel requirements across the West Midlands.",
+      "analysis": "Birmingham's educational landscape is characterised by its scale and diversity. Navigating the differing requirements of large Academy Trusts requires a Socratic mentor that can adapt to high-volume classroom challenges.",
+      "localFocus": "Diversity of Academy Trusts and Regional Selection",
+      "deepDive": [
+        "Birmingham's academic diversity, spanning high-volume Academy Trusts to established historic foundations, requires a tutoring model that can scale intellectual rigour without sacrificing personalisation. The challenge in the West Midlands is often overcoming the 'passive classroom' archetype.",
+        "As students move from Key Stage 3 into their GCSE options, the sheer volume of information can lead to 'cognitive overload.' Traditional tutoring adds to this by piling on more notes; LumenForge solves it by stripping back the clutter and focusing on core pedagogical pillars.",
+        "By implementing a Socratic dialogue, we help Birmingham students take ownership of their curriculum. This transition from passive recipient to active architect is the key to distinguishing oneself in a highly diverse regional cohort."
+      ]
+    },
+    "leeds": {
+      "name": "Leeds",
+      "context": "West Yorkshire's academic growth",
+      "cityImage": "/images/cities/leeds.png",
+      "tip": "Leeds students are increasingly looking for higher-order thinking skills to stand out. Our Socratic Mentor focuses on AO2 and AO3 marks, the keys to Grade 8/9 success.",
+      "analysis": "West Yorkshire has seen significant academic acceleration in recent years. Leeds students are now competing nationally for Russell Group placements, necessitating a shift from 'pass marks' to 'mastery signatures'.",
+      "localFocus": "Russell Group Preparation and Academic Excellence",
+      "deepDive": [
+        "Across Leeds and West Yorkshire, there is a visible acceleration in academic ambition aimed at Russell Group placements. This national competition requires a shift away from 'sufficient' grades and toward 'mastery signatures' that indicate high-level cognitive independence.",
+        "The shift from Year 9 to Year 10 in Leeds frequently uncovers a lack of depth in critical analysis. Students who were once top of their class find that GCSE 'evaluation' questions (AO3) require a level of synthesis that rote-tutoring simply cannot provide.",
+        "Our Socratic framework specifically builds the AO3 logical muscles needed for top-tier success in Leeds, ensuring that students aren't just memorising evidence, but are capable of architecting original, high-status arguments."
+      ]
+    },
+    "glasgow": {
+      "name": "Glasgow",
+      "context": "Scotland's rich intellectual tradition",
+      "cityImage": "/images/cities/glasgow.png",
+      "tip": "Rooted in the Scottish Enlightenment tradition, our Socratic Mentor adapts to the Higher and National 5 curriculum to build independent, critical thinkers.",
+      "analysis": "Scotland's curriculum (Curriculum for Excellence) is uniquely aligned with Socratic values, emphasising 'Responsible Citizens' and 'Effective Contributors'. We bridge the gap to Highers success.",
+      "localFocus": "Alignment with Curriculum for Excellence and Highers Success",
+      "deepDive": [
+        "Rooted in the Scottish Enlightenment tradition of enquiry and logic, Glasgow's educational approach has always valued the 'Independent Scholar.' However, the high-stakes transition to National 5s and Highers requires a modern digital audit of these skills.",
+        "The Scottish 'Curriculum for Excellence' prioritises broad synthesis, but many students find that the move to National 5 exams introduces a technical rigour that requires a more disciplined Socratic approach. Passive reading is no longer a viable strategy for Highers prep.",
+        "By aligning our Socratic Mentor with the SQA specifications, we provide Glasgow students with a mentor that understands the nuances of the Scottish curriculum while enforcing the global standard of intellectual independence."
+      ]
+    }
+  },
+  "globalPedagogy": {
+    "productiveStruggle": {
+      "title": "The Productive Struggle",
+      "description": "At LumenForge, we prioritise 'The Productive Struggle.' Unlike traditional remedial tutoring—where a student is passively fed answers—our Socratic Mentor forces the student to navigate the cognitive friction of a problem. This friction is where permanent neural synthesis occurs.",
+      "benefit": "Students who master the Productive Struggle do not just pass their exams; they build the intellectual resilience required for elite-level professional and academic futures."
+    }
+  }
+}

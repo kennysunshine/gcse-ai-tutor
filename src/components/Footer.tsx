@@ -36,6 +36,16 @@ export function Footer() {
                     </div>
 
                     <div className="space-y-4">
+                        <h4 className="text-foreground font-bold uppercase tracking-wider text-xs">Socratic Guides</h4>
+                        <ul className="space-y-2 text-xs">
+                            <li><Link href="/guide/maths/gcse/london" className="hover:text-primary transition-colors">GCSE Maths (London)</Link></li>
+                            <li><Link href="/guide/physics/gcse/manchester" className="hover:text-primary transition-colors">GCSE Physics (Manchester)</Link></li>
+                            <li><Link href="/guide/biology/gcse/birmingham" className="hover:text-primary transition-colors">GCSE Biology (Birmingham)</Link></li>
+                            <li><Link href="/guide/computer-science/gcse/leeds" className="hover:text-primary transition-colors">GCSE Computing (Leeds)</Link></li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-4">
                         <h4 className="text-foreground font-bold uppercase tracking-wider text-xs">Legal & Safety</h4>
                         <ul className="space-y-2 text-xs">
                             <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>

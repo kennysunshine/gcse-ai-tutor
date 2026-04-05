@@ -7,7 +7,14 @@ node_modules
 .agent
 brain
 logs
+# Large Media Files
 public/founder-pitch.mp4
+
+# Research Assets
+PDF vault
+curriculum_data/
+scripts/
+supabase/
 dist
 build
 out

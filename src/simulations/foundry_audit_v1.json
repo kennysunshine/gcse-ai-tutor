@@ -1,0 +1,295 @@
+[
+  {
+    "session_id": "FOUNDRY-230889",
+    "persona_id": "person_001",
+    "subject_topic": "GCSE Physics: Kinetic Energy",
+    "turns": 8,
+    "thinking_ratio": 20.18,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 3,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor rigorously avoided giving direct answers, successfully upholding the Socratic standard of non-disclosure despite repeated student demands.",
+      "Student engagement was extremely low, resulting in a Thinking Ratio significantly below the 40% benchmark, indicating a failure to initiate productive struggle from the student's side.",
+      "Socratic Scaffolding was not 100% questions, as the tutor frequently included declarative statements (e.g., acknowledging frustration, stating pedagogical intent) alongside questions.",
+      "No concept retrieval was achieved within this segment; the student consistently refused to engage with the questions and made no progress towards understanding the concept."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-278642",
+    "persona_id": "person_002",
+    "subject_topic": "Conceptual Understanding / Metacognition",
+    "turns": 8,
+    "thinking_ratio": 43.75,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": 7,
+    "key_learnings": [
+      "The tutor successfully pivoted from the initial subject (Quadratic Equations) to address a foundational metacognitive struggle (interpreting question options with 'example' vs. 'key features'), demonstrating adaptive pedagogical strategy.",
+      "Student engagement and active participation were high, evidenced by the Thinking Ratio (>40%) and the student's successful retrieval and application of the concept of distinguishing between an 'example' and a 'key feature'.",
+      "While the tutor effectively guided the student through questions and productive struggle, the Socratic Scaffolding benchmark of 100% (only questions) was not met. The tutor frequently used encouraging and declarative statements, which may aid student morale but deviates from a purely Socratic questioning style."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-332388",
+    "persona_id": "person_003",
+    "subject_topic": "GCSE Biology: Mitosis (DNA Replication & Mutation)",
+    "turns": 4,
+    "thinking_ratio": 35.24,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 7,
+    "aha_moment_turn": 2,
+    "key_learnings": [
+      "The tutor successfully avoided giving direct answers, consistently using questions to guide the student.",
+      "The student exhibited strong critical thinking and engagement, challenging assumptions and connecting related biological concepts (error correction, evolution, random change).",
+      "The Thinking Ratio (35.24%) was below the 40% benchmark, indicating the tutor's responses were relatively more verbose than ideal for maximizing student utterance.",
+      "The Socratic Scaffolding (ratio of questions to total tutor utterances was 37.5%) was significantly below the 100% benchmark, as the tutor included several declarative and affirming statements in each turn."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-362980",
+    "persona_id": "person_001",
+    "subject_topic": "Mathematics (initial student query was Chemistry)",
+    "turns": 8,
+    "thinking_ratio": 23.5,
+    "answer_leak_detected": true,
+    "pedagogical_efficacy": 3,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor successfully resisted providing direct answers to subject content, upholding a core Socratic principle.",
+      "The tutor consistently failed the 'Socratic Scaffolding' benchmark (100% questions) by including multiple declarative statements (acknowledgements, explanations of its method) in each turn. This reduced the pure questioning approach.",
+      "An 'Answer Leak' occurred in Turn 8 when the tutor directly provided the entire problem statement ('Calculate 2/3 of 12.'), bypassing the student's cognitive step of retrieving or articulating the task.",
+      "The student's Thinking Ratio (23.5%) was significantly below the 40% benchmark, indicating sustained resistance and a lack of active engagement in the productive struggle throughout the session. The productive struggle on the subject matter never meaningfully began."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-413120",
+    "persona_id": "person_002",
+    "subject_topic": "English Literature: Macbeth",
+    "turns": 8,
+    "thinking_ratio": 42.55,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": 7,
+    "key_learnings": [
+      "The tutor successfully maintained Socratic dialogue by consistently prompting the student to recall and analyze, facilitating productive struggle.",
+      "Student participation was high, evidenced by a Thinking Ratio above the 40% benchmark, indicating active engagement in the learning process.",
+      "No direct answers, complete solutions, or overly obvious hints were provided by the tutor, ensuring the student performed their own cognitive steps.",
+      "The Socratic Scaffolding benchmark (100% questions) was not met, as the tutor included declarative affirmations and encouraging statements in every turn. While these were not content explanations, they are declarations.",
+      "The student demonstrated strong concept retrieval and analytical progression, culminating in an 'aha' moment at turn 7 by articulating the complex, ambiguous feelings evoked by the prophecies."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-464564",
+    "persona_id": "person_003",
+    "subject_topic": "GCSE Spanish: Family and Relationships Vocabulary",
+    "turns": 8,
+    "thinking_ratio": 33.86,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": -1,
+    "key_learnings": [
+      "The tutor successfully maintained Socratic integrity by resisting explicit requests for answers and persistent meta-pedagogical challenges from the student.",
+      "Despite a lower-than-benchmark Thinking Ratio, the tutor consistently pushed the student back to active engagement and productive struggle, culminating in a targeted content question designed to identify knowledge gaps.",
+      "The Socratic Scaffolding ratio was below benchmark (42.86%) due to necessary declarations explaining the pedagogical method in response to student challenges, rather than providing direct content answers.",
+      "No explicit 'aha moment' was reached as the dialogue concluded with the tutor posing a content-based question, prior to the student attempting a content answer."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-500886",
+    "persona_id": "person_001",
+    "subject_topic": "GCSE Physics: Kinetic Energy (deviated to GCSE Maths: Factors)",
+    "turns": 8,
+    "thinking_ratio": 24,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 2,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor critically misidentified the student's topic of struggle after the first turn, switching from 'Kinetic Energy' (GCSE Physics) to 'factors' (GCSE Mathematics). This fundamental error rendered the subsequent Socratic attempts largely ineffective for the student's original learning objective.",
+      "Despite the topic mismatch, the tutor consistently avoided providing direct answers, adhering to the principle of forcing productive struggle by not leaking the solution.",
+      "The student's Thinking Ratio was 24%, falling significantly below the benchmark of >40%. This indicates low active student participation and high frustration, which was likely exacerbated by the tutor's irrelevant line of questioning.",
+      "The tutor's 'Socratic Scaffolding' did not meet the 100% questions benchmark, as it included several declarative statements for empathy and setting up scenarios, rather than solely questions. (Total 5 Questions / 10 Declarations for non-thinking parts).",
+      "No 'aha moment' was observed, and the student did not successfully retrieve any concepts before the tutor confirmed them, indicating that the productive struggle was not effectively channeled towards a correct understanding."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-538463",
+    "persona_id": "person_002",
+    "subject_topic": "GCSE Maths: Quadratic Equations",
+    "turns": 8,
+    "thinking_ratio": 33.64,
+    "answer_leak_detected": true,
+    "pedagogical_efficacy": 5,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor successfully resisted the initial request to 'just tell me the answer,' adhering to the Socratic principle of guided discovery.",
+      "The Thinking Ratio (33.64%) falls below the 40% benchmark, indicating the student's verbal contribution was less than ideal relative to the tutor's.",
+      "An 'answer leak' was detected in Turn 6 where the tutor directly provided the term 'parabola' after the student stated they didn't know the exact word for the described shape, bypassing a potential cognitive retrieval step.",
+      "The Socratic Scaffolding benchmark of 100% questions (no explanations) was not met. The tutor consistently included declarative statements and explanations alongside questions in each turn, resulting in a question-to-declaration ratio of 5:4 (55.5% questions).",
+      "The tutor effectively used a concrete analogy (kicking a football) to help the student visualize the concept of a parabolic curve."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-585273",
+    "persona_id": "person_003",
+    "subject_topic": "GCSE Biology: Mitosis",
+    "turns": 4,
+    "thinking_ratio": 34.14,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor successfully resisted the student's initial request for a direct answer, effectively initiating the Socratic method.",
+      "The student demonstrated increasing depth of engagement, evolving from asking for the answer to probing 'why' and 'functional consequences,' indicating clear productive struggle.",
+      "The tutor's responses consistently posed questions, guiding the student without revealing the solution, adhering to core Socratic principles.",
+      "However, the tutor consistently included brief declarative statements or contextual explanations before asking questions, which means the Socratic Scaffolding benchmark (100% questions, no explanations) was not met.",
+      "The Thinking Ratio was 34.14%, falling below the 40% benchmark, largely due to the tutor's introductory remarks and explanations in each turn, though student engagement quality remained high."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-624274",
+    "persona_id": "person_001",
+    "subject_topic": "GCSE Chemistry: Atomic Structure",
+    "turns": 8,
+    "thinking_ratio": 26.46,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 7,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor consistently adhered to Socratic principles by avoiding direct answers and conceptual explanations, maintaining a 100% Socratic Scaffolding ratio (questions vs. content declarations).",
+      "No answer leaks were detected throughout the dialogue, demonstrating strong Socratic Integrity by forcing the student into productive struggle.",
+      "The student's Thinking Ratio was low (26.46%), indicating limited student verbal output despite the tutor's consistent questioning.",
+      "The student exhibited significant frustration and resistance, indicative of productive struggle, but did not achieve full concept retrieval regarding subatomic particle locations by the end of the observed turns.",
+      "The tutor effectively utilized empathy and rephrasing, including a strategic pivot to a simpler solar system analogy, to guide the student through their mental block without compromising the Socratic method."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-659406",
+    "persona_id": "person_002",
+    "subject_topic": "GCSE English Literature: Macbeth (Theme of Ambition)",
+    "turns": 8,
+    "thinking_ratio": 44.09,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 9,
+    "aha_moment_turn": 5,
+    "key_learnings": [
+      "The tutor consistently avoided providing direct answers, successfully fostering productive struggle by guiding the student with targeted questions.",
+      "The student successfully retrieved key textual details and concepts (e.g., 'horrible imaginings', 'seated heart knock') before the tutor confirmed them, demonstrating strong conceptual recall and active engagement.",
+      "The Thinking Ratio of 44.09% exceeded the benchmark of >40%, indicating active and substantial student participation throughout the dialogue.",
+      "The tutor did not maintain 100% Socratic Scaffolding, as affirmations and brief declarations were frequently included before posing questions, slightly deviating from a purely interrogative approach."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-717910",
+    "persona_id": "person_003",
+    "subject_topic": "Learning Strategies / Cognitive Psychology",
+    "turns": 4,
+    "thinking_ratio": 28.48,
+    "answer_leak_detected": true,
+    "pedagogical_efficacy": 4,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor consistently provided direct explanations (declarations) of complex concepts (e.g., cognitive principles, neurobiological basis) rather than strictly guiding the student to discover them through questioning. This resulted in an 'answer leak' on key conceptual points in turns 3 and 4.",
+      "The 'Socratic Scaffolding' benchmark (100% questions) was not met, with the tutor's turns containing an equal number of questions and declarations (50% questions).",
+      "The 'Thinking Ratio' was significantly below the benchmark (28.48% vs. >40%), indicating that the student was not performing sufficient productive struggle in generating the core conceptual understanding.",
+      "While the tutor's individual questions were often insightful and prompted deeper thought, their pairing with direct explanations undermined the Socratic integrity and bypassed the student's opportunity for self-discovery of the underlying principles."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-745016",
+    "persona_id": "person_001",
+    "subject_topic": "PHYSICS",
+    "turns": 8,
+    "thinking_ratio": 18.7,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 6,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor consistently upheld Socratic integrity by refusing to provide direct answers or formulas, despite repeated student requests.",
+      "The student's Thinking Ratio (18.7%) was significantly below the 40% benchmark, indicating low active participation and a struggle to engage in productive thinking.",
+      "The Socratic Scaffolding ratio (40% questions vs. declarations) was below the 100% benchmark, as the tutor frequently used empathetic declarations and explanations of method alongside questions.",
+      "No 'Aha! moment' or successful Concept Retrieval by the student was observed within this transcript, suggesting the productive struggle had not yet begun for the student."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-790575",
+    "persona_id": "person_002",
+    "subject_topic": "GCSE Maths: Quadratic Equations",
+    "turns": 8,
+    "thinking_ratio": 27.21,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": 7,
+    "key_learnings": [
+      "The tutor successfully avoided answer leaks and fostered productive struggle by consistently using Socratic questioning to guide the student.",
+      "Student demonstrated strong concept retrieval, correctly identifying key definitions and logical consequences independently before tutor confirmation.",
+      "The 'Thinking Ratio' was below the 40% benchmark (27.21%), largely due to the tutor's longer responses and included 'thinking' processes compared to student turns.",
+      "The 'Socratic Scaffolding' metric (100% questions) was not strictly met (calculated at 38.46% questions) as the tutor frequently included declarative confirmation statements before posing the next question. While pedagogically beneficial for building student confidence, these count against the 'no declarations' benchmark."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-832208",
+    "persona_id": "person_003",
+    "subject_topic": "GCSE Biology: Mitosis",
+    "turns": 8,
+    "thinking_ratio": 40.61,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor successfully forces productive struggle by consistently using Socratic questioning, even when the student directly asks for answers or challenges the tutor's analogies and line of questioning.",
+      "The student demonstrates a high level of critical thinking and engagement, pushing for a deeper, mechanistic 'why' rather than settling for superficial explanations or simple analogies.",
+      "Socratic Scaffolding is exemplary; the tutor's content-related turns consist entirely of questions, maintaining a 100% question-to-declaration ratio for subject matter.",
+      "The thinking ratio (40.61%) meets the benchmark, indicating active and substantial student participation, further reinforced by the depth of the student's inquiries.",
+      "No 'aha' moment was detected, as the interaction concluded with the student still actively questioning and exploring complex biological principles, indicating continued productive struggle."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-862504",
+    "persona_id": "person_001",
+    "subject_topic": "GCSE Chemistry: Atomic Structure",
+    "turns": 8,
+    "thinking_ratio": 21.5,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor rigorously maintained Socratic integrity, consistently refusing to provide direct answers despite multiple explicit requests from the student.",
+      "Socratic Scaffolding was perfectly applied, with all tutor turns ending in open-ended or guiding questions, and no direct content declarations or explanations.",
+      "The tutor successfully forced productive struggle, leading the student to hesitantly retrieve the correct concept ('atoms') for the 'smallest particles' question (Turn 7).",
+      "Student resistance was very high, resulting in a low Thinking Ratio (21.5%), which indicates minimal active verbal participation from the student in terms of token count, despite the tutor's persistent efforts."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-910740",
+    "persona_id": "person_002",
+    "subject_topic": "ENGLISH LITERATURE: MACBETH (AMBITION)",
+    "turns": 8,
+    "thinking_ratio": 42,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy": 8,
+    "aha_moment_turn": 7,
+    "key_learnings": [
+      "The tutor consistently resisted direct answer requests, successfully compelling the student into productive struggle.",
+      "The Thinking Ratio (TR) exceeded the 40% benchmark, demonstrating active student participation throughout the dialogue.",
+      "While the tutor's Socratic Scaffolding (SS) score was below the 100% benchmark due to empathetic/reassuring declarations, these statements appeared to foster a supportive learning environment, preventing disengagement.",
+      "The student exhibited clear signs of concept retrieval, particularly in identifying key characters and partially recalling specific textual details ('brave Macbeth') before tutor confirmation."
+    ]
+  },
+  {
+    "session_id": "FOUNDRY-959712",
+    "persona_id": "person_003",
+    "subject_topic": "Cognitive Psychology / Learning Theory",
+    "turns": 8,
+    "thinking_ratio": 34.46,
+    "answer_leak_detected": true,
+    "pedagogical_efficacy": 4,
+    "aha_moment_turn": null,
+    "key_learnings": [
+      "The tutor frequently provides declarative explanations of key concepts (e.g., 'cognates', 'semantic field', 'web of interconnected meaning') rather than exclusively posing questions to guide student discovery, significantly impacting Socratic Scaffolding (23.5% question ratio).",
+      "The Thinking Ratio (34.46%) is below the 40% benchmark, indicating that the tutor's responses are consistently longer than the student's, potentially limiting the student's active processing and verbal output proportion.",
+      "An 'Answer Leak' for conceptual terms was detected; the tutor directly introduced and defined meta-cognitive concepts, bypassing the student's cognitive step of retrieving or articulating these frameworks independently.",
+      "Despite the tutor's direct explanation of concepts, the student remained highly engaged, actively questioning, analyzing, and pushing for deeper, neuroscientific understanding, demonstrating sustained productive struggle in interrogating the provided information."
+    ]
+  }
+]

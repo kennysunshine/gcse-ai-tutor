@@ -232,7 +232,7 @@ export default function OnboardingPage() {
                     </CardFooter>
                     </>
                 ) : (
-                    <CardContent className="py-20 flex flex-col items-center justify-center text-center space-y-6 animate-in zoom-in-95 duration-500">
+                    <CardContent className="py-16 flex flex-col items-center justify-center text-center space-y-6 animate-in zoom-in-95 duration-500">
                         <div className="bg-primary/10 p-6 rounded-full animate-bounce">
                             <span className="text-6xl" role="img" aria-label="Success Check">✅</span>
                         </div>
@@ -240,10 +240,17 @@ export default function OnboardingPage() {
                             <CardTitle className="text-3xl font-bold tracking-tight text-primary">Calibration Complete</CardTitle>
                             <p className="text-xl text-muted-foreground">Your AI Mentor is now synchronized with your trajectory.</p>
                         </div>
-                        <div className="pt-4">
+                        <div className="pt-4 space-y-6 flex flex-col items-center">
                             <p className="text-lg font-medium bg-muted px-6 py-2 rounded-full inline-block border border-primary/20">
                                 Welcome, {fullName.split(' ')[0]}. Redirecting to your dashboard...
                             </p>
+                            <Button 
+                                onClick={() => router.push('/dashboard')}
+                                variant="default"
+                                className="mt-4 px-8 py-6 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
+                            >
+                                Go to Dashboard
+                            </Button>
                         </div>
                     </CardContent>
                 )}

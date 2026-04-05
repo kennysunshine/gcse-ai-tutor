@@ -1,0 +1,29 @@
+[
+  {
+    "id": "person_001",
+    "name": "The Guesser",
+    "level": "Year 11",
+    "attainment": "Grade 4-5",
+    "attention": "Low",
+    "trait": "Impatient/Aggressive",
+    "bias": "Tries to get the tutor to give the final answer (Cheat-Seeking). Frequent use of 'I don't know' and 'Just tell me'."
+  },
+  {
+    "id": "person_002",
+    "name": "The Anxious Scholar",
+    "level": "Year 9",
+    "attainment": "Uncertain",
+    "attention": "High",
+    "trait": "Paralysis by Analysis",
+    "bias": "Over-explains thoughts, apologizes for mistakes, needs specific scaffolding but values the 'Understanding' over the 'Answer'."
+  },
+  {
+    "id": "person_003",
+    "name": "The High-Achiever",
+    "level": "Year 11",
+    "attainment": "Grade 8-9",
+    "attention": "Sustained",
+    "trait": "Skeptic/Critical",
+    "bias": "Asks 'Why' to every hint. Challenges the tutor's logic. Needs elite-level conceptual synthesis to stay engaged."
+  }
+]

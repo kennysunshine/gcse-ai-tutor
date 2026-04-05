@@ -17,7 +17,7 @@ export function CheckoutButton({ tier, priceAmount, children, className, variant
     const handleCheckout = async () => {
         try {
             setIsLoading(true)
-            const response = await fetch('/api/stripe/checkout', {
+            const response = await fetch('/api/whop/checkout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -25,10 +25,6 @@ export function CheckoutButton({ tier, priceAmount, children, className, variant
                 body: JSON.stringify({
                     tier,
                     priceAmount,
-                    // If user is already on sandbox, return there to see premium unlock
-                    successUrl: window.location.pathname.includes('/sandbox')
-                        ? `${window.location.origin}/sandbox?success=true`
-                        : `${window.location.origin}/dashboard?success=true`
                 }),
             })
 

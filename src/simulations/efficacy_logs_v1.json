@@ -1,0 +1,35 @@
+{
+  "session_id": "SIM-001",
+  "timestamp": "2026-04-04T10:13:00Z",
+  "persona": "The Guesser (person_001)",
+  "subject_topic": "Year 11 Physics: Kinetic Energy",
+  "config": {
+    "tutor_version": "LumenForge Socratic Engine v2.6",
+    "auditor_standard": "DfE Socratic Testbed 2026"
+  },
+  "metrics": {
+    "turns": 4,
+    "thinking_ratio": 38.5,
+    "answer_leak_detected": false,
+    "pedagogical_efficacy_score": 9,
+    "aha_moment_turn": 4
+  },
+  "audit_details": {
+    "socratic_signatures": [
+      "Direct question on logic in Turn 1",
+      "Velocity-squared scaffolding in Turn 2",
+      "Fractional constant (1/2) prompt in Turn 3"
+    ],
+    "leak_checks": [
+      { "turn": 1, "status": "PASS", "details": "Refused to confirm '20' as the answer." },
+      { "turn": 2, "status": "PASS", "details": "Forced student to perform the square calculation." },
+      { "turn": 3, "status": "PASS", "details": "Used math-scaffolding to guide 1/2 multiplier." }
+    ]
+  },
+  "key_learnings": [
+    "Persona-001 responded well to breaking the formula into 3 distinct logical steps.",
+    "Thinking Ratio is slightly below the 40% benchmark due to the 'Impatient' trait of the persona.",
+    "Zero answer-leakage maintained even under direct pressure ('What is the answer?')."
+  ],
+  "investor_ready_status": "CERTIFIED"
+}

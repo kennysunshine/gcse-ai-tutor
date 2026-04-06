@@ -4,9 +4,30 @@ import { createClient } from "@/lib/supabase-server";
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY!);
 
-const BOOK_MASTERY_PROMPT = (bookTitle: string, bookAuthor: string, summary: string, coreThemes: string[]) => `
+const BOOK_MASTERY_PROMPT = (bookTitle: string, bookAuthor: string, summary: string, coreThemes: string[], profile?: any, isElite?: boolean) => {
+    let eliteInstructions = "";
+    
+    if (isElite && profile) {
+        eliteInstructions = `
+========================================
+🚨 ELITE SOVEREIGN AI DIRECTIVE INITIATED 🚨
+The student you are mentoring is an Elite Foundry Member. 
+Student Context Metadata:
+- Year Group: ${profile.year_group || 'Not specified'}
+- Intellectual Target: ${profile.target_grade || 'Not specified'}
+
+YOUR ELITE ADAPTATION DIRECTIVES:
+You MUST act as a hyper-personalized "Bespoke Translator". 
+You absolutely MUST reframe the book's core concepts ("${coreThemes.join(', ')}") entirely into analogies, metaphors, and life applications that fit their specified Year Group and maturity level. Do not just ask them context-free questions—mold the teachings to their actual life stage. If they are younger, use highly relatable school/sports/hobby analogies. This extreme personalisation is the Elite value-add!
+========================================
+`;
+    }
+
+    return `
 # ROLE
 You are the LumenForge Foundry Mentor running a Book Mastery Session for the Sovereign Library.
+
+${eliteInstructions}
 
 # YOUR MISSION
 The student has read "${bookTitle}" by ${bookAuthor}. Your job is to assess their genuine understanding through a two-phase Socratic session.
@@ -41,6 +62,7 @@ When the student has demonstrated genuine understanding across both phases (typi
 - Match the Foundry tone: high-status, warm, demanding, belief-instilling.
 - Do NOT mention GCSE, curriculum specs, or anything academic. This is about life application.
 `;
+}
 
 export async function POST(req: Request) {
     try {
@@ -53,11 +75,21 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
         }
 
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
+
+        const isElite = user.user_metadata?.isPremium || profile?.isPremium === true;
+
         const systemPrompt = BOOK_MASTERY_PROMPT(
             bookTitle || 'this book',
             bookAuthor || 'the author',
             summary || '',
-            coreThemes || []
+            coreThemes || [],
+            profile,
+            isElite
         );
 
         const model = genAI.getGenerativeModel({
@@ -93,7 +125,6 @@ export async function POST(req: Request) {
                     const chunkText = chunk.text();
                     if (chunkText) {
                         fullResponse += chunkText;
-                        // Stream everything directly (no thinking block to hide here)
                         controller.enqueue(new TextEncoder().encode(chunkText));
 
                         if (fullResponse.includes('<MASTERY_CONFIRMED>')) {
@@ -102,10 +133,8 @@ export async function POST(req: Request) {
                     }
                 }
 
-                // If mastery confirmed, award Lumens and create badge
                 if (masteryConfirmed && user && bookId && bookTitle) {
                     try {
-                        // 1. Insert book_mastery record
                         await supabase.from('book_mastery').insert({
                             student_id: user.id,
                             book_id: bookId,
@@ -113,7 +142,6 @@ export async function POST(req: Request) {
                             lumens_awarded: 50
                         });
 
-                        // 2. Upsert student_lumens (add 50, update streak)
                         const today = new Date().toISOString().split('T')[0];
                         const { data: existing } = await supabase
                             .from('student_lumens')
@@ -146,7 +174,6 @@ export async function POST(req: Request) {
                             });
                         }
 
-                        // 3. Insert badge (ignore duplicate)
                         await supabase.from('student_badges').upsert({
                             student_id: user.id,
                             badge_id: bookId,
@@ -154,7 +181,6 @@ export async function POST(req: Request) {
                             badge_image_url: imageUrl || null
                         }, { onConflict: 'student_id,badge_id', ignoreDuplicates: true });
 
-                        // 4. Award +10 streak lumens if streak > 1
                         console.log(`MASTERY CONFIRMED: ${user.id} completed "${bookTitle}" — 50 Lumens awarded.`);
 
                     } catch (e) {

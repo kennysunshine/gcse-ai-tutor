@@ -4,9 +4,10 @@
     "title": "High Performance Habits",
     "author": "Brendon Burchard",
     "affiliateUrl": "https://amzn.to/4uYv3yT",
-    "imageUrl": "https://m.media-amazon.com/images/I/61p7Hb-1gIL.jpg",
+    "imageUrl": "/images/books/B076BWKS8P.jpg",
     "summary": "Discover the six deliberate habits that successful people practice consistently. Stop relying on natural talent and start engineering peak performance. This framework turns ambition into repeatable success.",
     "foundersNote": "A complete mental operating system for elite output.",
+    "isPremium": true,
     "coreThemes": [
       "HP6 habits",
       "necessity psychology",
@@ -19,9 +20,10 @@
     "title": "Can't Hurt Me",
     "author": "David Goggins",
     "affiliateUrl": "https://amzn.to/4sRMek4",
-    "imageUrl": "https://m.media-amazon.com/images/P/1544512279.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/1544512279.jpg",
     "summary": "A brutal, uncompromising look into mastering your own mind and breaking through assumed limitations. Learn the 40% rule: when your mind tells you you're done, you're only 40% done. Transform pain and suffering into an unstoppable edge.",
     "foundersNote": "Mandatory reading for destroying self-pity and building extreme resilience.",
+    "isPremium": true,
     "coreThemes": [
       "40% rule",
       "callus the mind",
@@ -34,9 +36,10 @@
     "title": "The War of Art",
     "author": "Steven Pressfield",
     "affiliateUrl": "https://amzn.to/4bTBDxN",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9781936891023-L.jpg",
+    "imageUrl": "/images/books/B07PRDP4Y6.jpg",
     "summary": "Identify, confront, and conquer the ultimate enemy of creativity: Resistance. Understand why you continually procrastinate on your most important goals. Unlock the discipline needed to go from amateur to unquestioned professional.",
     "foundersNote": "The definitive guide on beating procrastination and shipping your work.",
+    "isPremium": true,
     "coreThemes": [
       "Resistance",
       "turning pro",
@@ -49,9 +52,10 @@
     "title": "Relentless",
     "author": "Tim Grover",
     "affiliateUrl": "https://amzn.to/4tBNurV",
-    "imageUrl": "https://m.media-amazon.com/images/I/71CWO5p9yfL.jpg",
+    "imageUrl": "/images/books/B08KFHLK6F.jpg",
     "summary": "Enter the minds of legendary athletes like Michael Jordan and Kobe Bryant. Learn the difference between 'Coolers', 'Closers', and 'Cleaners'. Stop overthinking your performance and learn to trust your darkest instincts to win.",
     "foundersNote": "Unapologetic strategy on what it actually takes to be the absolute best.",
+    "isPremium": true,
     "coreThemes": [
       "Cleaner mindset",
       "instinct over thinking",
@@ -64,9 +68,10 @@
     "title": "Deep Work",
     "author": "Cal Newport",
     "affiliateUrl": "https://amzn.to/3NNNjdK",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9780349411903-L.jpg",
+    "imageUrl": "/images/books/B01D0JE7KQ.jpg",
     "summary": "Master the rare, highly valuable skill of focusing without distraction on demanding tasks. Discover why 'shallow work' like emails and notifications are eroding your cognitive capabilities. Rebuild your attention span to produce elite-level results.",
     "foundersNote": "Essential for students in the age of AI distraction. Unmatched focus.",
+    "isPremium": true,
     "coreThemes": [
       "deliberate practice",
       "distraction economy",
@@ -79,9 +84,10 @@
     "title": "Man's Search for Meaning",
     "author": "Viktor Frankl",
     "affiliateUrl": "https://amzn.to/4sGPuib",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9781846041242-L.jpg",
+    "imageUrl": "/images/books/B002SQFA5Y.jpg",
     "summary": "A profound psychological exploration of finding purpose in the absolute darkest of circumstances. Understand that while you cannot control what happens to you, you always control your reaction. Learn why he who has a 'why' to live for can bear almost any 'how'.",
     "foundersNote": "The ultimate psychological framework on resilience and purpose.",
+    "isPremium": true,
     "coreThemes": [
       "logotherapy",
       "choosing your response",
@@ -94,9 +100,10 @@
     "title": "The 48 Laws of Power",
     "author": "Robert Greene",
     "affiliateUrl": "https://amzn.to/4uYnPL9",
-    "imageUrl": "https://m.media-amazon.com/images/I/41dTDMW9IhL._SL1500_.jpg",
+    "imageUrl": "/images/books/B00WYRC0L4.png",
     "summary": "A ruthless and highly pragmatic manual on the invisible dynamics of human control. Study 3,000 years of history to understand how power is acquired, protected, and lost. Learn to defend yourself against manipulators by understanding their playbooks.",
     "foundersNote": "Observe human nature objectively instead of ideally.",
+    "isPremium": true,
     "coreThemes": [
       "power dynamics",
       "court politics",
@@ -109,9 +116,10 @@
     "title": "Principles",
     "author": "Ray Dalio",
     "affiliateUrl": "https://amzn.to/4del2Hz",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9781501124020-L.jpg",
+    "imageUrl": "/images/books/B074B28CXV.jpg",
     "summary": "Extract the exact algorithms that built one of the most successful hedge funds in history. Implement 'radical transparency' and embrace the pain of making mistakes as a learning vehicle. Systematize your life decisions so you aren't reliant on temporary emotions.",
     "foundersNote": "Build a machine-like logic for tackling complex decisions.",
+    "isPremium": true,
     "coreThemes": [
       "radical transparency",
       "idea meritocracy",
@@ -124,9 +132,10 @@
     "title": "Extreme Ownership",
     "author": "Jocko Willink & Leif Babin",
     "affiliateUrl": "https://amzn.to/4lZKYc1",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9781250183866-L.jpg",
+    "imageUrl": "/images/books/B08SBFVM4T.jpg",
     "summary": "Learn combat-tested leadership principles from Navy SEAL commanders. Stop blaming external factors, subordinates, or bad luck for failure. Realize that true authority only comes when you take absolute, uncompromising responsibility for everything.",
     "foundersNote": "If it fails, it's your fault. That mindset is ultimate freedom.",
+    "isPremium": true,
     "coreThemes": [
       "no bad teams only bad leaders",
       "decentralised command",
@@ -139,9 +148,10 @@
     "title": "The 5 AM Club",
     "author": "Robin Sharma",
     "affiliateUrl": "https://amzn.to/3O9xQ7O",
-    "imageUrl": "https://m.media-amazon.com/images/P/0008449031.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/0008449031.jpg",
     "summary": "Take aggressive control of your mornings to outpace your competition. Install the 20/20/20 formula to balance exercise, reflection, and learning before the sun rises. Protect your cognitive bandwidth by owning the first hours of your day.",
     "foundersNote": "Win the morning to win the day. Elite routine structure.",
+    "isPremium": true,
     "coreThemes": [
       "20/20/20 formula",
       "twin cycles of elite performance",
@@ -154,9 +164,10 @@
     "title": "Ogilvy on Advertising",
     "author": "David Ogilvy",
     "affiliateUrl": "https://amzn.to/486uidh",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0BSFWPS9S.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0BSFWPS9S.jpg",
     "summary": "The timeless masterclass on how to actually sell products instead of just looking creative. Learn the raw psychology behind hooks, headlines, and undeniable copy. Understand the consumer's deep desires to craft offers they cannot refuse.",
     "foundersNote": "The underlying psychology of the 'Hook'. Essential marketing canon.",
+    "isPremium": true,
     "coreThemes": [
       "research before creativity",
       "the big idea",
@@ -169,9 +180,10 @@
     "title": "Pre-Suasion",
     "author": "Robert Cialdini",
     "affiliateUrl": "https://amzn.to/4dRafmM",
-    "imageUrl": "https://m.media-amazon.com/images/P/B01A6DJD7Q.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B01A6DJD7Q.jpg",
     "summary": "Discover why the secret to persuasion lies in what happens immediately before you make a request. Learn how to prime your audience's attention so they are naturally receptive to your message. Master the art of 'privileged moments' to dramatically increase compliance.",
     "foundersNote": "Set the stage before you make the pitch. Subtle but high leverage.",
+    "isPremium": true,
     "coreThemes": [
       "privileged moments",
       "channelling attention",
@@ -184,9 +196,10 @@
     "title": "The Psychology of Selling",
     "author": "Brian Tracy",
     "affiliateUrl": "https://amzn.to/4s8rQdB",
-    "imageUrl": "https://m.media-amazon.com/images/P/B000SEQKRK.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B000SEQKRK.jpg",
     "summary": "Uncover the inner game of sales: your self-concept determines your income. Learn how to bypass a prospect's logical objections by appealing to their deeper emotional desires. Systematically increase your closing rate through sheer psychological momentum.",
     "foundersNote": "Sales is a transference of belief. Bulletproof your self-concept.",
+    "isPremium": true,
     "coreThemes": [
       "self-concept in sales",
       "inner game of selling",
@@ -199,9 +212,10 @@
     "title": "To Sell is Human",
     "author": "Daniel Pink",
     "affiliateUrl": "https://amzn.to/412Dj3k",
-    "imageUrl": "https://m.media-amazon.com/images/P/B00AO3K05S.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B00AO3K05S.jpg",
     "summary": "A paradigm shift revealing that everyone is in sales, constantly moving others to act. Replace the old 'Always Be Closing' mantra with Attunement, Buoyancy, and Clarity. Learn how to pitch, improvise, and serve optimally in the modern landscape.",
     "foundersNote": "A modern, empathetic approach to moving human behavior.",
+    "isPremium": true,
     "coreThemes": [
       "attunement",
       "buoyancy",
@@ -210,28 +224,14 @@
     ]
   },
   {
-    "id": "B004H4XL7E",
-    "title": "Pitch Anything",
-    "author": "Oren Klaff",
-    "affiliateUrl": "https://amzn.to/3PDXX7u",
-    "imageUrl": "https://m.media-amazon.com/images/P/B004H4XL7E.01._SCLZZZZZZZ_.jpg",
-    "summary": "Take absolute control of the room by mastering 'frame control' against powerful executives. Stop appealing to their logic and learn to bypass their 'crocodile brain' with intrigue and novelty. Present undeniable value while completely shattering opposing frames.",
-    "foundersNote": "High-level neuro-economics for controlling high-stakes conversations.",
-    "coreThemes": [
-      "frame control",
-      "crocodile brain",
-      "prizing",
-      "hot cognition"
-    ]
-  },
-  {
     "id": "1847941494",
     "title": "Never Split the Difference",
     "author": "Chris Voss",
     "affiliateUrl": "https://amzn.to/4v14Mjm",
-    "imageUrl": "https://m.media-amazon.com/images/P/1847941494.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/1847941494.jpg",
     "summary": "Apply high-stakes FBI hostage negotiation tactics to real-world business and life. Understand that humans are deeply irrational and emotional, making traditional 'win-win' compromises ineffective. Master tactical empathy, mirroring, and calibrated questions to gain the upper hand.",
     "foundersNote": "High-stakes negotiation. Never compromise your core objective.",
+    "isPremium": true,
     "coreThemes": [
       "tactical empathy",
       "mirroring",
@@ -244,9 +244,10 @@
     "title": "Spin Selling",
     "author": "Neil Rackham",
     "affiliateUrl": "https://amzn.to/47zWPYC",
-    "imageUrl": "https://m.media-amazon.com/images/P/B06XB35VCH.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B06XB35VCH.jpg",
     "summary": "Dismantle traditional sales techniques that fail miserably in massive, high-ticket B2B deals. Utilize the methodical Situation, Problem, Implication, Need-payoff (SPIN) questioning framework. Guide the prospect to painfully articulate their own problem before you offer the solution.",
     "foundersNote": "The gold standard for high-ticket, enterprise-level persuasion.",
+    "isPremium": true,
     "coreThemes": [
       "situation questions",
       "problem questions",
@@ -259,9 +260,10 @@
     "title": "Way of the Wolf",
     "author": "Jordan Belfort",
     "affiliateUrl": "https://amzn.to/3PAc0uJ",
-    "imageUrl": "https://m.media-amazon.com/images/P/B075CRRT7Z.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B075CRRT7Z.jpg",
     "summary": "Crack the code of the 'Straight Line Persuasion' system. Learn to establish massive certainty in your product, yourself, and your company within the first four seconds. Master tonality and body language to ethically close any prospect who is actually closable.",
     "foundersNote": "Raw, aggressive sales technique focused on absolute certainty.",
+    "isPremium": true,
     "coreThemes": [
       "straight line persuasion",
       "certainty spectrum",
@@ -274,9 +276,10 @@
     "title": "Influence",
     "author": "Robert Cialdini",
     "affiliateUrl": "https://amzn.to/3PvWYGp",
-    "imageUrl": "https://m.media-amazon.com/images/P/B08HZ57WYN.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B08HZ57WYN.jpg",
     "summary": "Understand the six universal psychological triggers that force humans to say 'yes'. Defend yourself against masters of manipulation by understanding reciprocation, scarcity, and authority. Deploy these ethically to drastically increase your own conversion rates.",
     "foundersNote": "The foundational text on the psychology of persuasion.",
+    "isPremium": true,
     "coreThemes": [
       "reciprocity",
       "commitment and consistency",
@@ -289,9 +292,10 @@
     "title": "The Intelligent Investor",
     "author": "Benjamin Graham",
     "affiliateUrl": "https://amzn.to/4bPxxa8",
-    "imageUrl": "https://m.media-amazon.com/images/I/91L0La1pwDL.jpg",
+    "imageUrl": "/images/books/0857190121.jpg",
     "summary": "Learn the philosophy of 'value investing' from Warren Buffett's lifelong mentor. Shield your portfolio from the devastating emotional swings of 'Mr. Market'. Focus on long-term compound growth built on rigorous fundamental analysis instead of gambling.",
     "foundersNote": "The unshakeable bedrock of wealth preservation and logic.",
+    "isPremium": true,
     "coreThemes": [
       "margin of safety",
       "Mr Market allegory",
@@ -304,9 +308,10 @@
     "title": "The Almanack of Naval Ravikant",
     "author": "Eric Jorgenson",
     "affiliateUrl": "https://amzn.to/4bYHRNa",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0F9XC7L4W.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0F9XC7L4W.jpg",
     "summary": "A distillation of profound wisdom on how to build wealth and happiness without relying on luck. Separate your time from your earnings by leveraging code, media, and capital. True wealth is having assets that earn while you sleep.",
     "foundersNote": "Modern 'Sovereign' wealth building. High leverage philosophy.",
+    "isPremium": true,
     "coreThemes": [
       "specific knowledge",
       "leverage",
@@ -319,9 +324,10 @@
     "title": "Secrets of the Millionaire Mind",
     "author": "T. Harv Eker",
     "affiliateUrl": "https://amzn.to/4bF1H0Z",
-    "imageUrl": "https://m.media-amazon.com/images/P/0060763280.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/0060763280.jpg",
     "summary": "Identify and reprogram your subconscious 'money blueprint'. Realize that poor people play the money game to not lose, while rich people play to win. Unlearn destructive financial programming inherited from your past.",
     "foundersNote": "Eradicate your limiting beliefs around capital acquisition.",
+    "isPremium": true,
     "coreThemes": [
       "money blueprint",
       "wealth files",
@@ -334,9 +340,10 @@
     "title": "The 10X Rule",
     "author": "Grant Cardone",
     "affiliateUrl": "https://amzn.to/4s3pLzC",
-    "imageUrl": "https://m.media-amazon.com/images/P/B004X75OES.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B004X75OES.jpg",
     "summary": "Eliminate the disease of 'average' by multiplying your goals and required actions by ten. Understand that massive success is not an option, but your ethical duty. Outwork your competition so aggressively that you become utterly omnipresent.",
     "foundersNote": "Pure, unfiltered momentum and volume. Dominate, don't compete.",
+    "isPremium": true,
     "coreThemes": [
       "10X targets",
       "average is the enemy",
@@ -349,9 +356,10 @@
     "title": "Your Wish Is Your Command",
     "author": "Kevin Trudeau",
     "affiliateUrl": "https://amzn.to/3PRtZwC",
-    "imageUrl": "https://m.media-amazon.com/images/I/71igUOrSPtL.jpg",
+    "imageUrl": "/images/books/B003EABO0I.jpg",
     "summary": "A controversial deep-dive into the energetic principles weaponized by secret societies. Learn to vibrate at the frequency of your desires to collapse time and manifest outcomes. A polarizing but powerful perspective on absolute mindset alignment.",
     "foundersNote": "Advanced, esoteric mindset programming.",
+    "isPremium": true,
     "coreThemes": [
       "resonance frequency",
       "law of attraction mechanics",
@@ -364,9 +372,10 @@
     "title": "The Greatest Salesman in the World",
     "author": "Og Mandino",
     "affiliateUrl": "https://amzn.to/41AYvxn",
-    "imageUrl": "https://m.media-amazon.com/images/P/B004G8PIQ8.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B004G8PIQ8.jpg",
     "summary": "A timeless parable uncovering the ten ancient scrolls of success and abundance. Reprogram your subconscious daily by embracing love, persistence, and emotional mastery. True influence starts with internal spiritual discipline.",
     "foundersNote": "Classic foundational programming for resilience.",
+    "isPremium": true,
     "coreThemes": [
       "ten scrolls",
       "habit formation through repetition",
@@ -375,28 +384,14 @@
     ]
   },
   {
-    "id": "B0BX7G7PZN",
-    "title": "The Millionaire Next Door",
-    "author": "Thomas J. Stanley",
-    "affiliateUrl": "https://amzn.to/3Q9qaTy",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0BX7G7PZN.01._SCLZZZZZZZ_.jpg",
-    "summary": "Shatter the Hollywood illusion of wealth and discover how true millionaires actually live. Realize that massive wealth is accumulated through extreme frugality, defensive planning, and avoiding status symbols. If you buy the luxury car, you remain the highly-taxed employee.",
-    "foundersNote": "The mathematical reality of keeping capital vs. displaying it.",
-    "coreThemes": [
-      "PAW vs UAW",
-      "frugality patterns",
-      "economic outpatient care",
-      "first generation wealth"
-    ]
-  },
-  {
     "id": "B0175P5MZU",
     "title": "The Cashflow Quadrant",
     "author": "Robert Kiyosaki",
     "affiliateUrl": "https://amzn.to/4diJesq",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0175P5MZU.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0175P5MZU.jpg",
     "summary": "Escape the trap of trading time for money by crossing the quadrant from Employee to Investor. Understand why 'A' students inevitably end up working for 'C' students. Reposition your financial life to leverage OPM (Other People's Money) and OPT.",
     "foundersNote": "Crucial shift from active labor to systemic asset ownership.",
+    "isPremium": true,
     "coreThemes": [
       "E-S-B-I quadrant",
       "OPM leverage",
@@ -409,9 +404,10 @@
     "title": "How to Win Friends and Influence People",
     "author": "Dale Carnegie",
     "affiliateUrl": "https://amzn.to/413zc6Y",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0912CMYHD.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0912CMYHD.jpg",
     "summary": "The quintessential manual on handling human ego and social dynamics. Learn to become genuinely interested in others to compel them to work with you. Arouse in the other person an eager want, because nobody cares what you want.",
     "foundersNote": "The undisputed base-layer code for interacting with humans.",
+    "isPremium": true,
     "coreThemes": [
       "genuine interest in others",
       "remembering names",
@@ -424,9 +420,10 @@
     "title": "Maximum Achievement",
     "author": "Brian Tracy",
     "affiliateUrl": "https://amzn.to/4sI0gFa",
-    "imageUrl": "https://m.media-amazon.com/images/P/0684803313.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/0684803313.jpg",
     "summary": "A proven, systematic blueprint for unlocking your full potential. Learn to establish crystal-clear goals and execute them with ruthless efficiency. Transform negative emotions into an unstoppable drive for success.",
     "foundersNote": "A complete software update for your productivity OS.",
+    "isPremium": true,
     "coreThemes": [
       "self-concept",
       "master skill of success",
@@ -439,9 +436,10 @@
     "title": "The Success Principles for Teens",
     "author": "Jack Canfield",
     "affiliateUrl": "https://amzn.to/4ce6Xc3",
-    "imageUrl": "https://m.media-amazon.com/images/P/B07Q3TDDJP.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B07Q3TDDJP.jpg",
     "summary": "Actionable strategies tailored for young adults to take absolute 100% responsibility for their lives. Stop waiting to be saved and start steering your own trajectory. Re-engineer 'failure' as simply feedback on your journey to massive success.",
     "foundersNote": "Essential early-stage framing for ambitious youth.",
+    "isPremium": true,
     "coreThemes": [
       "100% responsibility",
       "clarity of vision",
@@ -454,9 +452,10 @@
     "title": "You Have a Brain",
     "author": "Ben Carson",
     "affiliateUrl": "https://amzn.to/4vidryn",
-    "imageUrl": "https://m.media-amazon.com/images/P/0310749921.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/0310749921.jpg",
     "summary": "A powerful framework developed by an elite neurosurgeon on maximizing cognitive potential. Use the T.H.I.N.K. B.I.G. acronym to rise above environmental limitations. Recognize that your brain is the ultimate supercomputer, capable of redefining your reality.",
     "foundersNote": "Inspirational, high-leverage guidance on intellectual sovereignty.",
+    "isPremium": true,
     "coreThemes": [
       "T.H.I.N.K.",
       "B.I.G. principles",
@@ -469,9 +468,10 @@
     "title": "The Strangest Secret",
     "author": "Earl Nightingale",
     "affiliateUrl": "https://amzn.to/47xtE8r",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0BMW8KPMY.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0BMW8KPMY.jpg",
     "summary": "The original audio-recording that launched the personal development revolution. Uncover the ultimate secret of existence: we absolutely become what we think about mostly. Take back the wheel of your mind to steer your life deliberately instead of accidentally.",
     "foundersNote": "The simplest, most undeniable law of human achievement.",
+    "isPremium": true,
     "coreThemes": [
       "we become what we think about",
       "conformity vs courage",
@@ -484,9 +484,10 @@
     "title": "Psycho-Cybernetics",
     "author": "Maxwell Maltz",
     "affiliateUrl": "https://amzn.to/4tnao6d",
-    "imageUrl": "https://m.media-amazon.com/images/P/B01BD1SUL0.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B01BD1SUL0.jpg",
     "summary": "A pioneer plastic surgeon discovers that changing a patient's face doesn't change their self-image. Learn to reprogram your internal 'success mechanism' through vivid mental visualization. Your nervous system literally cannot tell the difference between an imagined experience and a real one.",
     "foundersNote": "The science of identity shifting and mental visualization.",
+    "isPremium": true,
     "coreThemes": [
       "self-image psychology",
       "synthetic experience",
@@ -499,9 +500,10 @@
     "title": "As a Man Thinketh",
     "author": "James Allen",
     "affiliateUrl": "https://amzn.to/416vglZ",
-    "imageUrl": "https://m.media-amazon.com/images/P/B07JHRHYV3.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B07JHRHYV3.jpg",
     "summary": "A profound literary essay establishing that your mind is the master weaver of your environment. You are not a victim of circumstance; your circumstances are directly manifested by your thoughts. Cultivate your mental garden to reap total sovereignty.",
     "foundersNote": "Elegant, ruthless accountability for your own thoughts.",
+    "isPremium": true,
     "coreThemes": [
       "mind as garden",
       "thought and character",
@@ -514,9 +516,10 @@
     "title": "The Power of Positive Thinking",
     "author": "Norman Vincent Peale",
     "affiliateUrl": "https://amzn.to/47z7LWh",
-    "imageUrl": "https://m.media-amazon.com/images/P/B00702M29I.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B00702M29I.jpg",
     "summary": "Practical techniques to shatter paralyzing inferiority complexes and chronic worry. Reprogram your mental loops to expect success rather than anticipate disaster. Cultivate a constant, peaceful energy that naturally attracts higher outcomes.",
     "foundersNote": "Foundational mindset engineering for eliminating toxic anxiety.",
+    "isPremium": true,
     "coreThemes": [
       "visualisation",
       "prayer as power",
@@ -529,9 +532,10 @@
     "title": "The Magic of Thinking Big",
     "author": "David J. Schwartz",
     "affiliateUrl": "https://amzn.to/4v576WU",
-    "imageUrl": "https://m.media-amazon.com/images/P/B01B2DJK6S.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B01B2DJK6S.jpg",
     "summary": "Eradicate the disease of 'Excusitis' and stop underselling your potential. Learn why believing you can succeed is the first, non-negotiable step to actually doing it. Upgrade your environment and force yourself to think beyond your current confines.",
     "foundersNote": "A cure for mediocrity and self-imposed limitations.",
+    "isPremium": true,
     "coreThemes": [
       "excusitis",
       "think big and you will live big",
@@ -544,9 +548,10 @@
     "title": "Think and Grow Rich",
     "author": "Napoleon Hill",
     "affiliateUrl": "https://amzn.to/41H4MHP",
-    "imageUrl": "https://m.media-amazon.com/images/P/B08776ZZY4.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B08776ZZY4.jpg",
     "summary": "The culmination of twenty years researching the most powerful magnates in American history. Learn how burning desire, specialized knowledge, and mastermind groups transmute ambition into capital. Discover the secret of the 'sixth sense' and autosuggestion.",
     "foundersNote": "The absolute required reading for any ambitious operator.",
+    "isPremium": false,
     "coreThemes": [
       "burning desire",
       "specialised knowledge",
@@ -559,9 +564,10 @@
     "title": "Rich Dad Poor Dad for Teens",
     "author": "Robert Kiyosaki",
     "affiliateUrl": "https://amzn.to/47slQ7Z",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0175P5O9E.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0175P5O9E.jpg",
     "summary": "The financial education that the traditional schooling system deliberately omits. Understand the critical difference between a liability that bleeds you and an asset that feeds you. Learn to make money work aggressively for you, rather than vice versa.",
     "foundersNote": "Financial literacy explicitly optimized for the next generation.",
+    "isPremium": false,
     "coreThemes": [
       "asset vs liability",
       "rat race escape",
@@ -574,9 +580,10 @@
     "title": "The 7 Habits of Highly Effective Teens",
     "author": "Sean Covey",
     "affiliateUrl": "https://amzn.to/40ZjcTF",
-    "imageUrl": "https://m.media-amazon.com/images/P/B005A3WFSC.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B005A3WFSC.jpg",
     "summary": "A step-by-step framework to navigate the chaos of youth with extreme proactive discipline. Learn to begin with the end in mind and prioritize tasks that actually move the needle. Build synergistic relationships rather than competitive, zero-sum ones.",
     "foundersNote": "Strategic character building over temporary behavioral tweaks.",
+    "isPremium": true,
     "coreThemes": [
       "be proactive",
       "begin with the end in mind",
@@ -585,28 +592,14 @@
     ]
   },
   {
-    "id": "B00WN86S62",
-    "title": "Think and Grow Rich: A Black Choice",
-    "author": "Dennis Kimbro",
-    "affiliateUrl": "https://amzn.to/4seaRqo",
-    "imageUrl": "https://covers.openlibrary.org/b/isbn/9780449911709-L.jpg",
-    "summary": "An incredibly powerful adaptation of Napoleon Hill's classic, highlighting the specific strategies of elite African-American entrepreneurs. Turn systematic obstacles into extraordinary leverage. Emphasizes that wealth is first built in the mind before it materializes in reality.",
-    "foundersNote": "Brilliant iteration focusing on overcoming unique cultural obstacles.",
-    "coreThemes": [
-      "cultural leverage",
-      "self-definition",
-      "economic empowerment",
-      "burning desire adapted"
-    ]
-  },
-  {
     "id": "B0GF6V9ZF3",
     "title": "Neural Grit",
     "author": "Unknown (Sovereign Edition)",
     "affiliateUrl": "https://amzn.to/4tfpDOj",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0GF6V9ZF3.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0GF6V9ZF3.jpg",
     "summary": "A highly targeted manual on mastering focus and emotional intelligence in an aggressively distracted world. Rewire your neurotransmitters to crave long-term accomplishment over cheap dopamine. Build unshakeable mental toughness through calculated adversity.",
     "foundersNote": "The blueprint for thriving in the hyper-stimulated digital age.",
+    "isPremium": true,
     "coreThemes": [
       "neuroplasticity",
       "dopamine discipline",
@@ -619,9 +612,10 @@
     "title": "Do Hard Things",
     "author": "Alex and Brett Harris",
     "affiliateUrl": "https://amzn.to/3NM3hoH",
-    "imageUrl": "https://m.media-amazon.com/images/P/B0CN1Z3FPY.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B0CN1Z3FPY.jpg",
     "summary": " A teenage rebellion against low expectations. Shatter the myth of 'adolescence' as a time for slacking off, and reclaim it as the launchpad for massive capability. Do the hard, uncomfortable tasks now to compound your skills geometrically.",
     "foundersNote": "Weaponize your youth. Do not wait for permission to be great.",
+    "isPremium": true,
     "coreThemes": [
       "myth of adolescence",
       "rebelution",
@@ -634,14 +628,224 @@
     "title": "Better Than a Lemonade Stand",
     "author": "Daryl Bernstein",
     "affiliateUrl": "https://amzn.to/41BdsiZ",
-    "imageUrl": "https://m.media-amazon.com/images/P/B007JLVK4S.01._SCLZZZZZZZ_.jpg",
+    "imageUrl": "/images/books/B007JLVK4S.jpg",
     "summary": "A brilliant, pragmatic guide featuring 51 actual business blueprints created specifically for young operators. Skip the theory and start executing real-world value exchanges. Learn the raw mechanics of profit margins, marketing, and scaling local services.",
     "foundersNote": "Pure, actionable entrepreneurship. Start making money immediately.",
+    "isPremium": true,
     "coreThemes": [
       "profit margin",
       "identifying local needs",
       "customer service basics",
       "scaling a micro-business"
+    ]
+  },
+  {
+    "id": "B007I7L0A8",
+    "title": "The Defining Decade",
+    "author": "Dr. Meg Jay",
+    "affiliateUrl": "https://amzn.to/4c3eJnS",
+    "imageUrl": "/images/books/defining-decade.png",
+    "summary": "A provocative look at why your twenties are the most defining decade of your adult life. Learn how to navigate the 'identity capital' gap and build a foundation for long-term career and life satisfaction. Stop treating your twenties as an extension of adolescence.",
+    "foundersNote": "Crucial guidance on building high-status life capital early.",
+    "isPremium": true,
+    "coreThemes": [
+      "identity capital",
+      "weak ties",
+      "the 80/20 of life planning",
+      "intentionality in youth"
+    ]
+  },
+  {
+    "id": "B00867866Y",
+    "title": "You Are a Badass",
+    "author": "Jen Sincero",
+    "affiliateUrl": "https://amzn.to/4vsKO1s",
+    "imageUrl": "/images/books/badass.png",
+    "summary": "Identify and destroy the self-sabotaging beliefs that are keeping you from getting what you want. A high-energy guide on creating a life you totally love by embracing your own innate potential. Learn to stop caring what others think and start owning your trajectory.",
+    "foundersNote": "Radical self-belief with a highly modern, aggressive edge.",
+    "isPremium": true,
+    "coreThemes": [
+      "vibrational frequency",
+      "ego management",
+      "self-love architecture",
+      "decision making"
+    ]
+  },
+  {
+    "id": "B000OIZSZK",
+    "title": "Never Eat Alone",
+    "author": "Keith Ferrazzi",
+    "affiliateUrl": "https://amzn.to/4sW9i1t",
+    "imageUrl": "/images/books/B000OIZSZK.jpg",
+    "summary": "Master the art of building genuine, high-leverage relationships through the power of generosity. Learn why your network is your net worth and how to build a social curriculum that opens doors to elite opportunities. Never settle for superficial networking.",
+    "foundersNote": "The definitive playbook for building elite relationship capital.",
+    "isPremium": true,
+    "coreThemes": [
+      "generosity in networking",
+      "brand of you",
+      "relationship capital",
+      "connectors mindset"
+    ]
+  },
+  {
+    "id": "B01KTIEIV0",
+    "title": "Radical Candor",
+    "author": "Kim Scott",
+    "affiliateUrl": "https://amzn.to/4m9ODUK",
+    "imageUrl": "/images/books/radical-candor.png",
+    "summary": "Discover the high-leverage management framework of Caring Personally while Challenging Directly. Avoid the 'ruinous empathy' that kills teams and individual growth. Build a culture of absolute transparency and extreme performance through honest feedback.",
+    "foundersNote": "The gold standard for high-performance communication and leadership.",
+    "isPremium": true,
+    "coreThemes": [
+      "caring vs challenging",
+      "ruinous empathy",
+      "radical transparency",
+      "performance management"
+    ]
+  },
+  {
+    "id": "B07D3Z7W5U",
+    "title": "Dare to Lead",
+    "author": "Brené Brown",
+    "affiliateUrl": "https://amzn.to/4c31Vzj",
+    "imageUrl": "/images/books/dare-lead.png",
+    "summary": "Explore the intersection of vulnerability and elite leadership. Learn why courage is a collection of four skill sets that can be taught, observed, and measured. Understand that to lead is to be brave enough to take off the armor and have the hard conversations.",
+    "foundersNote": "Building high-trust, high-performance 'Foundry' cultures.",
+    "isPremium": true,
+    "coreThemes": [
+      "vulnerability as strength",
+      "rumbling with vulnerability",
+      "living into values",
+      "braving trust"
+    ]
+  },
+  {
+    "id": "B004H4XLFV",
+    "title": "Drive",
+    "author": "Daniel H. Pink",
+    "affiliateUrl": "https://amzn.to/4sfNa0y",
+    "imageUrl": "/images/books/drive.png",
+    "summary": "The surprising truth about what actually motivates high performance in the modern age. Move beyond 'Carrots and Sticks' to the three pillars of Autonomy, Mastery, and Purpose. Essential for understanding your own drive and leading others effectively.",
+    "foundersNote": "The underlying science of modern 'Sovereign' motivation.",
+    "isPremium": true,
+    "coreThemes": [
+      "autonomy",
+      "mastery",
+      "purpose",
+      "intrinsic vs extrinsic"
+    ]
+  },
+  {
+    "id": "B000FCK2S6",
+    "title": "Mindset",
+    "author": "Carol S. Dweck",
+    "affiliateUrl": "https://amzn.to/3OjrFOC",
+    "imageUrl": "/images/books/B000FCK2S6.png",
+    "summary": "Uncover the power of the 'Growth Mindset' vs. the 'Fixed Mindset'. Learn why praise for effort is superior to praise for talent, and how to rewire your brain to embrace failure as a learning vehicle. Transform your potential by changing how you view your abilities.",
+    "foundersNote": "The fundamental psychological framework for all academic success.",
+    "isPremium": false,
+    "coreThemes": [
+      "fixed vs growth",
+      "neuroplasticity",
+      "effort over talent",
+      "praise mechanics"
+    ]
+  },
+  {
+    "id": "B005P1YT3M",
+    "title": "The Power of Habit",
+    "author": "Charles Duhigg",
+    "affiliateUrl": "https://amzn.to/48hBYJL",
+    "imageUrl": "/images/books/B005P1YT3M.png",
+    "summary": "Understand the neurobiology of the 'habit loop'—Cue, Routine, Reward. Learn to identify and reprogram the hidden patterns that govern 40% of your daily behaviors. Master the science of 'keystone habits' to transform your life and career systematically.",
+    "foundersNote": "Systematise your behavior to achieve effortless elite outut.",
+    "isPremium": true,
+    "coreThemes": [
+      "the habit loop",
+      "keystone habits",
+      "cravings mechanism",
+      "belief in change"
+    ]
+  },
+  {
+    "id": "B010MH7VQV",
+    "title": "Grit",
+    "author": "Angela Duckworth",
+    "affiliateUrl": "https://amzn.to/4vd1JER",
+    "imageUrl": "/images/books/grit.png",
+    "summary": "Discover why the secret to elite achievement is not talent, but a special blend of passion and persistence called 'Grit'. Learn to cultivate and measure your grit to outpace the naturally gifted who lack endurance. The definitive manual on long-term resilience.",
+    "foundersNote": "The 'foundry-hardened' version of success. Persistence is king.",
+    "isPremium": false,
+    "coreThemes": [
+      "passion + persistence",
+      "grit scale",
+      "deliberate practice",
+      "hope and resilience"
+    ]
+  },
+  {
+    "id": "B01CPN27TO",
+    "title": "Designing Your Life",
+    "author": "Bill Burnett & Dave Evans",
+    "affiliateUrl": "https://amzn.to/4e6qiND",
+    "imageUrl": "/images/books/designing-life.png",
+    "summary": "Apply high-level Silicon Valley design thinking to the most important project you have: your life. Learn to prototype different versions of your future to avoid the 'one right path' trap. Build your way forward into a life that is both meaningful and workable.",
+    "foundersNote": "A pragmatic, project-management approach to existence.",
+    "isPremium": false,
+    "coreThemes": [
+      "design thinking",
+      "odyssey years",
+      "prototyping your life",
+      "gravity problems"
+    ]
+  },
+  {
+    "id": "B006O95E0W",
+    "title": "What Color Is Your Parachute?",
+    "author": "Richard N. Bolles",
+    "affiliateUrl": "https://amzn.to/3O6ahwA",
+    "imageUrl": "/images/books/parachute.png",
+    "summary": "The timeless guide to job-hunting and career-changing. Learn how to map your 'Flower Diagram' of skills, interests, and values to find your ideal niche. Essential for navigating the complexities of the modern job market with absolute clarity.",
+    "foundersNote": "Deep introspection for strategic career positioning.",
+    "isPremium": false,
+    "coreThemes": [
+      "flower diagram",
+      "informational interviewing",
+      "the hidden job market",
+      "skill mapping"
+    ]
+  },
+
+  {
+    "id": "B08HNCY1Y4",
+    "title": "Set Boundaries, Find Peace",
+    "author": "Nedra Glover Tawwab",
+    "affiliateUrl": "https://amzn.to/4dwyu9S",
+    "imageUrl": "/images/books/set-boundaries.png",
+    "summary": "Master the art of asserting your needs without guilt. Learn to identify the six types of boundaries—physical, sexual, intellectual, emotional, material, and time—and how to communicate them clearly. Essential for maintaining self-respect and healthy relationships.",
+    "foundersNote": "Foundational social sovereignty. Learn to say 'No' with dignity.",
+    "isPremium": false,
+    "coreThemes": [
+      "six types of boundaries",
+      "assertiveness training",
+      "enmeshment vs autonomy",
+      "relationship hygiene"
+    ]
+  },
+  {
+    "id": "B007H0ID54",
+    "title": "Matilda",
+    "author": "Roald Dahl",
+    "affiliateUrl": "https://amzn.to/3NN2Dr7",
+    "imageUrl": "/images/books/matilda.png",
+    "summary": "The definitive foundational metaphor for 'Intellectual Sovereignty'. Discover how a young girl uses the power of self-education to achieve cognitive escape velocity from a restricted environment. A mandatory case study in developing an unshakeable inner world through books.",
+    "foundersNote": "The true origin story of every 'Sovereign' thinker. Intellectual escape velocity is possible through reading.",
+    "isPremium": false,
+    "coreThemes": [
+      "intellectual sovereignty",
+      "reading as escape",
+      "cognitive leverage",
+      "self-directed learning"
     ]
   }
 ]

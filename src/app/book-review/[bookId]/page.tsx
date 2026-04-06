@@ -79,7 +79,10 @@ export default function BookReviewPage() {
   }, [book])
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'auto' })
+    // Prevent violent scroll on initial load so the AI's first prompt stays at the top
+    if (messages.length > 1) {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
   }, [messages])
 
   async function sendToAI(userMessage: string, currentHistory: Message[]) {

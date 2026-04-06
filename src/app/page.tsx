@@ -62,6 +62,18 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+
+          {/* Hero Promotional Video Player */}
+          <div className="mt-16 sm:mt-24 max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-900 relative group">
+            <video 
+              controls
+              playsInline 
+              className="w-full aspect-video object-cover"
+            >
+              <source src="/hero section video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </section>
 

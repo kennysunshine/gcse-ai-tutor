@@ -116,6 +116,12 @@
       "name": "London",
       "context": "London's competitive academic landscape",
       "cityImage": "/images/cities/london.png",
+      "averageTutorRate": 55,
+      "primaryExamBoard": "Edexcel / AQA",
+      "industryConnections": {
+         "computer-science": "London's 'Silicon Roundabout' is aggressively recruiting analytical coders. Early CS mastery connects your child to the capital's elite tech cohorts.",
+         "maths": "The City of London is the global financial hub. Quantitative mathematical analysis is the highest-leverage skillset a student can deploy in this region."
+      },
       "tip": "In Greater London's competitive grammar and independent school landscape, the Socratic method builds the cognitive resilience needed for 11+ and GCSE top-tier performance.",
       "analysis": "Greater London represents the UK's highest concentration of high-pressure academic environments. With over 25% of students attending independent or selective grammar schools, the 'rote-learning' trap is common. Sovereign tutoring breaks this cycle.",
       "localFocus": "High Competition for Grammar and Independent Schools",
@@ -129,11 +135,17 @@
       "name": "Manchester",
       "context": "Manchester's thriving Northern Powerhouse schools",
       "cityImage": "/images/cities/manchester.png",
+      "averageTutorRate": 38,
+      "primaryExamBoard": "AQA",
+      "industryConnections": {
+         "computer-science": "MediaCityUK has turned Manchester into a digital powerhouse. Socratic CS tutoring builds the exact 'be the compiler' logic they hire for.",
+         "physics": "Manchester's legacy of nuclear and material physics (including the discovery of graphene) continues to dominate its university pipelines."
+      },
       "tip": "With Manchester's focus on technical and STEM excellence, our Socratic framework helps students bridge the gap between classroom theory and real-world industrial logic.",
       "analysis": "As the heart of the Northern Powerhouse, Manchester's schools are pivoting towards technical mastery and digital enterprise. Students here require a mentor that values innovation over simple grade-chasing.",
       "localFocus": "Focus on STEM, Digital Enterprise, and Engineering",
       "deepDive": [
-        "Manchester is currently witnessing a significant strategic shift toward STEM excellence, driven by the regional Northern Powerhouse incentives and a move toward digital industrialisation. This places an unprecedented premium on early mastery of analytical subjects, particularly Physics and Computer Science.",
+        "Manchester is currently witnessing a significant strategic shift toward STEM excellence, driven by the regional Northern Powerhouse incentives and a move toward digital industrialisation. This places an unprecedented premium on early mastery of analytical subjects.",
         "The primary challenge for Manchester students is the transition from KS3 'facts' to GCSE 'applied logic.' Many students find that the rote-learning techniques that served them in Year 8 fail under the weight of Year 10 specifications. This is where intellectual independence is won or lost.",
         "Our Socratic Mentor specifically addresses the 'Manchester Application Gap' by forcing students to derive scientific laws and mathematical proofs from scratch. This builds the deep-seated resilience required for both the modern examination hall and the future technical workforce."
       ]
@@ -142,6 +154,12 @@
       "name": "Birmingham",
       "context": "Birmingham's historic educational diversity",
       "cityImage": "/images/cities/birmingham.png",
+      "averageTutorRate": 35,
+      "primaryExamBoard": "OCR / AQA",
+      "industryConnections": {
+         "biology": "With the expansion of the Birmingham Health Innovation Campus, Life Sciences are the fastest-growing sector in the West Midlands.",
+         "maths": "Birmingham's advanced manufacturing and structural engineering sectors demand elite mathematical geometry and algebraic foundations."
+      },
       "tip": "From the Jewellery Quarter to Solihull, we provide the personalised mentorship needed to navigate the diverse AQA and Edexcel requirements across the West Midlands.",
       "analysis": "Birmingham's educational landscape is characterised by its scale and diversity. Navigating the differing requirements of large Academy Trusts requires a Socratic mentor that can adapt to high-volume classroom challenges.",
       "localFocus": "Diversity of Academy Trusts and Regional Selection",
@@ -154,6 +172,12 @@
     "leeds": {
       "name": "Leeds",
       "context": "West Yorkshire's academic growth",
+      "averageTutorRate": 33,
+      "primaryExamBoard": "AQA / Edexcel",
+      "industryConnections": {
+         "english-literature": "Leeds harbours a massive legal and communications sector that actively recruits analysts with high-level textual synthesis and critical AO3 logic.",
+         "physics": "West Yorkshire's aerospace and advanced engineering tiers recruit heavily from those who master first-principles physics at an early age."
+      },
       "cityImage": "/images/cities/leeds.png",
       "tip": "Leeds students are increasingly looking for higher-order thinking skills to stand out. Our Socratic Mentor focuses on AO2 and AO3 marks, the keys to Grade 8/9 success.",
       "analysis": "West Yorkshire has seen significant academic acceleration in recent years. Leeds students are now competing nationally for Russell Group placements, necessitating a shift from 'pass marks' to 'mastery signatures'.",
@@ -167,6 +191,12 @@
     "glasgow": {
       "name": "Glasgow",
       "context": "Scotland's rich intellectual tradition",
+      "averageTutorRate": 30,
+      "primaryExamBoard": "SQA",
+      "industryConnections": {
+         "biology": "Glasgow's booming biotech research hubs actively seek students who understand systemic biological models, rather than blind textbook facts.",
+         "computer-science": "With Glasgow's 'Silicon Glen' heritage, algorithmic architecture is an absolute premium skill in the Scottish job market."
+      },
       "cityImage": "/images/cities/glasgow.png",
       "tip": "Rooted in the Scottish Enlightenment tradition, our Socratic Mentor adapts to the Higher and National 5 curriculum to build independent, critical thinkers.",
       "analysis": "Scotland's curriculum (Curriculum for Excellence) is uniquely aligned with Socratic values, emphasising 'Responsible Citizens' and 'Effective Contributors'. We bridge the gap to Highers success.",

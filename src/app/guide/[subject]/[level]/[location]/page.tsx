@@ -171,6 +171,17 @@ export default async function GuidePage({ params }: { params: Promise<pSEOParams
                       {para}
                    </p>
                  ))}
+                 {locationData.industryConnections && locationData.industryConnections[subject] && (
+                   <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-2xl my-8">
+                     <div className="flex items-center gap-2 mb-2 text-primary">
+                        <Zap className="w-5 h-5" />
+                        <span className="text-xs font-black uppercase tracking-widest">Local Industry Vector</span>
+                     </div>
+                     <p className="text-lg font-bold text-foreground">
+                        {locationData.industryConnections[subject]}
+                     </p>
+                   </div>
+                 )}
                  <p className="text-lg leading-relaxed text-muted-foreground font-medium italic border-l-4 border-primary/20 pl-6 my-8">
                     {locationData.tip}
                  </p>
@@ -318,10 +329,24 @@ export default async function GuidePage({ params }: { params: Promise<pSEOParams
                          <span className="text-sm font-bold text-muted-foreground">Regional Hub</span>
                          <span className="text-sm font-black underline decoration-primary/20">{locationData.name} Metropolitan</span>
                       </div>
-                      <div className="flex items-center justify-between">
-                         <span className="text-sm font-bold text-muted-foreground">Pedagogical Framework</span>
-                         <span className="text-sm font-black italic">Active Socratic retrieval</span>
+                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+                         <span className="text-sm font-bold text-muted-foreground">Primary Exam Board</span>
+                         <span className="text-sm font-black italic text-primary">{locationData.primaryExamBoard || subjectData.curriculumContext.dominantExamBoard}</span>
                       </div>
+                   </div>
+                </div>
+
+                <hr className="border-zinc-100 dark:border-white/5" />
+                
+                <div className="bg-orange-50 dark:bg-orange-950/20 p-6 rounded-2xl border border-orange-100 dark:border-orange-500/10">
+                   <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-600 dark:text-orange-400 mb-3">Regional Cost Logic</h4>
+                   <div className="flex justify-between items-end mb-2">
+                      <span className="text-xs font-bold text-muted-foreground">Avg. Local Human Tutor</span>
+                      <span className="text-sm font-black line-through text-muted-foreground/50">£{locationData.averageTutorRate || 40}/hr</span>
+                   </div>
+                   <div className="flex justify-between items-end">
+                      <span className="text-xs font-black text-orange-700 dark:text-orange-300">Sovereign AI Access</span>
+                      <span className="text-lg font-black text-orange-600 dark:text-orange-400">£20/mo</span>
                    </div>
                 </div>
 

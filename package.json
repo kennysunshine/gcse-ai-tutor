@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "bot": "ts-node src/scripts/discord-bot.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -20,7 +21,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "dotenv": "^17.3.1",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
     "framer-motion": "^12.34.2",
     "loops": "^6.2.1",
     "lucide-react": "^0.574.0",

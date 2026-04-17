@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase-server";
+import { CurriculumEngine } from "@/lib/curriculum-engine";
 import fs from 'fs';
 import path from 'path';
 
@@ -215,10 +216,96 @@ GROUND TRUTH (RAG):
 ${extractedContext || 'No specific context retrieved.'}
 `;
 
+        const curriculum = CurriculumEngine.getInstance();
+
+        const TOOLS = [
+            {
+                function_declarations: [
+                    {
+                        name: "update_mastery",
+                        description: "Update the student's mastery status for a specific curriculum specification code.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                spec_code: { type: "string", description: "The specification code (e.g., AQA Maths 3.1.2)" },
+                                status: { type: "string", enum: ["Mastered", "Revision Needed", "Introductory"], description: "The new mastery status." },
+                                confidence_score: { type: "number", description: "Confidence score from 1-10." }
+                            },
+                            required: ["spec_code", "status"]
+                        }
+                    },
+                    {
+                        name: "list_subjects",
+                        description: "List all available subjects, boards, and levels in the curriculum engine.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                board: { type: "string", description: "Filter by board (AQA, Edexcel, OCR)" },
+                                level: { type: "string", description: "Filter by level (GCSE, A-Level, KS3)" }
+                            }
+                        }
+                    },
+                    {
+                        name: "get_specification",
+                        description: "Get the topic hierarchy and specification points for a specific subject.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                board: { type: "string" },
+                                subject: { type: "string" },
+                                level: { type: "string" }
+                            },
+                            required: ["board", "subject", "level"]
+                        }
+                    },
+                    {
+                        name: "get_paper_structure",
+                        description: "Get the exam paper structure, marks, and duration for a subject.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                board: { type: "string" },
+                                subject: { type: "string" },
+                                level: { type: "string" }
+                            },
+                            required: ["board", "subject", "level"]
+                        }
+                    },
+                    {
+                        name: "get_assessment_objectives",
+                        description: "Get the weightings and descriptions of assessment objectives (AOs).",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                board: { type: "string" },
+                                subject: { type: "string" },
+                                level: { type: "string" }
+                            },
+                            required: ["board", "subject", "level"]
+                        }
+                    },
+                    {
+                        name: "get_grade_boundaries",
+                        description: "Get historical grade boundaries for the subject.",
+                        parameters: {
+                            type: "object",
+                            properties: {
+                                board: { type: "string" },
+                                subject: { type: "string" },
+                                level: { type: "string" }
+                            },
+                            required: ["board", "subject", "level"]
+                        }
+                    }
+                ]
+            }
+        ];
+
         const model = genAI.getGenerativeModel({
             model: "gemini-2.5-flash",
+            tools: TOOLS as any,
             // Explicit marker for DfE 2026 Compliance context
-            systemInstruction: "You are governed by a Zero-Training Data Policy. Your interactions are restricted to this ephemeral session boundary and will not be used to train models. Protect user privacy inherently."
+            systemInstruction: "You are governed by a Zero-Training Data Policy. Your interactions are restricted to this ephemeral session boundary and will not be used to train models. Protect user privacy inherently. Use the curriculum tools frequently to ground your tutoring in the official AQA/Edexcel specifications."
         });
 
         // History Collapser: Ensures strict role alternation (user -> model -> user)
@@ -273,6 +360,16 @@ ${extractedContext || 'No specific context retrieved.'}
                             } else {
                                 toolResult = { error: "User not authenticated" };
                             }
+                        } else if (name === 'list_subjects') {
+                            toolResult = curriculum.listSubjects(callArgs.board, callArgs.level);
+                        } else if (name === 'get_specification') {
+                            toolResult = curriculum.getSpecification(callArgs.board, callArgs.subject, callArgs.level);
+                        } else if (name === 'get_paper_structure') {
+                            toolResult = curriculum.getPaperStructure(callArgs.board, callArgs.subject, callArgs.level);
+                        } else if (name === 'get_assessment_objectives') {
+                            toolResult = curriculum.getAssessmentObjectives(callArgs.board, callArgs.subject, callArgs.level);
+                        } else if (name === 'get_grade_boundaries') {
+                            toolResult = curriculum.getGradeBoundaries(callArgs.board, callArgs.subject, callArgs.level);
                         }
                     } catch (e: any) {
                         console.error(`Tool Execution Error [${name}]:`, e.message);

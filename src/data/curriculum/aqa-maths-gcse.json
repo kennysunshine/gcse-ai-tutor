@@ -1,0 +1,57 @@
+{
+  "subject": "Maths",
+  "board": "AQA",
+  "level": "GCSE",
+  "specifications": [
+    { "code": "3.1", "description": "Number", "level": "Topic" },
+    { "code": "3.1.1", "description": "Arithmetic", "level": "Subtopic", "parent": "3.1" },
+    { "code": "3.1.2", "description": "Fractions, decimals and percentages", "level": "Subtopic", "parent": "3.1" },
+    { "code": "3.2", "description": "Algebra", "level": "Topic" },
+    { "code": "3.2.1", "description": "Notation, vocabulary and manipulation", "level": "Subtopic", "parent": "3.2" },
+    { "code": "3.2.2", "description": "Graphs", "level": "Subtopic", "parent": "3.2" },
+    { "code": "3.3", "description": "Ratio, proportion and rates of change", "level": "Topic" },
+    { "code": "3.4", "description": "Geometry and measures", "level": "Topic" },
+    { "code": "3.5", "description": "Probability", "level": "Topic" },
+    { "code": "3.6", "description": "Statistics", "level": "Topic" }
+  ],
+  "papers": [
+    {
+      "name": "Paper 1 (Non-Calculator)",
+      "durationMinutes": 90,
+      "totalMarks": 80,
+      "calculatorStatus": "forbidden",
+      "sections": [
+        { "name": "Mixed Questions", "description": "A mix of multiple choice and short answer questions covering all topics.", "marks": 80 }
+      ]
+    },
+    {
+      "name": "Paper 2 (Calculator)",
+      "durationMinutes": 90,
+      "totalMarks": 80,
+      "calculatorStatus": "allowed",
+      "sections": [
+        { "name": "Mixed Questions", "description": "A mix of multiple choice and short answer questions covering all topics.", "marks": 80 }
+      ]
+    },
+    {
+      "name": "Paper 3 (Calculator)",
+      "durationMinutes": 90,
+      "totalMarks": 80,
+      "calculatorStatus": "allowed",
+      "sections": [
+        { "name": "Mixed Questions", "description": "A mix of multiple choice and short answer questions covering all topics.", "marks": 80 }
+      ]
+    }
+  ],
+  "assessmentObjectives": [
+    { "code": "AO1", "description": "Use and apply standard techniques", "weighting": "40-50%" },
+    { "code": "AO2", "description": "Reason, interpret and communicate mathematically", "weighting": "25-30%" },
+    { "code": "AO3", "description": "Solve problems within mathematics and in other contexts", "weighting": "25-30%" }
+  ],
+  "gradeBoundaries": [
+    { "grade": "9", "boundary": 214, "outOf": 240, "year": "2023", "tier": "Higher" },
+    { "grade": "7", "boundary": 158, "outOf": 240, "year": "2023", "tier": "Higher" },
+    { "grade": "4", "boundary": 64, "outOf": 240, "year": "2023", "tier": "Higher" },
+    { "grade": "4", "boundary": 145, "outOf": 240, "year": "2023", "tier": "Foundation" }
+  ]
+}

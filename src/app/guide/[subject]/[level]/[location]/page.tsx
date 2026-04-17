@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { SocraticCheckoutCard } from '@/components/SocraticCheckoutCard';
+import { EcosystemNav } from '@/components/EcosystemNav';
 import guideData from '@/data/guideData.json';
 
 // Mapping icons to string keys from the JSON
@@ -403,8 +404,9 @@ export default async function GuidePage({ params }: { params: Promise<pSEOParams
               ))}
            </div>
         </section>
-
       </main>
+
+      <EcosystemNav />
 
       <footer className="mt-40 text-center pb-20 pt-12">
         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.4em]">© 2026 LumenForge AI. Built for Sovereign Thinkers in {locationData.name}.</p>

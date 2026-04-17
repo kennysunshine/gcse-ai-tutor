@@ -206,6 +206,101 @@
         "The Scottish 'Curriculum for Excellence' prioritises broad synthesis, but many students find that the move to National 5 exams introduces a technical rigour that requires a more disciplined Socratic approach. Passive reading is no longer a viable strategy for Highers prep.",
         "By aligning our Socratic Mentor with the SQA specifications, we provide Glasgow students with a mentor that understands the nuances of the Scottish curriculum while enforcing the global standard of intellectual independence."
       ]
+    },
+    "bristol": {
+      "name": "Bristol",
+      "context": "Bristol's world-class aerospace and innovation cluster",
+      "averageTutorRate": 42,
+      "primaryExamBoard": "AQA / Edexcel",
+      "industryConnections": {
+         "physics": "Bristol's 'Silicon Gorge' and aerospace giants like Airbus and Rolls-Royce prioritize students with elite kinematic and structural logic.",
+         "computer-science": "The Bristol tech cluster is the UK's high-tech heartland. Mastery of algorithmic complexity is the gateway to its elite startup ecosystem."
+      },
+      "cityImage": "/images/cities/bristol.png",
+      "tip": "For Bristol families, the Socratic approach bridges the gap between creative curiosity and the rigorous technical demands of the West Country's engineering elite.",
+      "analysis": "Bristol blends a fiercely creative spirit with deep-tech engineering. Students here benefit from a mentor that values 'innovation through logic' over simple syllabus memorisation.",
+      "localFocus": "Aerospace, Advanced Engineering, and 'Silicon Gorge' Tech",
+      "deepDive": [
+        "Bristol is defined by its unique 'Silicon Gorge'—a world-class cluster of aerospace, micro-electronics, and creative-tech industries. For students in the West of England, a simple GCSE pass is insufficient; they require a technical intuition grounded in first-principles physics and mathematics.",
+        "The transition from Key Stage 3 to GCSE in Bristol reveals a critical 'Innovation Gap.' While schools provide the syllabus, the Socratic method provides the analytical depth required to understand the 'Why' behind complex engineering and code structures.",
+        "Our Socratic Mentor connects Bristol's creative curiosity with technical rigour. By challenging students to derive laws rather than memorise them, we prepare them for the high-status apprenticeships and Russell Group degree paths that define Bristol's technical elite."
+      ]
+    },
+    "edinburgh": {
+      "name": "Edinburgh",
+      "context": "Edinburgh's elite financial and AI research hub",
+      "averageTutorRate": 45,
+      "primaryExamBoard": "SQA / Edexcel",
+      "industryConnections": {
+         "maths": "As a global financial capital, Edinburgh's quantitative sectors demand more than arithmetic; they require high-status probability and algebraic logic.",
+         "computer-science": "Home to the UK's leading AI research, Edinburgh prizes students who understand the 'First Principles' of logic and complexity."
+      },
+      "cityImage": "/images/cities/edinburgh.png",
+      "tip": "Navigating the Highers or GCSE path in Edinburgh requires a high-status mentor that can handle both the technical data and the critical synthesis required for success.",
+      "analysis": "Edinburgh represents the pinnacle of Scottish academic ambition. With a booming Fintech and AI sector, students here are competing for global-standard placements.",
+      "localFocus": "Global Finance, Fintech, and AI Research",
+      "deepDive": [
+        "Edinburgh sits at the intersection of a historic academic legacy and a future-facing AI and Fintech revolution. For students in the Scottish capital, the academic standard is set by global competition. A passive classroom experience is no longer enough to secure a high-status future.",
+        "We observe that Edinburgh scholars often struggle with the 'Application of Logic' in high-stakes examinations. The Socratic method addresses this specifically by enforcing a 'Thinking First' policy, ensuring that mathematical and computational concepts are derived, not just recalled.",
+        "By aligning our Socratic Mentor with the rigorous demands of Edinburgh's financial and research sectors, we forge students who are capable of deep-seated critical analysis—the key to both SQA excellence and professional leadership in the capital."
+      ]
+    },
+    "liverpool": {
+      "name": "Liverpool",
+      "context": "Liverpool's Knowledge Quarter and maritime innovation",
+      "averageTutorRate": 32,
+      "primaryExamBoard": "AQA",
+      "industryConnections": {
+         "biology": "The Liverpool Knowledge Quarter and the School of Tropical Medicine are global leaders. Mastery of lifecycle models and DNA logic is essential here.",
+         "physics": "Liverpool's maritime and logistics innovation requires a deep understanding of fluid dynamics and mechanical advantage at an early age."
+      },
+      "cityImage": "/images/cities/liverpool.png",
+      "tip": "In the city of innovation, Socratic methods help Liverpool students connect classroom biology and physics to the real-world medical breakthroughs happening in their own 'Knowledge Quarter'.",
+      "analysis": "Liverpool is undergoing a scientific renaissance through its Knowledge Quarter. Students here need a mentor that can connect life sciences to future career vectors.",
+      "localFocus": "Life Sciences, Tropical Medicine, and Digital Media",
+      "deepDive": [
+        "Liverpool is currently experiencing a scientific and digital renaissance, anchored by the multi-billion pound 'Knowledge Quarter.' For students in the Liverpool City Region, the opportunity in Life Sciences and Digital Media is unprecedented, but it requires a high level of technical competency.",
+        "A common challenge for Liverpool students is bridging the gap between 'Curriculum Facts' and 'Scientific Application.' The Socratic method turns this on its head by asking students to 'be the researcher,' deducing biological and physical laws through active enquiry.",
+        "Our Socratic Mentor grounds its tutoring in Liverpool's local innovation hooks. By focusing on the 'First Principles' of the Life Sciences, we prepare Liverpool's students to become the next generation of pioneers in the Knowledge Quarter."
+      ]
+    },
+    "sheffield": {
+      "name": "Sheffield",
+      "context": "Sheffield's advanced manufacturing and engineering legacy",
+      "averageTutorRate": 34,
+      "primaryExamBoard": "AQA / OCR",
+      "industryConnections": {
+         "physics": "The Advanced Manufacturing Research Centre (AMRC) in Sheffield is where Boeing and McLaren work. Elite physics logic is the baseline language here.",
+         "maths": "Sheffield's engineering heritage demands a mastery of geometry, trigonometry, and calculus that goes far beyond the average GCSE syllabus."
+      },
+      "cityImage": "/images/cities/sheffield.png",
+      "tip": "From the 'Steel City' to the home of digital manufacturing, Socratic methods help Sheffield students reclaim their heritage of technical and engineering excellence.",
+      "analysis": "Sheffield is a city built on precision. Its modern schools are pivoting back to high-end engineering and technical logic, necessitating a mentor with matching technical depth.",
+      "localFocus": "Advanced Manufacturing, High-Precision Engineering, and Tech",
+      "deepDive": [
+        "Sheffield, the historic 'Steel City,' has successfully pivoted into a global hub for advanced manufacturing and high-precision engineering. For students in South Yorkshire, the regional identity is built on technical excellence, which requires a matching standard of academic rigour.",
+        "The primary hurdle for Sheffield students is often the 'Technical Literacy' required for modern STEM subjects. Rote-learning cannot keep pace with the logical demands of advanced engineering. The Socratic method solves this by building a foundation of mathematical and physical first-principles.",
+        "By implementing a Socratic dialogue, we help Sheffield students connect with their city's legacy of precision. This 'active scholarship' is the key to mastering the complex specifications required for top-tier engineering and tech careers in the region."
+      ]
+    },
+    "cardiff": {
+      "name": "Cardiff",
+      "context": "Cardiff's booming Fintech and creative media sector",
+      "averageTutorRate": 32,
+      "primaryExamBoard": "WJEC / Edexcel",
+      "industryConnections": {
+         "computer-science": "With BBC Wales and a massive Fintech hub, Cardiff is a digital capital. Socratic CS tutoring builds the exact logic required for media and finance.",
+         "english-literature": "Cardiff's status as a UK media hub prizes students who can perform deep textual synthesis and original AO3 analysis."
+      },
+      "cityImage": "/images/cities/cardiff.png",
+      "tip": "Navigating the WJEC or Edexcel path in Cardiff requires a mentor that values critical synthesis and digital logic—the core skillsets of the Welsh capital.",
+      "analysis": "Cardiff is a modern digital capital. With a focus on public administration, media, and finance, students here need a mentor that prizes 'Synthesis over Stagnation'.",
+      "localFocus": "Fintech, Creative Media (BBC Wales), and Public Admin",
+      "deepDive": [
+        "Cardiff has transformed into a major UK media and Fintech capital, with hubs like BBC Wales and numerous financial services defining the city's future economy. For students in South Wales, the academic bar is tied to these high-value digital and creative sectors.",
+        "The 'Synthesis Gap' in Cardiff schools often appears during the move from KS3 to GCSE. Students find that the creative demands of English and the logical demands of CS require a deeper level of independent thinking than classroom notes can provide.",
+        "Our Socratic Mentor specifically addresses this by enforcing a 'Critical Dialogue' approach. By helping Cardiff's students master the art of textual analysis and algorithmic logic, we prepare them for the high-status roles that define the future of the Welsh capital."
+      ]
     }
   },
   "globalPedagogy": {

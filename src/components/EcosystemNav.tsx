@@ -13,28 +13,28 @@ const NETWORK_LINKS = [
   {
     name: "Revision Wiki",
     description: "Deep-archive of Socratic study notes and syllabus-mapped logic.",
-    url: "https://wiki.lumenforge.ai", // Placeholder
+    url: "https://gcse-revision-wiki.vercel.app/",
     icon: <BookOpen className="w-5 h-5 text-purple-500" />,
     label: "The Archive"
   },
   {
     name: "Grade Calculator",
     description: "AQA/Edexcel-synced grade forecasting and performance auditing.",
-    url: "https://grades.lumenforge.ai", // Placeholder
+    url: "https://gcse-grade-calculator.vercel.app/",
     icon: <Calculator className="w-5 h-5 text-orange-500" />,
     label: "Results Audit"
   },
   {
     name: "Cognitive Assessment",
     description: "Identify your critical thinking frontier and diagnostic gaps.",
-    url: "https://assessment.lumenforge.ai", // Placeholder
+    url: "https://gcse-cognitive-assessment.vercel.app/",
     icon: <Brain className="w-5 h-5 text-blue-500" />,
     label: "Neural Proxy"
   },
   {
     name: "Tutor Review Meta",
     description: "Head-to-head audits: Why Socratic methods dominate 2026 outcomes.",
-    url: "https://reviews.lumenforge.ai", // Placeholder
+    url: "https://gcse-revision-wiki-viu7.vercel.app/",
     icon: <Search className="w-5 h-5 text-zinc-500" />,
     label: "Independent Review"
   }

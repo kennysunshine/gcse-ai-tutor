@@ -281,7 +281,7 @@ ${extractedContext || 'No specific context retrieved.'}
                     functionResponses.push({ functionResponse: { name, response: toolResult } });
                 }
             }
-            result = await chat.sendMessage(functionResponses);
+            result = await chat.sendMessage(functionResponses as any);
             lastResponse = result.response;
         }
 

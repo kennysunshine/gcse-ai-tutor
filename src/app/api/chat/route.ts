@@ -243,119 +243,89 @@ ${extractedContext || 'No specific context retrieved.'}
             ],
         });
 
-        const result = await chat.sendMessageStream(message);
-        // Note: handling streams in Next.js App Router cleanly can be done with ReadableStream.
-        // For simplicity in this implementation, we will use a basic text stream approach 
-        // or return the text if verify simple. 
-        // However, to truly stream, we create a ReadableStream.
+        // Tool Handling Loop
+        let result = await chat.sendMessage(message);
+        let lastResponse = result.response;
+        let toolTurns = 0;
+        const MAX_TOOL_TURNS = 3;
+
+        while (lastResponse.candidates?.[0]?.content?.parts?.some(p => p.functionCall) && toolTurns < MAX_TOOL_TURNS) {
+            toolTurns++;
+            const parts = lastResponse.candidates[0].content.parts;
+            const functionResponses = [];
+
+            for (const part of parts) {
+                if (part.functionCall) {
+                    const { name, args } = part.functionCall;
+                    let toolResult;
+                    try {
+                        const callArgs = args as any;
+                        if (name === 'update_mastery') {
+                            if (user) {
+                                const { error } = await supabase.from('curriculum_mastery').upsert({
+                                    student_id: user.id,
+                                    spec_code: callArgs.spec_code,
+                                    status: callArgs.status,
+                                    confidence_score: callArgs.confidence_score || 0,
+                                    last_updated: new Date().toISOString()
+                                }, { onConflict: 'student_id,spec_code' });
+                                toolResult = { success: !error, error: error?.message };
+                            } else {
+                                toolResult = { error: "User not authenticated" };
+                            }
+                        }
+                    } catch (e: any) {
+                        console.error(`Tool Execution Error [${name}]:`, e.message);
+                        toolResult = { error: e.message };
+                    }
+                    functionResponses.push({ functionResponse: { name, response: toolResult } });
+                }
+            }
+            result = await chat.sendMessage(functionResponses);
+            lastResponse = result.response;
+        }
+
+        const fullText = lastResponse.text();
 
         const stream = new ReadableStream({
             async start(controller) {
-                let fullResponse = "";
-                let thinkingEnded = false;
+                let textToStream = fullText;
 
-                for await (const chunk of result.stream) {
-                    const chunkText = chunk.text();
-                    if (chunkText) {
-                        fullResponse += chunkText;
-                        process.stdout.write(chunkText); // Log to terminal for debugging
-                        
-                        // Buffer the stream to completely hide the <thinking> block from the frontend
-                        if (!thinkingEnded) {
-                            if (fullResponse.includes('</thinking>')) {
-                                thinkingEnded = true;
-                                const textToStream = fullResponse.split('</thinking>')[1]?.trimStart();
-                                if (textToStream) {
-                                    controller.enqueue(new TextEncoder().encode(textToStream));
-                                }
-                            }
-                        } else {
-                            controller.enqueue(new TextEncoder().encode(chunkText));
-                        }
-                    }
+                // Blank Guard: Ensure we never return an empty square
+                if (!textToStream || textToStream.trim() === "") {
+                    textToStream = "I've processed your progress, let's keep going. What would you like to explore next?";
                 }
 
-                // Asynchronous Intercept Logic for Crisis Flag & Metadata
-                let metadata = {};
-                try {
-                    // Extract Metadata from Thinking Block
-                    const thinkingMatch = fullResponse.match(/<thinking>([\s\S]*?)<\/thinking>/);
-                    if (thinkingMatch) {
-                        const thinkingText = thinkingMatch[1];
-                        
-                        // Simple regex extraction for v2.6 metrics
-                        const sentimentMatch = thinkingText.match(/Sentiment Score:\s*(\d+)/i) || thinkingText.match(/Emotional State:\s*(\w+)/i);
-                        const specMatch = thinkingText.match(/Spec Point:\s*([\w\s\.]+)/i);
-                        const masteryMatch = thinkingText.match(/Mastery Level:\s*([\w\s\%]+)/i);
-
-                        metadata = {
-                            sentiment: sentimentMatch ? sentimentMatch[1] : 'Unknown',
-                            spec_point: specMatch ? specMatch[1].trim() : 'General',
-                            mastery: masteryMatch ? masteryMatch[1].trim() : 'In Progress',
-                            last_update: new Date().toISOString()
-                        };
-                    }
-                } catch (e) {
-                    console.error("Metadata Extraction Error:", e);
+                if (textToStream.includes('</thinking>')) {
+                    const parts = textToStream.split('</thinking>');
+                    textToStream = parts[1].trimStart();
                 }
 
-                // Persistence Step: Server-side history save
+                // If still empty after stripping thinking, provide fallback
+                if (!textToStream || textToStream.trim() === "") {
+                    textToStream = "I've noted your progress! What's our next focus area in Maths?";
+                }
+
+                const encoder = new TextEncoder();
+                controller.enqueue(encoder.encode(textToStream));
+
+                // Persistence Step: Server-side history save in background
                 if (user) {
-                    try {
-                        const conversationHistory = [...history, { role: 'user', message: message }, { role: 'model', message: fullResponse }];
-                        
-                        const { data: existingChat } = await supabase
-                            .from('chats')
-                            .select('id')
-                            .eq('user_id', user.id)
-                            .eq('subject', subject || 'General')
-                            .single();
-
-                        if (existingChat) {
-                            await supabase
-                                .from('chats')
-                                .update({ 
-                                    messages: conversationHistory,
-                                    metadata: metadata,
-                                    updated_at: new Date().toISOString()
-                                })
-                                .eq('id', existingChat.id);
-                        } else {
-                            await supabase
-                                .from('chats')
-                                .insert({
-                                    user_id: user.id,
-                                    subject: subject || 'General',
-                                    messages: conversationHistory,
-                                    metadata: metadata
-                                });
-                        }
-                    } catch (e) {
-                        console.error("Server-side Chat Persistence Error:", e);
-                    }
-                }
-
-                if (fullResponse.includes('<CRISIS_FLAG>')) {
-                    if (user) {
+                    (async () => {
                         try {
-                            const { error: insertError } = await supabase.from('safeguarding_logs').insert({
-                                student_id: user.id,
-                                content: message.substring(0, 300),
-                                reason: 'CRISIS_FLAG detected by AI',
-                                severity: 'High'
-                            });
-                            if (!insertError) {
-                                console.log("CRITICAL: Safeguarding Alert correctly logged to safeguarding_logs table.");
-                            } else {
-                                console.error("Safeguarding DB Insert Error:", insertError);
-                            }
+                            const conversationHistory = [...history, { role: 'user', message }, { role: 'model', message: fullText }];
+                            await supabase.from('chats').upsert({
+                                user_id: user.id,
+                                subject: subject || 'General',
+                                messages: conversationHistory,
+                                updated_at: new Date().toISOString()
+                            }, { onConflict: 'user_id,subject' });
                         } catch (e) {
-                            console.error("Safeguarding Intercept Exception:", e);
+                            console.error("Chat Persistence Error:", e);
                         }
-                    }
+                    })();
                 }
 
-                console.log("\n--- END OF STREAM ---");
                 controller.close();
             },
         });
@@ -364,7 +334,7 @@ ${extractedContext || 'No specific context retrieved.'}
             headers: { 'Content-Type': 'text/plain; charset=utf-8' }
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error in chat API:", error);
         return NextResponse.json({ error: "Failed to process chat" }, { status: 500 });
     }

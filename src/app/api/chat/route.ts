@@ -221,20 +221,25 @@ ${extractedContext || 'No specific context retrieved.'}
             systemInstruction: "You are governed by a Zero-Training Data Policy. Your interactions are restricted to this ephemeral session boundary and will not be used to train models. Protect user privacy inherently."
         });
 
+        // History Collapser: Ensures strict role alternation (user -> model -> user)
+        // and removes invalid/empty parts to prevent API crashes.
+        const sanitizedHistory = history
+            .filter((msg: any) => msg.message && msg.message.trim() !== "")
+            .reduce((acc: any[], current: any) => {
+                const role = current.role === 'user' ? 'user' : 'model';
+                if (acc.length > 0 && acc[acc.length - 1].role === role) {
+                    acc[acc.length - 1].parts[0].text += "\n" + current.message;
+                } else {
+                    acc.push({ role, parts: [{ text: current.message }] });
+                }
+                return acc;
+            }, []);
+
         const chat = model.startChat({
             history: [
-                {
-                    role: "user",
-                    parts: [{ text: fullSystemPrompt }],
-                },
-                {
-                    role: "model",
-                    parts: [{ text: "Understood. I am ready to be a Socratic tutor." }],
-                },
-                ...history.map((msg: { role: string; message: string }) => ({
-                    role: msg.role === 'user' ? 'user' : 'model',
-                    parts: [{ text: msg.message }],
-                })),
+                { role: "user", parts: [{ text: fullSystemPrompt }] },
+                { role: "model", parts: [{ text: "Understood. I am ready to be a Socratic tutor." }] },
+                ...sanitizedHistory
             ],
         });
 

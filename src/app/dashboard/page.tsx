@@ -12,8 +12,11 @@ import { supabase } from '@/lib/supabase'
 import { Flame, User, Award, BookOpen } from 'lucide-react'
 
 import { Progress } from "@/components/ui/progress"
-import { Target } from 'lucide-react'
+import { Target, Share2, BrainCircuit } from 'lucide-react'
 import { PhaseBModal } from '@/components/PhaseBModal'
+import { BrainCard } from '@/components/BrainCard'
+import { BrainCardEngine, BrainCardData } from '@/lib/braincard-engine'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
 export default function DashboardPage() {
     const router = useRouter()
@@ -22,6 +25,8 @@ export default function DashboardPage() {
     const [profile, setProfile] = useState<any>(null)
     const [masteryData, setMasteryData] = useState<Record<string, number>>({})
     const [lumensData, setLumensData] = useState<any>(null)
+    const [activeBrainCard, setActiveBrainCard] = useState<BrainCardData | null>(null)
+    const [isGeneratingCard, setIsGeneratingCard] = useState(false)
 
     useEffect(() => {
         const checkUser = async () => {
@@ -88,6 +93,15 @@ export default function DashboardPage() {
 
     // Extract first name robustly
     const firstName = profile?.full_name?.trim().split(/\s+/)[0] || 'Scholar'
+
+    const handleGenerateCard = async (subject: string) => {
+        setIsGeneratingCard(true)
+        const data = await BrainCardEngine.generateForLatestSession(user.id, subject)
+        if (data) {
+            setActiveBrainCard(data)
+        }
+        setIsGeneratingCard(false)
+    }
 
     return (
         <div className="container px-4 py-8 mx-auto space-y-8">
@@ -199,8 +213,19 @@ export default function DashboardPage() {
                             <Card key={subject.slug} className="hover:shadow-md transition-shadow flex flex-col">
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-xl font-bold">{subject.name}</CardTitle>
-                                    <div className={`text-2xl p-2 rounded-lg ${subject.color}`}>
-                                        {subject.icon}
+                                    <div className="flex items-center gap-2">
+                                        <Button 
+                                            variant="ghost" 
+                                            size="icon" 
+                                            className="h-8 w-8 text-primary hover:text-primary/80 hover:bg-primary/10 rounded-lg group"
+                                            onClick={() => handleGenerateCard(subject.slug)}
+                                            disabled={isGeneratingCard}
+                                        >
+                                            <BrainCircuit className="h-4 w-4 transition-transform group-hover:scale-110" />
+                                        </Button>
+                                        <div className={`text-2xl p-2 rounded-lg ${subject.color}`}>
+                                            {subject.icon}
+                                        </div>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
@@ -240,6 +265,16 @@ export default function DashboardPage() {
             </div>
 
             <PhaseBModal userId={user.id} />
+
+            {/* BRAINCARD MODAL */}
+            <Dialog open={!!activeBrainCard} onOpenChange={(open) => !open && setActiveBrainCard(null)}>
+                <DialogContent className="max-w-[420px] p-0 border-none bg-transparent shadow-none overflow-visible">
+                    <DialogHeader className="sr-only">
+                        <DialogTitle>Your Sovereign BrainCard</DialogTitle>
+                    </DialogHeader>
+                    {activeBrainCard && <BrainCard data={activeBrainCard} />}
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }

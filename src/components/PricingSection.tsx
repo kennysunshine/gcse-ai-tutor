@@ -211,7 +211,7 @@ export function PricingSection() {
                                     </ul>
                                     <div className="mt-auto">
                                         <Link href="mailto:institutional@lumenforge.ai?subject=Sovereign%20Briefing%20Inquiry" className="w-full">
-                                            <Button className="w-full rounded-full py-8 text-md font-black bg-amber-500 text-black hover:bg-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)] uppercase tracking-widest">Request Sovereign Briefing</Button>
+                                            <Button className="w-full rounded-full py-6 text-sm font-black bg-amber-500 text-black hover:bg-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)] uppercase tracking-tight">Request Sovereign Briefing</Button>
                                         </Link>
                                     </div>
                                 </CardContent>

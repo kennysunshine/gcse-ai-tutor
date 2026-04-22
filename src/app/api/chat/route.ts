@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase-server";
 import { CurriculumEngine } from "@/lib/curriculum-engine";
-import { getSocraticHint } from "@/lib/socratic-core";
+import { getSocraticHint, ENGINE_V2_7_PROMPT } from "@/lib/socratic-core";
 import fs from 'fs';
 import path from 'path';
 

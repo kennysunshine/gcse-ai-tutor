@@ -50,7 +50,9 @@ client.on('messageCreate', async (message: Message) => {
 
   try {
     // Indicate thinking
-    await message.channel.sendTyping();
+    if ('sendTyping' in message.channel) {
+      await message.channel.sendTyping();
+    }
 
     let imagePart = undefined;
 

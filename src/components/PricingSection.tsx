@@ -12,7 +12,7 @@ type Market = 'standard' | 'institutional'
 
 export function PricingSection() {
     const [market, setMarket] = useState<Market>('standard')
-    const [isAnnual, setIsAnnual] = useState(false)
+    const [isAnnual, setIsAnnual] = useState(true)
 
     const isInstitutional = market === 'institutional'
 

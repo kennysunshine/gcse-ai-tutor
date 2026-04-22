@@ -172,34 +172,10 @@ export function PricingSection() {
                         </>
                     ) : (
                         <>
-                            {/* Institutional: Pilot Program Card */}
+                            {/* Institutional: Sovereign Institutional Partnership Card */}
                             <Card className="flex flex-col relative border-2 border-slate-800 shadow-2xl rounded-[3rem] bg-[#0D1117] text-white hover:border-amber-500/50 transition-all">
                                 <CardHeader className="text-center pb-2 pt-12 px-10">
                                     <div className="flex justify-center mb-6"><Sparkles className="w-8 h-8 text-amber-500" /></div>
-                                    <h3 className="text-sm font-black uppercase tracking-[0.25em] text-amber-500 mb-2">LumenForge Pilot</h3>
-                                    <div className="text-6xl font-black mt-6 tracking-tighter">£5k</div>
-                                    <p className="text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest">One-Off Implementation</p>
-                                </CardHeader>
-                                <CardContent className="flex flex-col flex-grow text-center pt-10 px-10 pb-12">
-                                    <p className="text-slate-400 mb-8 text-base leading-relaxed font-medium">Full institutional rollout for a single department or cohort.</p>
-                                    <ul className="space-y-5 mb-12 text-[15px] text-left mx-auto font-bold opacity-90">
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Implementation & PD Support</li>
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> DfE Compliance Integration</li>
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> <strong>1-for-2 Social Impact Policy</strong></li>
-                                    </ul>
-                                    <div className="mt-auto">
-                                        <Link href="mailto:pilot@lumenforge.ai?subject=Foundry%20Pilot%20Inquiry" className="w-full">
-                                            <Button className="w-full rounded-full py-8 text-md font-black bg-amber-500 text-black hover:bg-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)] uppercase tracking-widest">Inquire for Pilot</Button>
-                                        </Link>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            {/* Institutional: Sovereign Institutional Partnership Card */}
-                            <Card className="flex flex-col relative border-2 border-amber-500/30 shadow-[0_0_40px_rgba(245,158,11,0.1)] rounded-[3rem] bg-[#0F141D] text-white overflow-hidden md:scale-105 z-20">
-                                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-600 to-amber-400"></div>
-                                <CardHeader className="text-center pb-2 pt-12 px-10">
-                                    <div className="flex justify-center mb-6"><ShieldCheck className="w-8 h-8 text-amber-500" /></div>
                                     <h3 className="text-sm font-black uppercase tracking-[0.25em] text-amber-500 mb-2">Sovereign Institutional Partnership</h3>
                                     <div className="text-4xl font-black mt-6 tracking-tighter leading-tight">Consultative Implementation</div>
                                     <p className="text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest italic">Global Scale / Regulatory Alignment</p>
@@ -235,7 +211,31 @@ export function PricingSection() {
                                     </ul>
                                     <div className="mt-auto">
                                         <Link href="mailto:institutional@lumenforge.ai?subject=Sovereign%20Briefing%20Inquiry" className="w-full">
-                                            <Button className="w-full rounded-full py-8 text-md font-black bg-white text-black hover:bg-slate-100 uppercase tracking-widest shadow-xl">Request Sovereign Briefing</Button>
+                                            <Button className="w-full rounded-full py-8 text-md font-black bg-amber-500 text-black hover:bg-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)] uppercase tracking-widest">Request Sovereign Briefing</Button>
+                                        </Link>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            {/* Institutional: Sovereign License Card */}
+                            <Card className="flex flex-col relative border-2 border-amber-500/30 shadow-[0_0_40px_rgba(245,158,11,0.1)] rounded-[3rem] bg-[#0F141D] text-white overflow-hidden md:scale-105 z-20">
+                                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-600 to-amber-400"></div>
+                                <CardHeader className="text-center pb-2 pt-12 px-10">
+                                    <div className="flex justify-center mb-6"><ShieldCheck className="w-8 h-8 text-amber-500" /></div>
+                                    <h3 className="text-sm font-black uppercase tracking-[0.25em] text-amber-500 mb-2">Sovereign License</h3>
+                                    <div className="text-6xl font-black mt-6 tracking-tighter">£50</div>
+                                    <p className="text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest">Per Student / Annually</p>
+                                </CardHeader>
+                                <CardContent className="flex flex-col flex-grow text-center pt-10 px-10 pb-12">
+                                    <p className="text-slate-400 mb-8 text-base leading-relaxed font-medium">Enterprise-wide adoption for MATs and Authorities.</p>
+                                    <ul className="space-y-5 mb-12 text-[15px] text-left mx-auto font-bold opacity-90">
+                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Full Data Sovereignty</li>
+                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Custom Pedagogical Tuning</li>
+                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Deep Analytics Dashboard</li>
+                                    </ul>
+                                    <div className="mt-auto">
+                                        <Link href="mailto:institutional@lumenforge.ai?subject=Sovereign%20License%20Inquiry" className="w-full">
+                                            <Button className="w-full rounded-full py-8 text-md font-black bg-white text-black hover:bg-slate-100 uppercase tracking-widest">Request Proposal</Button>
                                         </Link>
                                     </div>
                                 </CardContent>

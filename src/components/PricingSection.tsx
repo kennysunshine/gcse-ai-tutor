@@ -195,25 +195,47 @@ export function PricingSection() {
                                 </CardContent>
                             </Card>
 
-                            {/* Institutional: Sovereign License Card */}
-                            <Card className="flex flex-col relative border-2 border-amber-500/30 shadow-[0_0_40px_rgba(245,158,11,0.1)] rounded-[3rem] bg-[#0F141D] text-white overflow-hidden">
+                            {/* Institutional: Sovereign Institutional Partnership Card */}
+                            <Card className="flex flex-col relative border-2 border-amber-500/30 shadow-[0_0_40px_rgba(245,158,11,0.1)] rounded-[3rem] bg-[#0F141D] text-white overflow-hidden md:scale-105 z-20">
                                 <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-600 to-amber-400"></div>
                                 <CardHeader className="text-center pb-2 pt-12 px-10">
                                     <div className="flex justify-center mb-6"><ShieldCheck className="w-8 h-8 text-amber-500" /></div>
-                                    <h3 className="text-sm font-black uppercase tracking-[0.25em] text-amber-500 mb-2">Sovereign License</h3>
-                                    <div className="text-6xl font-black mt-6 tracking-tighter">£50</div>
-                                    <p className="text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest">Per Student / Annually</p>
+                                    <h3 className="text-sm font-black uppercase tracking-[0.25em] text-amber-500 mb-2">Sovereign Institutional Partnership</h3>
+                                    <div className="text-4xl font-black mt-6 tracking-tighter leading-tight">Consultative Implementation</div>
+                                    <p className="text-xs text-muted-foreground mt-4 font-bold uppercase tracking-widest italic">Global Scale / Regulatory Alignment</p>
                                 </CardHeader>
-                                <CardContent className="flex flex-col flex-grow text-center pt-10 px-10 pb-12">
-                                    <p className="text-slate-400 mb-8 text-base leading-relaxed font-medium">Enterprise-wide adoption for MATs and Authorities.</p>
-                                    <ul className="space-y-5 mb-12 text-[15px] text-left mx-auto font-bold opacity-90">
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Full Data Sovereignty</li>
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Custom Pedagogical Tuning</li>
-                                        <li className="flex items-start gap-4"><CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> Deep Analytics Dashboard</li>
+                                <CardContent className="flex flex-col flex-grow text-center pt-8 px-10 pb-12">
+                                    <ul className="space-y-6 mb-12 text-[13px] text-left mx-auto font-bold opacity-90">
+                                        <li className="flex items-start gap-4">
+                                            <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> 
+                                            <span><strong>Curriculum-Locked RAG</strong>: Native grounding in international curriculum frameworks (CIE, IB, White Rose) and regional academic standards.</span>
+                                        </li>
+                                        <li className="flex items-start gap-4">
+                                            <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> 
+                                            <span><strong>Sovereign Data Buffer</strong>: Localized data residency architecture to ensure 100% compliance with regional privacy regulations (e.g., GDPR, Qatar PDPPL, KSA PDPL).</span>
+                                        </li>
+                                        <li className="flex items-start gap-4">
+                                            <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> 
+                                            <div className="flex flex-col gap-1.5">
+                                                <div className="flex items-center gap-2">
+                                                    <Badge className="bg-red-500/20 text-red-500 border-red-500/30 text-[8px] font-black uppercase tracking-widest px-1.5 py-0">Crisis Flag</Badge>
+                                                    <strong className="text-amber-500">Enterprise Portal</strong>
+                                                </div>
+                                                <span className="text-xs opacity-70 font-medium">Real-time safeguarding dashboard with localized alert protocols for school DSLs.</span>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-4">
+                                            <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> 
+                                            <span><strong>Pedagogical Stress-Testing</strong>: Access to proprietary "Virtual Pilot" simulation data to validate logic across diverse student cognitive profiles.</span>
+                                        </li>
+                                        <li className="flex items-start gap-4">
+                                            <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" /> 
+                                            <span><strong>Strategic Implementation</strong>: Professional onboarding including staff training and Board-level impact reporting.</span>
+                                        </li>
                                     </ul>
                                     <div className="mt-auto">
-                                        <Link href="mailto:institutional@lumenforge.ai?subject=Sovereign%20License%20Inquiry" className="w-full">
-                                            <Button className="w-full rounded-full py-8 text-md font-black bg-white text-black hover:bg-slate-100 uppercase tracking-widest">Request Proposal</Button>
+                                        <Link href="mailto:institutional@lumenforge.ai?subject=Sovereign%20Briefing%20Inquiry" className="w-full">
+                                            <Button className="w-full rounded-full py-8 text-md font-black bg-white text-black hover:bg-slate-100 uppercase tracking-widest shadow-xl">Request Sovereign Briefing</Button>
                                         </Link>
                                     </div>
                                 </CardContent>

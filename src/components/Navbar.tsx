@@ -2,6 +2,7 @@
 "use client"
 
 import Link from 'next/link'
+import { Logo } from '@/components/Logo'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
@@ -61,11 +62,10 @@ export function Navbar() {
 
     return (
         <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-            <div className="container flex h-16 items-center justify-between mx-auto px-4 relative">
+            <div className="container flex h-24 items-center justify-between mx-auto px-4 relative">
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
-                        <span className="text-2xl" aria-hidden="true">🎓</span>
-                        <span>LumenForge</span>
+                    <Link href="/" className="flex items-center gap-2 group transition-all" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Logo className="h-20 w-auto hover:scale-105 transition-transform drop-shadow-sm" showTagline={false} />
                     </Link>
                     <div className="hidden md:flex items-center gap-6 text-sm font-medium">
                         {!isLoggedIn ? (
@@ -169,7 +169,7 @@ export function Navbar() {
 
             {/* Mobile Menu Dropdown */}
             {isMobileMenuOpen && (
-                <div className="md:hidden border-t bg-background/95 backdrop-blur absolute top-16 left-0 w-full shadow-lg z-40 animate-in slide-in-from-top-2 duration-200">
+                <div className="md:hidden border-t bg-background/95 backdrop-blur absolute top-24 left-0 w-full shadow-lg z-40 animate-in slide-in-from-top-2 duration-200">
                     <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
                         {!isLoggedIn ? (
                             <>

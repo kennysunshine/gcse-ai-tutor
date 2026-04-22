@@ -27,6 +27,7 @@ import {
 import { supabase } from '@/lib/supabase';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Logo } from '@/components/Logo';
 
 type AgeGroup = 'primary' | 'middle' | 'gcse';
 
@@ -462,8 +463,8 @@ export default function CognitiveDiagnostic() {
 
                     {/* Subtle Branding Footer */}
                     <div className="z-10 pt-8 w-full border-t border-zinc-100 dark:border-white/5 flex items-center justify-between opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all">
-                       <div className="flex items-center gap-1.5">
-                          <Zap className="w-3.5 h-3.5 text-primary" />
+                       <div className="flex items-center gap-1.5 grayscale opacity-80 group-hover:opacity-100 transition-opacity">
+                          <Logo iconOnly className="w-10 h-10" />
                           <span className="text-[10px] font-black uppercase tracking-tighter">LumenForge</span>
                        </div>
                        <span className="text-[9px] font-bold uppercase tracking-widest leading-none">2026 Socratic Pilot</span>

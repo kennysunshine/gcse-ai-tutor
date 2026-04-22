@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import { Logo } from '@/components/Logo'
 import { BookOpen, ShieldCheck, Github, Twitter } from 'lucide-react'
 
 export function Footer() {
@@ -9,9 +10,8 @@ export function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2 space-y-4">
-                        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-                            <span className="text-2xl" aria-hidden="true">🎓</span>
-                            <span>LumenForge</span>
+                        <Link href="/" className="flex items-center gap-2 group transition-all">
+                            <Logo className="h-32 w-auto hover:scale-105 transition-transform" />
                         </Link>
                         <p className="max-w-xs text-sm leading-relaxed">
                             The elite AI Socratic Mentor for UK GCSE students.
